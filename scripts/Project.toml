@@ -1,0 +1,5 @@
+[deps]
+Brincadiano = "6a8f954e-6e46-4eda-8585-8d7b49c1f38e"
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"

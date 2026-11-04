@@ -1,0 +1,63 @@
+# --- Datos de salud de menores: NUNCA se versionan ---
+data/
+outputs/
+# Segunda barrera por si se copian datos fuera de data/
+*.gt3x
+*.arrow
+*RAW.csv
+*.agd
+# Exportaciones del grupo (Excel con variables clínicas o de acelerometría por niño) y
+# config.csv de GGIR (llevan rutas de los equipos del grupo)
+*.xlsx
+config_*.csv
+# Excepción: archivo de demostración público de ActiGraph (MIT), no es de ningún
+# participante. Procedencia en test/fixtures/README.md.
+!test/fixtures/legacy_sample.gt3x
+
+# --- Literatura (PDF y suplementos con derechos de autor): solo local ---
+docs/papers/
+# PDF sueltos en docs/ (p. ej. el informe con los comentarios de JMJC, que lleva figuras con
+# datos) y en la raíz (artículos descargados): solo local
+docs/*.pdf
+/*.pdf
+# Revisión del estado del arte: PDF, hoja priorizada y exportaciones de Scopus (solo local)
+docs/review_Scopus/
+# Exportaciones de Scopus de los colaboradores (scripts/91; la licencia no permite versionarlas)
+docs/*.csv
+
+# --- Entornos de benchmark (R/Python): se versionan renv.lock y requirements.txt ---
+.venv/
+scripts/R/renv/library/
+scripts/R/renv/staging/
+scripts/R/renv/local/
+.Rhistory
+.RData
+.Rproj.user/
+
+# --- Cuaderno de dudas: auxiliares y PDF (lleva figuras con datos) ---
+dudas/.build/
+dudas/*.pdf
+
+# --- Julia ---
+LocalPreferences.toml
+notebooks/*.jl.backup
+# Un HTML exportado desde Pluto incrusta las figuras con datos: no se versiona.
+notebooks/*.html
+
+# --- Sistema ---
+.DS_Store
+# Auxiliares de LaTeX sueltos en la raíz (compilaciones lanzadas desde aquí)
+/.build/
+
+# --- Documentos para el grupo (articulos/): auxiliares y PDF ---
+articulos/**/.build/
+articulos/**/*.pdf
+
+# --- graphify (grafo local; se regenera sin LLM con: graphify update .) ---
+graphify-out/
+.claude/
+.cursor/
+
+# --- Libro Quarto: desde el 2026-11-04 es su propio repo privado (me1catrr/brincadiano-quarto,
+# ~/Proyectos/brincadiano-quarto). La carpeta quarto/ que quede aquí es una copia antigua: no se versiona.
+/quarto/

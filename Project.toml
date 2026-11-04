@@ -1,0 +1,44 @@
+name = "Brincadiano"
+uuid = "6a8f954e-6e46-4eda-8585-8d7b49c1f38e"
+version = "0.1.0"
+authors = ["Rafael Castro <rcastro@uco.es>"]
+
+[deps]
+Arrow = "69666777-d1a9-59fb-9406-91d4454c9d45"
+DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+TimeZones = "f269a46b-ccf7-5d73-abea-4c690281aa53"
+ZipArchives = "49080126-0e18-4c2a-b176-c102e4b3760c"
+
+[weakdeps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+
+[extensions]
+BrincadianoCairoMakieExt = "CairoMakie"
+
+[compat]
+Arrow = "2.8.1"
+CSV = "1.1.0"
+CairoMakie = "0.15.15"
+DSP = "0.8.6"
+DataFrames = "1.8.2"
+Dates = "1"
+FFTW = "1.10.0"
+StatsBase = "0.34.13"
+Test = "1"
+TimeZones = "1.22.3"
+ZipArchives = "2.6.0"
+julia = "1.11"
+
+[extras]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test", "CSV"]
+
+[workspace]
+projects = ["scripts"]
