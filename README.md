@@ -7,13 +7,17 @@ Colaboración con el grupo de pediatría del IMIBIC/UCO.
 Paquete `Brincadiano` 0.1.0. Requiere Julia ≥ 1.11; el `Manifest.toml` de la raíz está
 resuelto con Julia 1.12.3.
 
+Este repositorio contiene solo el código de procesado de los archivos RAW: el paquete, los
+scripts del pipeline y de validación, y los tests. Ningún dato original ni tratado.
+
 ## Datos
 
 `data/` y `outputs/` contienen información de salud de menores, pseudonimizados, y **no se
 versionan**. `data/raw/` es de solo lectura. Los intermedios van a `data/interim/<ID>/`
 (Arrow) y los resultados a `outputs/`. En consola, logs, figuras y tablas solo aparece el
-ID del archivo (por ejemplo `6005_V00`). El detalle de la lista blanca de `info.txt` y del
-registro METADATA está en [CLAUDE.md](CLAUDE.md).
+ID del archivo (por ejemplo `6005_V00`). De `info.txt` solo se leen los campos de una lista
+blanca (`src/GT3X/info.jl`) y el registro METADATA de `log.bin`, con los datos del sujeto,
+nunca se decodifica (`src/GT3X/logbin.jl`).
 
 La única excepción versionada es el fixture público de ActiGraph
 `test/fixtures/legacy_sample.gt3x` (licencia MIT).
@@ -26,7 +30,7 @@ Un workspace (`[workspace]` en el `Project.toml` de la raíz) y un solo `Manifes
 | Entorno | Proyecto | Para qué |
 |---------|----------|----------|
 | Paquete | `--project=.` | núcleo, tests |
-| Análisis | `--project=scripts` | scripts y notebooks (incluye CairoMakie) |
+| Análisis | `--project=scripts` | scripts (incluye CairoMakie) |
 
 Dependencias del núcleo: Arrow, DataFrames, Dates, TimeZones, ZipArchives, StatsBase, DSP
 y FFTW. CSV y Test solo entran en los tests. CairoMakie es *weak dependency*: `using
@@ -44,22 +48,6 @@ Los scripts se lanzan con el entorno de análisis:
 ```bash
 julia --project=scripts scripts/01_read_gt3x.jl
 ```
-
-En un notebook de Pluto: abrir `notebooks/00_indice.jl`. La celda plegada bajo el título hace `Pkg.activate` del entorno `scripts/`. Los cuadernos no recalculan: muestran el texto del capítulo y las figuras que los scripts ya escribieron en `outputs/`.
-
-| Cuaderno | Capítulo del informe |
-|----------|----------------------|
-| `01_lectura.jl` | 6. Formato GT3X |
-| `02_calidad.jl` | 8. Control de calidad |
-| `03_metricas.jl` | 9. Métricas |
-| `04_vigorosa.jl` | 10. Actividad vigorosa |
-| `05_sueno.jl` | 11. Sueño |
-| `06_ritmo.jl` | 12. Ritmo de reposo-actividad |
-| `07_timing.jl` | 13. Timing |
-| `08_luz.jl` | 14. Luz |
-| `09_modelo.jl` | 16. Salud metabólica |
-| `10_validacion.jl` | 15. Validación (no relanza R ni Python) |
-| `11_ilustraciones.jl` | 1, 4, 5 y 7, sin datos de participantes |
 
 ## Módulos
 
@@ -97,9 +85,21 @@ Orden de los scripts de análisis. Cada uno documenta entradas y salidas en su c
 | `11_sensibilidad_timing.jl` | sensibilidad del timing al ancla, al umbral y al tipo de día |
 | `12_espectro.jl` | espectro del ritmo y timing por armónicos |
 | `13_espectro_movimiento.jl` | espectro del movimiento: PSD por intensidad, cadencia, QC espectral |
+| `15_figuras_complementarias.jl` | figuras complementarias y cifras de sus pies |
+| `16_lote.jl` | lectura por lotes reanudable (script 01 por archivo; `--analisis` lanza el resto) |
+| `17_inventario.jl` | filas del embudo de registros y recuento por modelo y firmware |
+| `18_exportar_fenotipos.jl` | tablas de fenotipos por bloque de análisis, con diccionario de variables |
+| `19_interoperabilidad.jl` | comprobaciones GT3X+ ↔ wGT3X-BT y efecto de recortar a ±6 g |
+| `20_sensibilidades.jl` | sensibilidad del sueño, de los episodios vigorosos y del submuestreo de días |
+| `21_sueno_pocas_noches.jl` | error del reposo nocturno estimado con pocas noches |
+| `22_siestas.jl` | siestas candidatas (inactividad sostenida diurna) |
+| `23_agd.jl` | `.agd` de ActiLife: inventario, lectura con lista blanca y correspondencia con los `.gt3x` |
+| `24_config_ggir.jl` | auditoría de los `config_*.csv` de GGIR del grupo |
+| `25_inventario_raw.jl` | inventario trazable de `data/raw/` y manifiesto de migración |
+| `26_comparar_ggir_cohorte_a.jl` | Brincadiano frente a la parte 5 de GGIR (COHORTE_A V03) |
+| `27_migrar_raw.jl` | migración reversible de `data/raw/` a la estructura por proyecto (por defecto, en seco) |
 
-Las tablas y figuras de un participante viven en `outputs/` y no se versionan. El informe
-las incorpora con `make sync-assets` dentro de `report/` (ver [report/README.md](report/README.md)).
+Las tablas y figuras de un participante viven en `outputs/` y no se versionan.
 
 ## Benchmarks externos
 
@@ -125,11 +125,10 @@ Se versionan `scripts/R/renv.lock` y `scripts/python/requirements.txt`. No se ve
 | `95_imputacion.jl` | efecto de imputar el *idle sleep* |
 | `96_validar_intensidad_sri_ggir.jl` | tiempo por intensidad e índice de regularidad del sueño frente a GGIR |
 
-## Informe
+## Informe y libro
 
-El documento LaTeX (clase Tufte, A4 apaisado) está en `report/`. Compilación, estructura
-y sincronización de figuras: [report/README.md](report/README.md). `main.pdf` no se
-versiona.
+El informe LaTeX y el libro Quarto se mantienen fuera de este repositorio. La edición web
+del libro está en <https://me1catrr.github.io/brincadiano/>.
 
 ## Estructura
 
@@ -141,8 +140,6 @@ test/                       tests (Test + CSV); fixture público en test/fixture
 scripts/                    análisis (--project=scripts)
 scripts/R/                  renv de benchmark
 scripts/python/             requirements de pygt3x
-notebooks/                  Pluto (`00_indice.jl` y un cuaderno por bloque)
-report/                     informe LaTeX
 data/raw/                   .gt3x originales (solo lectura, no versionado)
 data/interim/<ID>/          Arrow (no versionado)
 outputs/                    tablas y figuras (no versionado)
