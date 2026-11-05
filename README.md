@@ -1,7 +1,7 @@
 # Brincadiano
 
 Análisis en Julia de acelerometría RAW ActiGraph (GT3X+ / wGT3X-BT) en niños: actividad
-física, sueño, ritmos circadianos y luz, y su relación con la salud metabólica infantil.
+física, sueño, ritmos circadianos y luz.
 Colaboración con el grupo de pediatría del IMIBIC/UCO.
 
 Paquete `Brincadiano` 0.1.0. Requiere Julia ≥ 1.11; el `Manifest.toml` de la raíz está

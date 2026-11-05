@@ -2,7 +2,7 @@
     Brincadiano
 
 Análisis de acelerometría RAW ActiGraph (GT3X+/wGT3X-BT) en niños: actividad física,
-sueño, ritmos circadianos y luz, y su relación con la salud metabólica infantil.
+sueño, ritmos circadianos y luz.
 
 Submódulos:
 - [`Rutas`](@ref): rutas centrales y estructura de `data/raw/` por proyecto.
