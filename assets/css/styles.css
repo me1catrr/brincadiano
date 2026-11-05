@@ -480,3 +480,16 @@ body:has(.nm-portada-fig) .quarto-title-banner {
 body:has(.nm-portada-fig) .quarto-title-banner .title { color: #fff; letter-spacing: 0.01em; }
 body:has(.nm-portada-fig) .quarto-title-banner .subtitle { color: #e3eef8; }
 body:has(.nm-portada-fig) main h2 { border-bottom: 3px solid var(--nm-blue); padding-bottom: 0.25rem; }
+
+/* Tabla de capítulos de la portada (#tbl-capitulos): tras «Ruta», tres columnas de marcas (Realizado, Revisado,
+   GitHub Pages), como en NeuroMIND-quarto. En pantallas estrechas las columnas de marcas se estrechan y sus rótulos se
+   parten en dos líneas, para que quepan las seis columnas sin desplazamiento horizontal. */
+#tbl-capitulos th:nth-child(n+4), #tbl-capitulos td:nth-child(n+4) { text-align: center; width: 1%; }
+#tbl-capitulos th:nth-child(n+4) { font-size: 0.8rem; line-height: 1.2; white-space: normal; padding-left: 0.3rem; padding-right: 0.3rem; }
+#tbl-capitulos td:nth-child(n+4) { padding-left: 0.3rem; padding-right: 0.3rem; }
+@media (max-width: 576px) {
+  #tbl-capitulos table { font-size: 0.88rem; }
+  #tbl-capitulos th, #tbl-capitulos td { padding-left: 0.25rem; padding-right: 0.25rem; }
+  #tbl-capitulos th:nth-child(n+4) { font-size: 0.7rem; line-height: 1.15; white-space: normal; overflow-wrap: anywhere; }
+  #tbl-capitulos th:nth-child(n+4), #tbl-capitulos td:nth-child(n+4) { width: 3.6rem; max-width: 3.6rem; }
+}
