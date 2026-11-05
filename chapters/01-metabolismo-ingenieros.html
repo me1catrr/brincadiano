@@ -55,7 +55,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/99-referencias.html" rel="next">
+<link href="../chapters/02-grupo-gc23.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -190,6 +190,24 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/02-grupo-gc23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Grupo GC23 Metabolismo infantil</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-estado-hipotesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estado del arte, hipótesis y objetivos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-acelerometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fundamentos de acelerometría</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/99-referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
@@ -264,7 +282,7 @@ window.Quarto = {
 <li>resumir qué se sabe en las cohortes del grupo sobre actividad moderada-vigorosa, sueño y marcadores metabólicos;</li>
 <li>distinguir el <em>timing</em> por hora de reloj del <em>timing</em> respecto a la fase individual de reposo-actividad (L5).</li>
 </ol>
-<p><strong>Conocimientos previos.</strong> Ninguno de medicina. Ayuda tener presente la idea de un lazo de control realimentado, que se usa como analogía. Los trabajos del grupo están en el cap. 2; el estado del arte y las hipótesis, en el cap. 3.</p>
+<p><strong>Conocimientos previos.</strong> Ninguno de medicina. Ayuda tener presente la idea de un lazo de control realimentado, que se usa como analogía. Los trabajos del grupo están en el <a href="../chapters/02-grupo-gc23.html">cap. 2</a>; el estado del arte y las hipótesis, en el <a href="../chapters/03-estado-hipotesis.html">cap. 3</a>.</p>
 </section>
 <section id="lecturas-esenciales" class="level2 unnumbered page-columns page-full">
 <h2 class="unnumbered anchored" data-anchor-id="lecturas-esenciales">Lecturas esenciales</h2>
@@ -345,7 +363,7 @@ Procedencia y limitaciones de esta imagen
 <p><strong>Procedencia.</strong> Ilustración conceptual generada con FigureLabs (IA) a partir de una descripción sin datos del estudio y revisada a mano, como en el informe. Se usó la versión 2 con una corrección local de píxeles en el panel «Señal RAW»; la revisión del 2 de octubre de 2026 da los textos por correctos. El <em>prompt</em> y la revisión están en <code>report/assets/01_contexto_clinico/report/figures/resumen-grafico.prompt.txt</code>.</p>
 <p><strong>Limitaciones.</strong> Es un esquema: las trazas, los puntos y la dispersión son dibujos, no registros ni resultados.</p>
 </details>
-<p>Este capítulo está escrito para quien llega desde la ingeniería. Explica qué es la obesidad infantil, cómo se mide la resistencia a la insulina con el HOMA-IR, qué relación tienen con la actividad física y el sueño, y por qué tiene sentido preguntarse no solo <em>cuánta</em> actividad hace un niño, sino <em>cuándo</em> la hace respecto a su propio ritmo. Los trabajos del grupo están en el cap. 2; el estado del arte y las hipótesis, en el cap. 3.</p>
+<p>Este capítulo está escrito para quien llega desde la ingeniería. Explica qué es la obesidad infantil, cómo se mide la resistencia a la insulina con el HOMA-IR, qué relación tienen con la actividad física y el sueño, y por qué tiene sentido preguntarse no solo <em>cuánta</em> actividad hace un niño, sino <em>cuándo</em> la hace respecto a su propio ritmo. Los trabajos del grupo están en el <a href="../chapters/02-grupo-gc23.html">cap. 2</a>; el estado del arte y las hipótesis, en el <a href="../chapters/03-estado-hipotesis.html">cap. 3</a>.</p>
 </section>
 <section id="sec-metab-arquitectura" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec-metab-arquitectura"><span class="header-section-number">1.1</span> Arquitectura del estudio</h2>
@@ -354,7 +372,7 @@ Procedencia y limitaciones de esta imagen
 </div>
 <p>La <a href="#fig-arquitectura" class="quarto-xref">figura&nbsp;<span>1.2</span></a> resume Brincadiano en una página. El estudio sube por cinco niveles: de las <strong>señales</strong> que registra el dispositivo (aceleración, contacto y luz) a los <strong>estados</strong> del niño en cada momento (uso o no uso, sueño o vigilia, actividad física); de ahí, a los <strong>fenotipos</strong> que resumen una semana en unos pocos números (volumen, <em>timing</em>, regularidad y exposición a la luz); después, a los marcadores de <strong>salud</strong> (HOMA-IR, adiposidad, lípidos, inflamación), y por último a las <strong>preguntas</strong> científicas: una asociación confirmatoria y dos líneas exploratorias.</p>
 <p>Cada elemento lleva su estado (definiciones en la referencia rápida del informe). Los tres primeros niveles están construidos y contrastados con herramientas externas (cap. 15 del informe). Los dos últimos (salud y preguntas clínicas) quedan en espera: el 15 de octubre de 2026 el grupo clínico los dejó para después del artículo técnico, porque, una vez conocido el potencial de datos que puede extraerse de la acelerometría, plantearán nuevas preguntas clínicas (declarado por el grupo).</p>
-<p>Dos señales del primer nivel tienen potencial propio, aún sin comprobar frente a la literatura <span class="estado e-pendiente">pendiente</span>: la luz y el contacto, <em>combinados con la aceleración</em> del mismo dispositivo (cap. 3). Si el sensor de luz ve también la luz de una habitación o de una pantalla es una pregunta abierta: la única validación disponible indica que detecta desde unos 50 lux (cap. 14 del informe, «Sensor de luz del wGT3X-BT»), por lo que esa luz podría quedar por debajo <span class="estado e-pendiente">pendiente</span> (registro controlado, <code>LUZ-02</code> y <code>LUZ-05</code>). El actograma del cap. 17 del informe muestra el mismo recorrido sobre un registro real.</p>
+<p>Dos señales del primer nivel tienen potencial propio, aún sin comprobar frente a la literatura <span class="estado e-pendiente">pendiente</span>: la luz y el contacto, <em>combinados con la aceleración</em> del mismo dispositivo (<a href="../chapters/03-estado-hipotesis.html">cap. 3</a>). Si el sensor de luz ve también la luz de una habitación o de una pantalla es una pregunta abierta: la única validación disponible indica que detecta desde unos 50 lux (cap. 14 del informe, «Sensor de luz del wGT3X-BT»), por lo que esa luz podría quedar por debajo <span class="estado e-pendiente">pendiente</span> (registro controlado, <code>LUZ-02</code> y <code>LUZ-05</code>). El actograma del cap. 17 del informe muestra el mismo recorrido sobre un registro real.</p>
 <div id="fig-arquitectura" class="nm-figura-svg nm-fig-ancha quarto-float quarto-figure quarto-figure-center anchored" alt="Diagrama en cinco filas. Nivel 1, Señales, ¿qué registra el dispositivo?: aceleración RAW triaxial a 30 Hz, idéntica a ActiLife, confirmado; contacto (CAPSENSE), un valor por minuto que no basta por sí solo para el no uso, provisional; luz, valores brutos cuya conversión a lux no está resuelta, provisional. Nivel 2, Estados, ¿qué está haciendo el niño en cada momento?: uso o no uso, ventanas de 15/60 min como GGIR con acuerdo del 98,8–99,3 %, confirmado; sueño o vigilia, reposo nocturno en cadera exploratorio, provisional; actividad física, umbrales de Hildebrand con validez en preescolares por confirmar, provisional. Nivel 3, Fenotipos, ¿cómo es el patrón de actividad de cada niño?: volumen (ENMO, AFMV), confirmado; timing (θ y R tras L5), confirmado; regularidad (IS, IV, SRI), confirmado; exposición lumínica, luz intensa provisional y antes de dormir no válido. Nivel 4, Salud, ¿cómo está su metabolismo?, con borde discontinuo: HOMA-IR, adiposidad, lípidos e inflamación, todos pendientes. Nivel 5, Preguntas, ¿qué queremos saber?: asociación confirmatoria (F de 2 g.l. sobre R cos θ y R sin θ frente al HOMA-IR), predicción exploratoria y fenotipos multimodales, todos pendientes. Una barra vertical morada rotulada «Validación externa · cap. 15» acompaña los tres primeros niveles; a la derecha, los capítulos y módulos de cada nivel, y en los dos últimos, «en espera del grupo clínico».">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-arquitectura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -379,7 +397,7 @@ Figura&nbsp;1.2: Arquitectura conceptual de Brincadiano en cinco niveles, de las
 <p>La obesidad es un exceso de grasa corporal que perjudica la salud. Como la grasa no se mide con facilidad, en la práctica se usa el índice de masa corporal, IMC = peso/talla² (kg/m²). En adultos los umbrales son fijos (25 sobrepeso, 30 obesidad), pero un niño cambia de tamaño y de composición al crecer: el mismo IMC significa cosas distintas a los 4 y a los 12 años. Por eso se compara con una referencia por edad y sexo, mediante la puntuación <span class="math inline">z</span> del IMC (cuántas desviaciones típicas se aleja de la media de su edad) o mediante los puntos de corte IOTF, que prolongan hacia la infancia los umbrales 25 y 30 del adulto. Es la misma idea que normalizar una señal respecto a su línea base.</p>
 </div>
 <div class="nm-box nm-ingenieros" data-rotulo="Para ingenieros · Adiposidad: cómo se mide la grasa">
-<p>El IMC no distingue la grasa del músculo. Para medir la grasa hay dos técnicas habituales: la DXA (absorciometría de rayos X de doble energía), que separa grasa, masa magra y hueso con una dosis de radiación muy baja, y la bioimpedancia, que estima el agua corporal a partir de la resistencia del cuerpo a una corriente alterna débil y deduce de ahí la masa libre de grasa. El índice de masa grasa (masa grasa/talla²) es al IMC lo que la grasa al peso. En las cohortes del grupo, GENOBOX tiene DXA solo en Zaragoza, y otra cohorte del grupo y MELI-POP usan bioimpedancia (cap. 2, tabla&nbsp;del&nbsp;cap.&nbsp;2).</p>
+<p>El IMC no distingue la grasa del músculo. Para medir la grasa hay dos técnicas habituales: la DXA (absorciometría de rayos X de doble energía), que separa grasa, masa magra y hueso con una dosis de radiación muy baja, y la bioimpedancia, que estima el agua corporal a partir de la resistencia del cuerpo a una corriente alterna débil y deduce de ahí la masa libre de grasa. El índice de masa grasa (masa grasa/talla²) es al IMC lo que la grasa al peso. En las cohortes del grupo, GENOBOX tiene DXA solo en Zaragoza, y otra cohorte del grupo y MELI-POP usan bioimpedancia (<a href="../chapters/02-grupo-gc23.html">cap. 2</a>, <a href="02-grupo-gc23.html#tbl-cohortes-sintesis" class="quarto-xref">tabla&nbsp;<span>2.3</span></a>).</p>
 </div>
 <p><strong>Del «síndrome metabólico» al riesgo agrupado.</strong> El síndrome metabólico se definió en adultos como la presencia de al menos tres de cinco factores (hiperglucemia, adiposidad central, triglicéridos altos, HDL bajo y presión arterial elevada). En la infancia la Academia Americana de Pediatría desaconseja forzar esa etiqueta y propone vigilar cada factor y su agrupamiento <span class="citation" data-cites="Magge2017">(<a href="99-referencias.html#ref-Magge2017" role="doc-biblioref">Magge et&nbsp;al. 2017</a>)</span>. En la misma línea, la literatura distingue entre obesidad <em>metabólicamente sana</em> (MHO) y <em>no sana</em> (MU). Una revisión de alcance encontró definiciones tan heterogéneas que la prevalencia de MHO variaba entre el 3 y el 80 %, y propuso un consenso basado en HDL, triglicéridos, presión arterial y una medida de glucemia <span class="citation" data-cites="Damanhoury2018">(<a href="99-referencias.html#ref-Damanhoury2018" role="doc-biblioref">Damanhoury et&nbsp;al. 2018</a>)</span>.</p>
 <p>El grupo comparó ocho definiciones de estado MU en 930 niños prepúberes. La prevalencia de MU entre los niños con sobrepeso u obesidad osciló entre el 30 y el 60 % según la definición. Las definiciones con puntos de corte por edad y sexo y que incluyen la resistencia a la insulina fueron las más asociadas con biomarcadores de riesgo cardiovascular <span class="citation" data-cites="Ruperez2018">(<a href="99-referencias.html#ref-Ruperez2018" role="doc-biblioref">Rupérez et&nbsp;al. 2018</a>)</span>. La definición que usa el grupo en prepúberes considera MU al niño que cumple al menos un criterio <span class="citation" data-cites="LlorenteCantarero2022MHO">(<a href="99-referencias.html#ref-LlorenteCantarero2022MHO" role="doc-biblioref">Llorente-Cantarero et&nbsp;al. 2022b</a>)</span>:</p>
@@ -485,7 +503,7 @@ Procedencia y limitaciones de esta imagen
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="nm-box nm-pendiente" data-rotulo="Pendiente">
-<p><span class="estado e-pendiente">pendiente</span> No se ha encontrado un estudio equivalente en población pediátrica. La búsqueda en Scopus del cap. 3 se centró en la luz y tampoco lo recuperó; falta una búsqueda específica (PubMed: <em>timing</em> de la actividad física, niños, resistencia a la insulina) antes de afirmar que no existe.</p>
+<p><span class="estado e-pendiente">pendiente</span> No se ha encontrado un estudio equivalente en población pediátrica. La búsqueda en Scopus del <a href="../chapters/03-estado-hipotesis.html">cap. 3</a> se centró en la luz y tampoco lo recuperó; falta una búsqueda específica (PubMed: <em>timing</em> de la actividad física, niños, resistencia a la insulina) antes de afirmar que no existe.</p>
 </div>
 </div></div><p><strong>Hora de reloj frente a fase individual.</strong> El estudio en adultos clasificó la actividad por franjas de reloj (mañana, tarde, noche). Pero dos niños con la misma hora de reloj pueden estar en momentos distintos de su propio ritmo, por cronotipo, horario familiar o sueño. Brincadiano mide el <em>timing</em> respecto a la fase individual de reposo-actividad: el punto medio de las 5 h menos activas (L5) <span class="citation" data-cites="VanSomeren1999">(<a href="99-referencias.html#ref-VanSomeren1999" role="doc-biblioref">Van Someren et&nbsp;al. 1999</a>)</span>. Así el ángulo expresa «cuántas horas después del centro del reposo» se concentra la actividad vigorosa (cap. 13 del informe).</p>
 </section>
@@ -990,8 +1008,8 @@ van der Velde, Jeroen H. P. M., Sebastiaan C. Boone, Esther Winters-van Eekelen,
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/99-referencias.html" class="pagination-link" aria-label="Referencias">
-        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/02-grupo-gc23.html" class="pagination-link" aria-label="Grupo GC23 Metabolismo infantil">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Grupo GC23 Metabolismo infantil</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

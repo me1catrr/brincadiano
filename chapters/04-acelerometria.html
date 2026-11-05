@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Fundamentos de acelerometría – Brincadiano</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/99-referencias.html" rel="next">
+<link href="../chapters/03-estado-hipotesis.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b12e71101a410aa398c066a74cb85b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script defer="" src="../vendor/katex/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-acelerometria.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fundamentos de acelerometría</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Brincadiano</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portada</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-metabolismo-ingenieros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Metabolismo infantil para ingenieros</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-grupo-gc23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Grupo GC23 Metabolismo infantil</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-estado-hipotesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estado del arte, hipótesis y objetivos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-acelerometria.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fundamentos de acelerometría</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/99-referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-aprendizaje" id="toc-objetivos-de-aprendizaje" class="nav-link active" data-scroll-target="#objetivos-de-aprendizaje">Objetivos de aprendizaje</a></li>
+  <li><a href="#lecturas-esenciales" id="toc-lecturas-esenciales" class="nav-link" data-scroll-target="#lecturas-esenciales">Lecturas esenciales</a></li>
+  <li><a href="#sec-acel-mems" id="toc-sec-acel-mems" class="nav-link" data-scroll-target="#sec-acel-mems"><span class="header-section-number">4.1</span> El acelerómetro MEMS triaxial</a></li>
+  <li><a href="#sec-acel-gravedad" id="toc-sec-acel-gravedad" class="nav-link" data-scroll-target="#sec-acel-gravedad"><span class="header-section-number">4.2</span> Gravedad y movimiento</a></li>
+  <li><a href="#sec-acel-rango" id="toc-sec-acel-rango" class="nav-link" data-scroll-target="#sec-acel-rango"><span class="header-section-number">4.3</span> Rango, resolución y saturación</a></li>
+  <li><a href="#sec-acel-muestreo" id="toc-sec-acel-muestreo" class="nav-link" data-scroll-target="#sec-acel-muestreo"><span class="header-section-number">4.4</span> Frecuencia de muestreo y filtrado</a></li>
+  <li><a href="#sec-acel-counts" id="toc-sec-acel-counts" class="nav-link" data-scroll-target="#sec-acel-counts"><span class="header-section-number">4.5</span> De los <em>counts</em> a la señal RAW</a></li>
+  <li><a href="#sec-acel-colocacion" id="toc-sec-acel-colocacion" class="nav-link" data-scroll-target="#sec-acel-colocacion"><span class="header-section-number">4.6</span> Colocación: cadera frente a muñeca</a></li>
+  <li><a href="#sec-acel-calibracion" id="toc-sec-acel-calibracion" class="nav-link" data-scroll-target="#sec-acel-calibracion"><span class="header-section-number">4.7</span> Calibración</a></li>
+  <li><a href="#sec-acel-dudas" id="toc-sec-acel-dudas" class="nav-link" data-scroll-target="#sec-acel-dudas"><span class="header-section-number">4.8</span> Dudas del proyecto</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-acel" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fundamentos de acelerometría</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="nm-meta nm-meta-capitulo" role="note">
+<p>v0.1.2 · modificado el 05/11/2026 · lectura 19 min · estudio 55 min</p>
+</div>
+<div class="nm-nav">
+<table><caption>Secciones de este capítulo. <strong>Lectura</strong>: tiempo de leer el texto (200 palabras/min). <strong>Estudio</strong>: lectura más ecuaciones, preguntas y simulaciones (criterios en <code>metadata/criterios-tiempos.yml</code>).</caption>
+<thead><tr><th>Sección</th><th>Lectura</th><th>Estudio</th></tr></thead><tbody>
+<tr><td><a href="#sec-acel-mems">El acelerómetro MEMS triaxial</a></td><td>2 min</td><td>5 min</td></tr>
+<tr><td><a href="#sec-acel-gravedad">Gravedad y movimiento</a></td><td>5 min</td><td>30 min</td></tr>
+<tr><td><a href="#sec-acel-rango">Rango, resolución y saturación</a></td><td>2 min</td><td>5 min</td></tr>
+<tr><td><a href="#sec-acel-muestreo">Frecuencia de muestreo y filtrado</a></td><td>3 min</td><td>20 min</td></tr>
+<tr><td><a href="#sec-acel-counts">De los counts a la señal RAW</a></td><td>2 min</td><td>5 min</td></tr>
+<tr><td><a href="#sec-acel-colocacion">Colocación: cadera frente a muñeca</a></td><td>3 min</td><td>5 min</td></tr>
+<tr><td><a href="#sec-acel-calibracion">Calibración</a></td><td>1 min</td><td>5 min</td></tr>
+<tr><td><a href="#sec-acel-dudas">Dudas del proyecto</a></td><td>2 min</td><td>5 min</td></tr>
+</tbody><tfoot><tr><th>Capítulo completo</th><th>19 min</th><th>55 min</th></tr></tfoot></table></div>
+<!-- Fuente: report/chapters/02_acelerometria.tex (sin cambios desde el commit 54e2ab2), su frase de cabecera en
+     report/chapters/00_objetivos.tex y la ficha dudas/fichas/PRO-04.tex. Figuras de report/assets/02_acelerometria/report/figures/.
+     Cambios editoriales y bloques añadidos: quarto/docs/auditoria.md. -->
+<p><strong>Idea del capítulo.</strong> Qué mide un acelerómetro en la cadera y por qué trabajar con la señal RAW (ENMO) permite comparar dispositivos y estudios donde los <em>counts</em> no. <span class="nm-ruta r-fundamentos">fundamentos</span></p>
+<section id="objetivos-de-aprendizaje" class="level2 unnumbered" data-origen="ampliacion">
+<h2 class="unnumbered anchored" data-anchor-id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p><strong>Al terminar este capítulo deberías ser capaz de:</strong></p>
+<ol type="1">
+<li>explicar qué mide un acelerómetro MEMS triaxial y por qué en reposo marca 1 g y no 0;</li>
+<li>calcular ENMO y MAD a partir de la norma de la señal, y decir por qué un error de calibración afecta a la primera y no a la segunda;</li>
+<li>relacionar la escala del dispositivo con su rango y su resolución, y lo que eso supone para el reposo y para la actividad vigorosa;</li>
+<li>justificar con el teorema de Nyquist y con el filtro de los <em>counts</em> por qué el proyecto trabaja desde la señal RAW a 30 Hz;</li>
+<li>comparar la cadera y la muñeca para medir a la vez la actividad, el sueño y la luz.</li>
+</ol>
+<p><strong>Conocimientos previos.</strong> Vectores y su norma; la idea de muestreo y de filtro. No hace falta saber medicina: los MET y la AFMV se explican en el capítulo.</p>
+</section>
+<section id="lecturas-esenciales" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="lecturas-esenciales">Lecturas esenciales</h2>
+<p>Tres lecturas, de mayor a menor prioridad. Los tiempos y la dificultad para ingeniería (1 = baja, 3 = alta) son los del informe y son orientativos.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Pasa el cursor (o toca) sobre la cita para ver la referencia completa. Los niveles son los del informe: <strong>imprescindible</strong>, <strong>para profundizar</strong> y <strong>consulta</strong>.</p>
+</div></div><div class="nm-lecturas">
+<div class="nm-lectura">
+<div class="nm-lec-nivel">
+<p><span class="nm-prio nm-prio-1">Imprescindible</span></p>
+</div>
+<div class="nm-lec-cuerpo">
+<p><strong><span class="citation" data-cites="vanHees2013">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">2013</a>)</span></strong> · «Separating Movement and Gravity Components in an Acceleration Signal and Implications for the Assessment of Human Daily Physical Activity» (artículo, <em>PLoS ONE</em>).</p>
+<p>Separación de las componentes de gravedad y movimiento; base de ENMO y comparación entre métricas.</p>
+</div>
+<ul>
+<li><strong>Tiempo</strong> ≈ 2 h</li>
+<li><strong>Dificultad</strong> 2/3</li>
+<li><strong>Sección</strong> <a href="#sec-acel-gravedad" class="quarto-xref"><span>Sección 4.2</span></a></li>
+<li><strong>DOI</strong> <a href="https://doi.org/10.1371/journal.pone.0061691">10.1371/journal.pone.0061691</a></li>
+</ul>
+</div>
+<div class="nm-lectura">
+<div class="nm-lec-nivel">
+<p><span class="nm-prio nm-prio-2">Para profundizar</span></p>
+</div>
+<div class="nm-lec-cuerpo">
+<p><strong><span class="citation" data-cites="ChenBassett2005">Chen y Bassett (<a href="99-referencias.html#ref-ChenBassett2005" role="doc-biblioref">2005</a>)</span></strong> · «The Technology of Accelerometry-Based Activity Monitors: Current and Future» (artículo, <em>Medicine &amp; Science in Sports &amp; Exercise</em>).</p>
+<p>Física del sensor, filtrado e integración: de la aceleración a los <em>counts</em> y al gasto energético.</p>
+</div>
+<ul>
+<li><strong>Tiempo</strong> ≈ 1,5 h</li>
+<li><strong>Dificultad</strong> 2/3</li>
+<li><strong>Sección</strong> <a href="#sec-acel-mems" class="quarto-xref"><span>Sección 4.1</span></a></li>
+<li><strong>DOI</strong> <a href="https://doi.org/10.1249/01.mss.0000185571.49104.82">10.1249/01.mss.0000185571.49104.82</a></li>
+</ul>
+</div>
+<div class="nm-lectura">
+<div class="nm-lec-nivel">
+<p><span class="nm-prio nm-prio-3">Consulta</span></p>
+</div>
+<div class="nm-lec-cuerpo">
+<p><strong><span class="citation" data-cites="Migueles2017">Migueles et&nbsp;al. (<a href="99-referencias.html#ref-Migueles2017" role="doc-biblioref">2017</a>)</span></strong> · «Accelerometer Data Collection and Processing Criteria to Assess Physical Activity and Other Outcomes: A Systematic Review and Practical Considerations» (artículo, <em>Sports Medicine</em>).</p>
+<p>Revisión de criterios de recogida y procesado con ActiGraph GT3X/+ por grupos de edad.</p>
+</div>
+<ul>
+<li><strong>Tiempo</strong> a demanda</li>
+<li><strong>Dificultad</strong> 1/3</li>
+<li><strong>Sección</strong> <a href="#sec-acel-colocacion" class="quarto-xref"><span>Sección 4.6</span></a></li>
+<li><strong>DOI</strong> <a href="https://doi.org/10.1007/s40279-017-0716-0">10.1007/s40279-017-0716-0</a></li>
+</ul>
+</div>
+</div>
+<p><strong>Genealogía de la idea.</strong></p>
+<div class="nm-linea">
+<ul>
+<li><strong>1997 · acelerómetro triaxial.</strong> Tres acelerómetros uniaxiales ortogonales dan una salida bien correlacionada con el gasto energético por actividad <span class="citation" data-cites="Bouten1997">(<a href="99-referencias.html#ref-Bouten1997" role="doc-biblioref">Bouten et&nbsp;al. 1997</a>)</span>.</li>
+<li><strong>2008 · <em>counts</em> en NHANES.</strong> Los <em>counts</em> por minuto y sus puntos de corte se generalizan con la acelerometría de NHANES <span class="citation" data-cites="Troiano2008">(<a href="99-referencias.html#ref-Troiano2008" role="doc-biblioref">Troiano et&nbsp;al. 2008</a>)</span>.</li>
+<li><strong>2013 · métricas desde RAW.</strong> Separar gravedad y movimiento en la señal RAW; de ahí sale ENMO <span class="citation" data-cites="vanHees2013">(<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">Hees et&nbsp;al. 2013</a>)</span>.</li>
+<li><strong>2021 · consenso GRANADA.</strong> Completar los puntos de corte con la aceleración media y las métricas MX <span class="citation" data-cites="Migueles2021GRANADA">(<a href="99-referencias.html#ref-Migueles2021GRANADA" role="doc-biblioref">Migueles et&nbsp;al. 2021</a>)</span>.</li>
+</ul>
+</div>
+<p>Un acelerómetro no mide «actividad física»: mide aceleración. Todo lo que se dice en este informe sobre actividad, sedentarismo, sueño o <em>timing</em> es una inferencia a partir de esa magnitud física. Este capítulo explica qué se mide, en qué unidades y con qué limitaciones, y por qué el proyecto trabaja desde la señal RAW y no desde los <em>counts</em>.</p>
+</section>
+<section id="sec-acel-mems" class="level2 page-columns page-full" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-acel-mems"><span class="header-section-number">4.1</span> El acelerómetro MEMS triaxial</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.1 · modificado el 05/11/2026 · lectura 2 min · estudio 5 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="Bouten1997">Bouten et&nbsp;al. (<a href="99-referencias.html#ref-Bouten1997" role="doc-biblioref">1997</a>)</span>; <span class="citation" data-cites="ChenBassett2005">Chen y Bassett (<a href="99-referencias.html#ref-ChenBassett2005" role="doc-biblioref">2005</a>)</span>; <span class="citation" data-cites="JohnFreedson2012">John y Freedson (<a href="99-referencias.html#ref-JohnFreedson2012" role="doc-biblioref">2012</a>)</span>.</p>
+</div>
+<p><strong>Principio de medida.</strong> Un acelerómetro es, en esencia, una masa de prueba unida a un soporte elástico. Cuando el soporte acelera, la inercia de la masa la desplaza, y ese desplazamiento se convierte en señal eléctrica (<a href="#fig-acelerometro-mems" class="quarto-xref">figura&nbsp;<span>4.1</span></a>). Las técnicas de transducción históricas son piezoeléctricas, piezorresistivas y capacitivas <span class="citation" data-cites="ChenBassett2005">(<a href="99-referencias.html#ref-ChenBassett2005" role="doc-biblioref">Chen y Bassett 2005</a>)</span>. Un <em>triaxial</em> combina tres sensores ortogonales: <span class="citation" data-cites="Bouten1997">Bouten et&nbsp;al. (<a href="99-referencias.html#ref-Bouten1997" role="doc-biblioref">1997</a>)</span> construyeron uno con tres sensores piezorresistivos en ángulo recto, pensado para las aceleraciones habituales del cuerpo, y su señal siguió de cerca el gasto energético de la actividad (<em>r</em> = 0,89). Ya avisaban de lo que este tipo de aparato apenas ve, y sigue sin ver: el tiempo sentado y el esfuerzo sin desplazamiento, como sostener un peso.</p>
+<div id="fig-acelerometro-mems" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Tres paneles. A, «Dentro del chip MEMS»: una masa verde suspendida por muelles arriba y abajo, entre placas interdigitadas a ambos lados rotuladas «placas (condensador)», con una flecha naranja de desplazamiento y el texto «desplazamiento → señal eléctrica». B, «Tres ejes en la cadera»: silueta de un niño de perfil con el monitor en un cinturón y tres flechas, z hacia arriba, y hacia delante y x en diagonal. C, «Gravedad + movimiento»: a la izquierda, niño de pie «En reposo» con una flecha hacia abajo rotulada «1 g (gravedad)»; a la derecha, niño corriendo «En movimiento» con flechas de gravedad, movimiento y su suma, y el texto «‖a‖ = gravedad + movimiento».">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-acelerometro-mems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/figures/cap04/acelerometro-mems.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Tres paneles. A, «Dentro del chip MEMS»: una masa verde suspendida por muelles arriba y abajo, entre placas interdigitadas a ambos lados rotuladas «placas (condensador)», con una flecha naranja de desplazamiento y el texto «desplazamiento → señal eléctrica». B, «Tres ejes en la cadera»: silueta de un niño de perfil con el monitor en un cinturón y tres flechas, z hacia arriba, y hacia delante y x en diagonal. C, «Gravedad + movimiento»: a la izquierda, niño de pie «En reposo» con una flecha hacia abajo rotulada «1 g (gravedad)»; a la derecha, niño corriendo «En movimiento» con flechas de gravedad, movimiento y su suma, y el texto «‖a‖ = gravedad + movimiento».">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-acelerometro-mems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.1: Esquema genérico de un acelerómetro MEMS capacitivo. (A) Una masa suspendida por muelles se desplaza al acelerar el chip, y el cambio de capacidad entre placas da la señal. (B) Tres sensores ortogonales en la cadera dan los ejes <span class="math inline">x</span>, <span class="math inline">y</span> y <span class="math inline">z</span>. (C) En reposo el sensor solo ve la gravedad, 1 g; en movimiento, la suma de gravedad y movimiento (<a href="#sec-acel-gravedad" class="quarto-xref"><span>Sección 4.2</span></a>). Ilustración conceptual, sin datos del estudio.
+</figcaption>
+</figure>
+</div>
+<details class="nm-detalle">
+<summary>
+Procedencia y limitaciones de esta imagen
+</summary>
+<p><strong>Procedencia.</strong> Ilustración conceptual generada con FigureLabs (IA) a partir de una descripción sin datos del estudio y revisada a mano (primera versión; revisión del 2 de octubre de 2026, coherente en los tres paneles). El <em>prompt</em> y la revisión están en <code>report/assets/02_acelerometria/report/figures/acelerometro-mems.prompt.txt</code>.</p>
+<p><strong>Limitaciones.</strong> Es un esquema. La flecha resultante del panel C no está rotulada y no es una suma vectorial a escala; la gravedad se dibuja hacia abajo, mientras que el sensor en reposo mide la reacción (+1 g hacia arriba), como explica el texto.</p>
+</details>
+<p><strong>ActiGraph.</strong> Los modelos han cambiado de sensor y de formato de salida (<em>counts</em> frente a señal RAW) a lo largo de las generaciones (7164, GT1M, GT3X). Contra una creencia extendida, los GT1M y GT3X no son piezoeléctricos. El firmware y el estado de calibración también influyen en la salida <span class="citation" data-cites="JohnFreedson2012">(<a href="99-referencias.html#ref-JohnFreedson2012" role="doc-biblioref">John y Freedson 2012</a>)</span>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Un error frecuente en publicaciones es describir los ActiGraph modernos como piezoeléctricos <span class="citation" data-cites="JohnFreedson2012">(<a href="99-referencias.html#ref-JohnFreedson2012" role="doc-biblioref">John y Freedson 2012</a>)</span>. Conviene no repetirlo en los métodos.</p>
+</div></div></section>
+<section id="sec-acel-gravedad" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-acel-gravedad"><span class="header-section-number">4.2</span> Gravedad y movimiento</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.1 · modificado el 05/11/2026 · lectura 5 min · estudio 30 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="vanHees2013">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">2013</a>)</span>; <span class="citation" data-cites="VahaYpya2015">Vähä-Ypyä et&nbsp;al. (<a href="99-referencias.html#ref-VahaYpya2015" role="doc-biblioref">2015</a>)</span>.</p>
+</div>
+<div class="nm-box nm-clinicos" data-rotulo="Para clínicos · Aceleración y g">
+<p>El acelerómetro mide aceleraciones en unidades <span class="math inline">g</span> (1 <span class="math inline">g</span> = 9,81 m/s², la de la gravedad). En reposo no marca cero: marca 1 <span class="math inline">g</span>, porque mide la fuerza que lo sostiene frente a la gravedad. Al moverse, a esa gravedad se suma la aceleración del movimiento. Separar ambas partes es el primer problema de toda métrica. ENMO y MAD, definidas más abajo, son las dos que usa el proyecto.</p>
+</div>
+<p><strong>Qué contiene la señal.</strong> Lo que registra cada eje es una suma: el movimiento del cuerpo, la parte de la gravedad que cae sobre ese eje y el ruido del sensor <span class="citation" data-cites="vanHees2013">(<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">Hees et&nbsp;al. 2013</a>)</span>. En reposo, el sensor mide solo la proyección de la gravedad sobre sus ejes, de modo que la norma del vector es 1 g con independencia de la orientación:</p>
+<p><span class="math display">
+\lVert\mathbf a\rVert = \sqrt{a_x^2 + a_y^2 + a_z^2} \approx 1\,g \quad\text{(reposo)}.
+</span></p>
+<div id="fig-senal-raw-ejemplo" class="nm-fig-ancha quarto-float quarto-figure quarto-figure-center anchored" alt="Dos paneles con 20 segundos de señal. Arriba, las aceleraciones de los ejes x (rojo), y (verde) y z (azul) en g: durante los primeros 12 segundos son líneas casi planas en valores distintos, y en torno a 0,7, −0,5 y −0,5 g; a partir de los 12 segundos oscilan con fuerza, con un mínimo de x cerca de −2,6 g hacia los 14 segundos. Abajo, la norma del vector: una línea plana en 1 g, con una línea discontinua de referencia en 1 g, hasta los 12 segundos, y después oscilaciones alrededor de 1 g con un pico de 3 g hacia los 14 segundos.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-senal-raw-ejemplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/figures/cap04/senal-raw-ejemplo.svg" class="nm-fig-ancha img-fluid figure-img" alt="Dos paneles con 20 segundos de señal. Arriba, las aceleraciones de los ejes x (rojo), y (verde) y z (azul) en g: durante los primeros 12 segundos son líneas casi planas en valores distintos, y en torno a 0,7, −0,5 y −0,5 g; a partir de los 12 segundos oscilan con fuerza, con un mínimo de x cerca de −2,6 g hacia los 14 segundos. Abajo, la norma del vector: una línea plana en 1 g, con una línea discontinua de referencia en 1 g, hasta los 12 segundos, y después oscilaciones alrededor de 1 g con un pico de 3 g hacia los 14 segundos.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-senal-raw-ejemplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.2: Señal real a 30 Hz. Arriba, los tres ejes; abajo, la norma <span class="math inline">\lVert\mathbf a\rVert</span>. Mientras el dispositivo está quieto (primeros 12 s), cada eje marca una proyección distinta de la gravedad, pero la norma es 1 g (línea discontinua). Al moverse, la norma oscila alrededor de 1 g con picos de hasta 3 g. Registro de demostración público de ActiGraph, no de un participante (procedencia abajo).
+</figcaption>
+</figure>
+</div>
+<details class="nm-detalle">
+<summary>
+Procedencia de esta figura
+</summary>
+<p><strong>Datos.</strong> Registro de demostración del fabricante, público: <code>src/GT3X.Parsing.Examples/sample.gt3x</code> del repositorio actigraph/NHANES-GT3X-File-Format (licencia MIT), versionado en el proyecto como <code>test/fixtures/legacy_sample.gt3x</code>. GT3X+ con firmware 1.4.0 y 30 Hz (campos <code>Firmware</code> y <code>Sample Rate</code> de su <code>info.txt</code>). <strong>No procede de ningún participante</strong>: es el único registro cuya señal puede publicarse.</p>
+<p><strong>Cálculo.</strong> <code>scripts/03_explorar_sujeto.jl --fixture</code> con <code>Viz.plot_raw_window</code>: la ventana de 20 s con muestreo completo y más movimiento de los 84 s del registro. Ficha de procedencia <code>report/assets/02_acelerometria/report/figures/senal-raw-ejemplo.procedencia.tex</code> (commit <code>3eeffcb</code>, 5 de octubre de 2026). El SVG del libro es el PDF del informe convertido con <code>pdftocairo -svg</code>.</p>
+</details>
+<p>La <a href="#fig-senal-raw-ejemplo" class="quarto-xref">figura&nbsp;<span>4.2</span></a> lo muestra con una señal real: en reposo los tres ejes son constantes y distintos entre sí, pero la norma vale 1 g.</p>
+<p><strong>Métricas.</strong> Separar movimiento y gravedad es fácil en traslaciones puras y difícil en rotaciones, porque al girar cambia la proyección de la gravedad. <span class="citation" data-cites="vanHees2013">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">2013</a>)</span> compararon métricas con un robot industrial:</p>
+<ul>
+<li><strong>ENMO</strong>: norma euclídea menos 1 g;</li>
+<li><strong>HFEN</strong>: norma de la señal filtrada paso alto;</li>
+<li><strong>HFEN+</strong>: combinación de las dos anteriores.</li>
+</ul>
+<p>En el banco de pruebas, la mejor métrica dependía de la velocidad de giro: ENMO para los giros lentos y HFEN+ para los que superan la frecuencia de corte del filtro. Con voluntarios, las que menos coincidieron entre sí fueron ENMO y HFEN medidas en la cadera. MAD, la desviación media absoluta de la norma respecto a su media en el <em>epoch</em>, separó bien actividades sedentarias y velocidades de marcha con umbrales comunes a tres marcas de acelerómetro <span class="citation" data-cites="VahaYpya2015">(<a href="99-referencias.html#ref-VahaYpya2015" role="doc-biblioref">Vähä-Ypyä et&nbsp;al. 2015</a>)</span>.</p>
+<div class="nm-box nm-clinicos" data-rotulo="Para clínicos · ENMO">
+<p>ENMO (norma euclídea menos uno) es la métrica abierta más usada. En cada muestra se calcula la longitud del vector de aceleración, <span class="math inline">\sqrt{x^2 + y^2 + z^2}</span>, se le resta 1 <span class="math inline">g</span> de la gravedad y los valores negativos se ponen a cero. Se expresa en m<span class="math inline">g</span> (milésimas de <span class="math inline">g</span>). Un niño quieto da casi cero. Su punto débil es la calibración: un error de unos pocos m<span class="math inline">g</span> en la medida de la gravedad se convierte en actividad ficticia <span class="citation" data-cites="vanHees2013">(<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">Hees et&nbsp;al. 2013</a>)</span>.</p>
+</div>
+<div class="nm-box nm-clinicos" data-rotulo="Para clínicos · MAD">
+<p>MAD (desviación absoluta media) mide cuánto varía la longitud del vector dentro de una ventana: la media de las distancias de cada muestra a la media de la ventana. Como resta la propia media, no necesita restar la gravedad y es menos sensible a la calibración. Se propuso con ventanas de 5 s <span class="citation" data-cites="VahaYpya2015">(<a href="99-referencias.html#ref-VahaYpya2015" role="doc-biblioref">Vähä-Ypyä et&nbsp;al. 2015</a>)</span>.</p>
+</div>
+<p><span class="math display">
+\text{ENMO} = \max\!\left(\lVert\mathbf a\rVert - 1,\ 0\right), \qquad
+\text{MAD} = \frac{1}{n}\sum_{i=1}^{n}\bigl|\,\lVert\mathbf a_i\rVert - \overline{\lVert\mathbf a\rVert}\,\bigr|.
+</span></p>
+<p>El truncado a cero se hace en cada muestra, antes de promediar el <em>epoch</em>: descarta la mitad negativa de las oscilaciones, que no se compensa con la positiva. Por eso el ENMO de un <em>epoch</em> no es la media de la norma menos uno. La definición queda en este capítulo; el cálculo sobre los registros —autocalibración, agregación y huecos— es el hito H5 (cap. 9 del informe).</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="nm-box nm-idea" data-rotulo="Idea clave">
+<p>ENMO depende de que la norma en reposo sea exactamente 1 g, así que cualquier error de calibración se traslada a la métrica (<a href="#sec-acel-calibracion" class="quarto-xref"><span>Sección 4.7</span></a>). MAD resta la media del propio <em>epoch</em>, por lo que es insensible a ese desplazamiento constante.</p>
+</div>
+</div></div><div data-origen="ampliacion">
+<p>La simulación siguiente pone a prueba las tres afirmaciones del apartado: que el truncado hace a ENMO distinto de la norma media menos 1, que un error de calibración se convierte en actividad ficticia y que MAD no lo nota. Usa un minuto inventado, porque así se conoce el error que se introduce; en un registro real no se sabe, y por eso existe la autocalibración (<a href="#sec-acel-calibracion" class="quarto-xref"><span>Sección 4.7</span></a>).</p>
+<div class="nm-sim" id="demo-metricas" role="group" aria-labelledby="demo-metricas-titulo">
+  <div class="nm-sim-cabecera">
+    <strong id="demo-metricas-titulo">Simulación sintética — no es resultado Brincadiano</strong>
+    <span>Un minuto de aceleración triaxial inventado a 30 Hz: 20 s de pie y quieto, 20 s andando y 20 s tumbado, con ruido y cuantización de 1/256 g.</span>
+  </div>
+  <div class="nm-sim-cuerpo">
+    <p class="nm-sim-guia">Pregunta guía: ¿cuánta «actividad» marca ENMO en un niño quieto si el eje vertical está mal calibrado? ¿Y MAD? ¿Importa que esté de pie o tumbado?</p>
+    <div class="nm-sim-controles">
+      <label>Error de calibración del eje vertical: <span class="nm-val" id="m-off-val"></span>
+        <input type="range" id="m-off" min="0" max="100" step="1" aria-describedby="m-lim">
+      </label>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end;">
+        <button type="button" class="nm-btn" id="m-0">Sin error</button>
+        <button type="button" class="nm-btn" id="m-20">20 mg</button>
+        <button type="button" class="nm-btn" id="m-50">50 mg</button>
+      </div>
+    </div>
+    <p class="nm-fuente" id="m-lim">Error de desplazamiento (<em>offset</em>) de 0 a 100 mg, sumado al eje y. Como referencia, la autocalibración bajó el error de 76,7 a 8,0 mg en una de las cohortes de van Hees et al. (2014).</p>
+    <div class="nm-leyenda" aria-hidden="true">
+      <span><i style="border-top-color:var(--nm-muted)"></i>Norma ‖a‖</span>
+      <span><i style="border-top-color:var(--nm-petrol);border-top-width:10px;width:0.8rem"></i>ENMO</span>
+      <span><i style="border-top-color:var(--nm-orange);border-top-width:10px;width:0.8rem"></i>Norma media − 1</span>
+      <span><i style="border-top-color:var(--nm-purple);border-top-width:10px;width:0.8rem"></i>MAD</span>
+    </div>
+    <svg class="nm-plot" id="m-plot" viewbox="0 0 760 360" role="img" aria-label="Norma de la aceleración de un minuto sintético y, debajo, ENMO, norma media menos 1 y MAD por epoch de 5 segundos"></svg>
+    <div class="nm-sim-lectura" id="m-lectura" aria-live="polite"></div>
+    <details class="nm-sim-supuestos">
+      <summary>Supuestos y diferencias con la realidad</summary>
+      <ul>
+        <li><strong>Un minuto inventado.</strong> De pie, la gravedad cae entera sobre el eje vertical (y); tumbado, sobre z. Andar es una suma de sinusoides a 2 Hz y sus armónicos, no una marcha medida. Ruido gaussiano de 3 mg por eje y cuantización a 1/256 g, la resolución del wGT3X-BT (@sec-acel-rango).</li>
+        <li><strong>Un solo error</strong>, de desplazamiento y en un solo eje. Los dispositivos reales tienen errores de desplazamiento y de ganancia en los tres ejes, que la autocalibración de van Hees et al. (2014) estima con los periodos de reposo en varias orientaciones (@sec-acel-calibracion). Por eso la orientación importa: un error en un eje solo se ve cuando la gravedad cae sobre él.</li>
+        <li><strong>Métricas</strong> por <em>epoch</em> de 5 s con las fórmulas de arriba, sin autocalibración. Están en <code>interactive/cap04/metricas.js</code> y se comprueban en <code>tests/simulaciones.mjs</code>.</li>
+      </ul>
+    </details>
+    <noscript><p class="nm-sin-js">Esta simulación necesita JavaScript. La versión estática equivalente es la tabla que sigue.</p></noscript>
+  </div>
+</div>
+<script src="../interactive/cap04/metricas.js"></script>
+<script src="../interactive/cap04/demo-metricas.js"></script>
+<div id="tbl-metricas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-metricas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;4.1: Media de las métricas (mg) en cada tramo del minuto sintético según el error de calibración del eje vertical. Calculadas con la misma función que la simulación (<code>interactive/cap04/metricas.js</code>); simulación sintética, no es resultado Brincadiano.
+</figcaption>
+<div aria-describedby="tbl-metricas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Error del eje vertical</th>
+<th style="text-align: right;">ENMO de pie</th>
+<th style="text-align: right;">MAD de pie</th>
+<th style="text-align: right;">ENMO andando</th>
+<th style="text-align: right;">Norma media − 1 andando</th>
+<th style="text-align: right;">ENMO tumbado</th>
+<th style="text-align: right;">MAD tumbado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sin error</td>
+<td style="text-align: right;">1,1</td>
+<td style="text-align: right;">2,3</td>
+<td style="text-align: right;">117,5</td>
+<td style="text-align: right;">9,3</td>
+<td style="text-align: right;">1,1</td>
+<td style="text-align: right;">2,3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">20 mg</td>
+<td style="text-align: right;">20,1</td>
+<td style="text-align: right;">2,4</td>
+<td style="text-align: right;">129,3</td>
+<td style="text-align: right;">29,1</td>
+<td style="text-align: right;">1,3</td>
+<td style="text-align: right;">2,3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">50 mg</td>
+<td style="text-align: right;">50,0</td>
+<td style="text-align: right;">2,5</td>
+<td style="text-align: right;">147,2</td>
+<td style="text-align: right;">58,7</td>
+<td style="text-align: right;">2,1</td>
+<td style="text-align: right;">2,3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nm-q-expl">
+<div class="nm-q-title">
+<span class="nm-tag">Ejercicio exploratorio</span> Responde con la simulación; después compara con la tabla.
+</div>
+<ol type="1">
+<li>Sin error de calibración, ¿por qué ENMO andando es mucho mayor que la norma media menos 1?</li>
+<li>Con 50 mg de error, ¿cuánto ENMO marca el niño de pie y quieto? ¿Y tumbado? ¿Por qué no es lo mismo?</li>
+<li>¿Qué métrica elegirías para comparar el reposo de dos dispositivos que no sabes si están bien calibrados?</li>
+</ol>
+<details class="nm-detalle">
+<summary>
+Qué deberías observar
+</summary>
+<ol type="1">
+<li>117,5 frente a 9,3 mg. Al andar, la norma oscila por encima y por debajo de 1 g; la norma media menos 1 deja que unas mitades compensen a las otras, y ENMO tira las negativas en cada muestra antes de promediar.</li>
+<li>50,0 mg de pie y 2,1 mg tumbado. De pie, el error se suma entero a la gravedad; tumbado, la gravedad cae sobre otro eje y el error solo alarga la norma en una cantidad de segundo orden. Un dispositivo mal calibrado inventa actividad que depende de la postura.</li>
+<li>MAD: se queda en unos 2,3–2,5 mg con cualquier error, porque resta la media del propio <em>epoch</em>. Es lo que dice la idea clave del margen. ENMO necesita autocalibración (decisión metodológica de <a href="#sec-acel-calibracion" class="quarto-xref"><span>Sección 4.7</span></a>).</li>
+</ol>
+</details>
+</div>
+</div>
+</section>
+<section id="sec-acel-rango" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-acel-rango"><span class="header-section-number">4.3</span> Rango, resolución y saturación</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.2 · modificado el 05/11/2026 · lectura 2 min · estudio 5 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="ActiGraphGT3X">ActiGraph (<a href="99-referencias.html#ref-ActiGraphGT3X" role="doc-biblioref">2026</a>)</span>.</p>
+</div>
+<p>El conversor convierte la aceleración en enteros, y la escala del dispositivo fija a la vez el rango y la resolución:</p>
+<ul>
+<li><strong>wGT3X-BT</strong> (serie MOS, nuestros archivos): 256 LSB/g con rango ± 8 g. Un paso equivale a 1/256 ≈ 3,9 mg.</li>
+<li><strong>GT3X+ y wGT3X+</strong> (series NEO y CLE): 341 LSB/g con rango ± 6 g, unos 2,9 mg por paso <span class="citation" data-cites="ActiGraphGT3X">(<a href="99-referencias.html#ref-ActiGraphGT3X" role="doc-biblioref">ActiGraph 2026</a>)</span>.</li>
+</ul>
+<p>Nuestros archivos son wGT3X-BT de ± 8 g (cap. 5 del informe). El grupo declara que sus cohortes usaron, casi seguro, el mismo modelo.</p>
+<p><strong>Consecuencias.</strong> La resolución de unos 4 mg es del mismo orden que los valores de ENMO durante el reposo, de modo que el ruido de cuantización no es despreciable para el sedentarismo. Por arriba, los saltos y carreras de los niños pueden acercarse al límite del rango. Un eje saturado recorta la señal e infraestima la intensidad, que es justo la que interesa para la actividad vigorosa.</p>
+<p>En los registros de prueba no hay saturación: ninguna muestra supera los 7,5 g en valor absoluto (<span class="estado e-confirmado">confirmado</span>, control de calidad del cap. 8 del informe).</p>
+</section>
+<section id="sec-acel-muestreo" class="level2 page-columns page-full" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-acel-muestreo"><span class="header-section-number">4.4</span> Frecuencia de muestreo y filtrado</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.0 · modificado el 31/10/2026 · lectura 3 min · estudio 20 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="Fridolfsson2019">Fridolfsson et&nbsp;al. (<a href="99-referencias.html#ref-Fridolfsson2019" role="doc-biblioref">2019</a>)</span>; <span class="citation" data-cites="ChenBassett2005">Chen y Bassett (<a href="99-referencias.html#ref-ChenBassett2005" role="doc-biblioref">2005</a>)</span>; <span class="citation" data-cites="Brond2017">Brønd et&nbsp;al. (<a href="99-referencias.html#ref-Brond2017" role="doc-biblioref">2017</a>)</span>; <span class="citation" data-cites="Neishabouri2022">Neishabouri et&nbsp;al. (<a href="99-referencias.html#ref-Neishabouri2022" role="doc-biblioref">2022</a>)</span>.</p>
+</div>
+<div class="nm-box nm-clinicos" data-rotulo="Para clínicos · Frecuencia de muestreo">
+<p>Una señal continua se registra tomando muestras a intervalos regulares; 30 Hz son 30 muestras por segundo. Según el teorema de Nyquist, así solo se representan bien las oscilaciones de menos de 15 Hz, la mitad; las más rápidas se «disfrazan» de lentas (<em>aliasing</em>) si no se filtran antes. La mayor parte de la energía del movimiento humano voluntario está por debajo de esa frecuencia, así que 30 Hz bastan. A 30 Hz, una semana continua son unos 18 millones de muestras por eje.</p>
+</div>
+<p>Los ActiGraph de nuestros archivos muestrean a <span class="math inline">f_s = 30</span> Hz, lo que permite representar sin <em>aliasing</em> componentes de hasta <span class="math inline">f_s/2 = 15</span> Hz (Nyquist).</p>
+<p><strong>El filtro de los <em>counts</em>.</strong> El cálculo de <em>counts</em> de ActiGraph aplica un filtro paso banda estrecho, de aproximadamente 0,29–1,63 Hz. <span class="citation" data-cites="Fridolfsson2019">Fridolfsson et&nbsp;al. (<a href="99-referencias.html#ref-Fridolfsson2019" role="doc-biblioref">2019</a>)</span> mostraron, en niños y adultos, que el movimiento aporta aceleración hasta unos 10 Hz, sobre todo en actividad moderada y vigorosa. Al ensanchar el filtro, la clasificación del sedentarismo apenas cambió (1–2 %), pero la de las intensidades más altas cambió en más del 90 %. Recomiendan un paso bajo de 10 Hz.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="nm-box nm-idea" data-rotulo="Idea clave">
+<p>Para estudiar la actividad <em>vigorosa</em> de niños, el filtro clásico de los <em>counts</em> es un problema: atenúa justo las frecuencias que la caracterizan. Trabajar desde la señal RAW a 30 Hz conserva todo el contenido hasta 15 Hz.</p>
+</div>
+</div></div><div data-origen="ampliacion">
+<p>Las dos ideas del apartado —el límite de Nyquist y la banda estrecha de los <em>counts</em>— se ven con una sinusoide. La simulación usa un filtro <strong>idealizado</strong> con las frecuencias de corte del texto, no el de ActiGraph <span class="citation" data-cites="Neishabouri2022">(<a href="99-referencias.html#ref-Neishabouri2022" role="doc-biblioref">Neishabouri et&nbsp;al. 2022</a>)</span>, que tiene otra forma: sirve para ver el orden de magnitud de la atenuación, no para calcular <em>counts</em>.</p>
+<div class="nm-sim" id="demo-frecuencias" role="group" aria-labelledby="demo-frecuencias-titulo">
+  <div class="nm-sim-cabecera">
+    <strong id="demo-frecuencias-titulo">Simulación sintética — no es resultado Brincadiano</strong>
+    <span>Una oscilación pura de la frecuencia elegida, el filtro de los <em>counts</em> idealizado (0,29–1,63 Hz) y el muestreo a 30 Hz.</span>
+  </div>
+  <div class="nm-sim-cuerpo">
+    <p class="nm-sim-guia">Pregunta guía: ¿qué parte de una oscilación de 1, 3 o 10 Hz deja pasar el filtro de los <em>counts</em>? ¿Qué le pasa a una de 20 Hz muestreada a 30 Hz?</p>
+    <div class="nm-sim-controles">
+      <label>Frecuencia de la oscilación: <span class="nm-val" id="f-f-val"></span>
+        <input type="range" id="f-f" min="0" max="1000" step="1" aria-describedby="f-lim">
+      </label>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end;">
+        <button type="button" class="nm-btn" id="f-1">1 Hz</button>
+        <button type="button" class="nm-btn" id="f-3">3 Hz</button>
+        <button type="button" class="nm-btn" id="f-10">10 Hz</button>
+        <button type="button" class="nm-btn" id="f-20">20 Hz</button>
+      </div>
+    </div>
+    <p class="nm-fuente" id="f-lim">De 0,1 a 25 Hz en escala logarítmica.</p>
+    <div class="nm-leyenda" aria-hidden="true">
+      <span><i style="border-top-color:var(--nm-petrol)"></i>Ganancia del filtro / señal filtrada</span>
+      <span><i style="border-top-color:var(--nm-muted)"></i>Señal original</span>
+      <span><i style="border-top-color:color-mix(in srgb, var(--nm-orange) 55%, transparent);border-top-width:8px;width:0.6rem"></i>Muestras a 30 Hz</span>
+      <span><i style="border-top-color:var(--nm-orange);border-top-style:dashed"></i>Lo que «ven» las muestras (por encima de 15 Hz)</span>
+    </div>
+    <svg class="nm-plot" id="f-plot" viewbox="0 0 760 380" role="img" aria-label="Arriba, la ganancia del filtro idealizado de los counts frente a la frecuencia en escala logarítmica; abajo, la oscilación original, la filtrada y las muestras a 30 Hz"></svg>
+    <div class="nm-sim-lectura" id="f-lectura" aria-live="polite"></div>
+    <details class="nm-sim-supuestos">
+      <summary>Supuestos y diferencias con la realidad</summary>
+      <ul>
+        <li><strong>Filtro idealizado:</strong> un paso alto de Butterworth de orden 2 a 0,29 Hz en cascada con un paso bajo de orden 2 a 1,63 Hz. El de ActiGraph, publicado por Neishabouri et al. (2022), tiene otra forma; además, los <em>counts</em> rectifican, recortan y suman la señal filtrada en cada <em>epoch</em>, cosa que aquí no se hace.</li>
+        <li><strong>Una sola frecuencia.</strong> El movimiento real mezcla muchas; el filtro atenúa cada una según la curva de arriba. La fase no se dibuja: la señal filtrada solo muestra la amplitud.</li>
+        <li><strong><em>Aliasing</em> sin filtro previo.</strong> Los dispositivos reales filtran antes de muestrear; la simulación muestra lo que pasaría si no lo hicieran, que es lo que explica la caja «Para clínicos».</li>
+        <li><strong>Fórmulas</strong> en <code>interactive/cap04/frecuencias.js</code>; se comprueban en <code>tests/simulaciones.mjs</code>.</li>
+      </ul>
+    </details>
+    <noscript><p class="nm-sin-js">Esta simulación necesita JavaScript. La versión estática equivalente es la tabla que sigue.</p></noscript>
+  </div>
+</div>
+<script src="../interactive/cap04/frecuencias.js"></script>
+<script src="../interactive/cap04/demo-frecuencias.js"></script>
+<div id="tbl-frecuencias" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-frecuencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;4.2: Atenuación del filtro de los <em>counts</em> idealizado y frecuencia aparente con muestreo a 30 Hz sin filtro previo. Calculadas con la misma función que la simulación (<code>interactive/cap04/frecuencias.js</code>); simulación sintética, no es resultado Brincadiano.
+</figcaption>
+<div aria-describedby="tbl-frecuencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Frecuencia</th>
+<th style="text-align: right;">1 Hz</th>
+<th style="text-align: right;">3 Hz</th>
+<th style="text-align: right;">10 Hz</th>
+<th style="text-align: right;">20 Hz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Amplitud que deja pasar el filtro idealizado</td>
+<td style="text-align: right;">93,3 %</td>
+<td style="text-align: right;">28,3 %</td>
+<td style="text-align: right;">2,7 %</td>
+<td style="text-align: right;">0,7 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ganancia (dB)</td>
+<td style="text-align: right;">−0,6</td>
+<td style="text-align: right;">−11,0</td>
+<td style="text-align: right;">−31,5</td>
+<td style="text-align: right;">−43,6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Frecuencia que «ven» las muestras a 30 Hz</td>
+<td style="text-align: right;">1 Hz</td>
+<td style="text-align: right;">3 Hz</td>
+<td style="text-align: right;">10 Hz</td>
+<td style="text-align: right;">10 Hz</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nm-q-expl">
+<div class="nm-q-title">
+<span class="nm-tag">Ejercicio exploratorio</span> Responde con la simulación; después compara con la tabla.
+</div>
+<ol type="1">
+<li>¿Qué parte de la amplitud deja pasar el filtro a 1 Hz y a 10 Hz?</li>
+<li>Pon 20 Hz. ¿Qué frecuencia parecen tener las muestras? ¿Se podría distinguir de una oscilación real de 10 Hz?</li>
+<li>¿Por qué el texto dice que el filtro de los <em>counts</em> es un problema para la actividad vigorosa y apenas para el sedentarismo?</li>
+</ol>
+<details class="nm-detalle">
+<summary>
+Qué deberías observar
+</summary>
+<ol type="1">
+<li>El 93,3 % a 1 Hz y el 2,7 % a 10 Hz: la banda estrecha deja casi entera la oscilación lenta y casi borra la rápida.</li>
+<li>10 Hz. Con solo las muestras no se puede: las de 20 Hz y las de 10 Hz son las mismas (con el signo cambiado). Por eso hay que filtrar antes de muestrear.</li>
+<li>El sedentarismo tiene poca energía por encima de 2 Hz, así que el filtro le quita poco; la actividad intensa tiene componentes hasta unos 10 Hz <span class="citation" data-cites="Fridolfsson2019">(<a href="99-referencias.html#ref-Fridolfsson2019" role="doc-biblioref">Fridolfsson et&nbsp;al. 2019</a>)</span>, que el filtro atenúa mucho. Es la idea clave del margen.</li>
+</ol>
+</details>
+</div>
+</div>
+<p><strong>Reproducibilidad de los <em>counts</em>.</strong> Durante años el algoritmo de <em>counts</em> fue propietario. <span class="citation" data-cites="Brond2017">Brønd et&nbsp;al. (<a href="99-referencias.html#ref-Brond2017" role="doc-biblioref">2017</a>)</span> lo reprodujeron a partir de señal RAW, con un error medio de unos 2 % en registros de vida libre. ActiGraph acabó publicando los algoritmos de cinco generaciones de dispositivos, junto con un paquete de Python <span class="citation" data-cites="Neishabouri2022">(<a href="99-referencias.html#ref-Neishabouri2022" role="doc-biblioref">Neishabouri et&nbsp;al. 2022</a>)</span>. Si hiciera falta comparar con estudios previos del grupo, Brincadiano podría calcular <em>counts</em> desde el RAW.</p>
+</section>
+<section id="sec-acel-counts" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-acel-counts"><span class="header-section-number">4.5</span> De los <em>counts</em> a la señal RAW</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.0 · modificado el 31/10/2026 · lectura 2 min · estudio 5 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="Troiano2008">Troiano et&nbsp;al. (<a href="99-referencias.html#ref-Troiano2008" role="doc-biblioref">2008</a>)</span>; <span class="citation" data-cites="LlorenteCantarero2021Protocolos">Llorente-Cantarero et&nbsp;al. (<a href="99-referencias.html#ref-LlorenteCantarero2021Protocolos" role="doc-biblioref">2021</a>)</span>; <span class="citation" data-cites="Migueles2021GRANADA">Migueles et&nbsp;al. (<a href="99-referencias.html#ref-Migueles2021GRANADA" role="doc-biblioref">2021</a>)</span>; <span class="citation" data-cites="vanHees2013">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">2013</a>)</span>.</p>
+</div>
+<div class="nm-box nm-ingenieros" data-rotulo="Para ingenieros · Puntos de corte">
+<p>Un punto de corte convierte una señal continua en categorías: si la actividad de un minuto supera cierto número de <em>counts</em>, el minuto cuenta como moderado. Los umbrales salen de estudios de calibración (niños que hacen actividades mientras se mide su gasto energético), cada uno con su edad, su colocación y su <em>epoch</em>. Por eso hay docenas y no coinciden: en GENOBOX, con los mismos niños, la actividad vigorosa va de 1,5 a 15,3 min/día según el umbral <span class="citation" data-cites="LlorenteCantarero2021Protocolos">(<a href="99-referencias.html#ref-LlorenteCantarero2021Protocolos" role="doc-biblioref">Llorente-Cantarero et&nbsp;al. 2021</a>)</span>.</p>
+</div>
+<div class="nm-box nm-ingenieros" data-rotulo="Para ingenieros · MET y actividad moderada-vigorosa">
+<p>Un MET es el gasto energético en reposo; una actividad de 3 MET gasta el triple. Por convención, en adultos la actividad ligera está por debajo de 3 MET, la moderada entre 3 y 6 y la vigorosa por encima de 6: andar deprisa es moderada; correr, vigorosa. La AFMV (actividad física moderada-vigorosa) suma las dos, y la OMS recomienda a niños y adolescentes una media de 60 min/día <span class="citation" data-cites="Bull2020">(<a href="99-referencias.html#ref-Bull2020" role="doc-biblioref">Bull et&nbsp;al. 2020</a>)</span>. El acelerómetro no mide MET: los estima mediante umbrales calibrados en laboratorio, que en niños varían según el estudio.</p>
+</div>
+<p>Los <em>counts</em> por minuto y sus puntos de corte se generalizaron con la acelerometría de NHANES <span class="citation" data-cites="Troiano2008">(<a href="99-referencias.html#ref-Troiano2008" role="doc-biblioref">Troiano et&nbsp;al. 2008</a>)</span>. Su problema es que dependen del dispositivo, del filtro, de la longitud del <em>epoch</em> y del protocolo de calibración elegido. El propio grupo lo cuantificó: con los mismos niños de GENOBOX <span class="citation" data-cites="LlorenteCantarero2021Protocolos">(<a href="99-referencias.html#ref-LlorenteCantarero2021Protocolos" role="doc-biblioref">Llorente-Cantarero et&nbsp;al. 2021</a>)</span>,</p>
+<ul>
+<li>el sedentarismo diario osciló entre 471 y 663,7 min,</li>
+<li>la actividad total entre 141 y 301,6 min,</li>
+<li>y la AFMV entre 20,7 y 180,2 min,</li>
+</ul>
+<p>solo por cambiar el protocolo de puntos de corte. El consenso GRANADA propone completar los puntos de corte con enfoques basados en la aceleración media y en descriptores de la distribución de intensidades, como las métricas MX <span class="citation" data-cites="Migueles2021GRANADA">(<a href="99-referencias.html#ref-Migueles2021GRANADA" role="doc-biblioref">Migueles et&nbsp;al. 2021</a>)</span>. Las métricas desde RAW (ENMO, MAD) están definidas en unidades físicas (mg) y son comparables entre marcas <span class="citation" data-cites="vanHees2013">(<a href="99-referencias.html#ref-vanHees2013" role="doc-biblioref">Hees et&nbsp;al. 2013</a>)</span>.</p>
+</section>
+<section id="sec-acel-colocacion" class="level2 page-columns page-full" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="sec-acel-colocacion"><span class="header-section-number">4.6</span> Colocación: cadera frente a muñeca</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.1 · modificado el 05/11/2026 · lectura 3 min · estudio 5 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="Trost2005">Trost et&nbsp;al. (<a href="99-referencias.html#ref-Trost2005" role="doc-biblioref">2005</a>)</span>; <span class="citation" data-cites="Hildebrand2014">Hildebrand et&nbsp;al. (<a href="99-referencias.html#ref-Hildebrand2014" role="doc-biblioref">2014</a>)</span>; <span class="citation" data-cites="Migueles2017">Migueles et&nbsp;al. (<a href="99-referencias.html#ref-Migueles2017" role="doc-biblioref">2017</a>)</span>; <span class="citation" data-cites="LlorenteCantarero2020Longitudinal">Llorente-Cantarero et&nbsp;al. (<a href="99-referencias.html#ref-LlorenteCantarero2020Longitudinal" role="doc-biblioref">2020</a>)</span>; <span class="citation" data-cites="Ishihara2026Luz">Ishihara et&nbsp;al. (<a href="99-referencias.html#ref-Ishihara2026Luz" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Burger2025Sueno">Burger et&nbsp;al. (<a href="99-referencias.html#ref-Burger2025Sueno" role="doc-biblioref">2025</a>)</span>; <span class="citation" data-cites="Cepni2025Sueno">Cepni et&nbsp;al. (<a href="99-referencias.html#ref-Cepni2025Sueno" role="doc-biblioref">2025</a>)</span>; <span class="citation" data-cites="JuradoCastro2019ActaPediatr">Jurado-Castro et&nbsp;al. (<a href="99-referencias.html#ref-JuradoCastro2019ActaPediatr" role="doc-biblioref">2019</a>)</span>.</p>
+</div>
+<div id="fig-cadera-muneca" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Dos columnas separadas por una línea vertical. A la izquierda, «Cadera»: un niño con el monitor en un cinturón, con la camiseta por encima; debajo, cuatro filas: intensidad de la actividad, buena (marca verde); luz, a menudo tapada por la ropa (aspa roja); sueño, poco validado (tilde); es la colocación del grupo (marca verde). A la derecha, «Muñeca»: el mismo niño con el monitor como un reloj; intensidad, mayor señal por el brazo (tilde); luz, más expuesta, salvo mangas (marca verde); sueño, algoritmos validados (marca verde); más fácil de llevar (marca verde).">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cadera-muneca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/figures/cap04/cadera-frente-a-muneca.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Dos columnas separadas por una línea vertical. A la izquierda, «Cadera»: un niño con el monitor en un cinturón, con la camiseta por encima; debajo, cuatro filas: intensidad de la actividad, buena (marca verde); luz, a menudo tapada por la ropa (aspa roja); sueño, poco validado (tilde); es la colocación del grupo (marca verde). A la derecha, «Muñeca»: el mismo niño con el monitor como un reloj; intensidad, mayor señal por el brazo (tilde); luz, más expuesta, salvo mangas (marca verde); sueño, algoritmos validados (marca verde); más fácil de llevar (marca verde).">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadera-muneca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.3: Cadera frente a muñeca para los objetivos de Brincadiano. La cadera, la colocación del grupo, recoge bien la intensidad, pero la ropa tapa el sensor de luz y la detección del sueño está poco validada. La muñeca da más señal por el movimiento del brazo <span class="citation" data-cites="Hildebrand2014">(<a href="99-referencias.html#ref-Hildebrand2014" role="doc-biblioref">Hildebrand et&nbsp;al. 2014</a>)</span>, deja la luz más expuesta <span class="citation" data-cites="Ishihara2026Luz">(<a href="99-referencias.html#ref-Ishihara2026Luz" role="doc-biblioref">Ishihara et&nbsp;al. 2026</a>)</span>, tiene algoritmos de sueño validados en niños <span class="citation" data-cites="Burger2025Sueno Cepni2025Sueno">(<a href="99-referencias.html#ref-Burger2025Sueno" role="doc-biblioref">Burger et&nbsp;al. 2025</a>; <a href="99-referencias.html#ref-Cepni2025Sueno" role="doc-biblioref">Cepni et&nbsp;al. 2025</a>)</span> y se lleva con más facilidad <span class="citation" data-cites="JuradoCastro2019ActaPediatr">(<a href="99-referencias.html#ref-JuradoCastro2019ActaPediatr" role="doc-biblioref">Jurado-Castro et&nbsp;al. 2019</a>)</span>. Ilustración conceptual, sin datos del estudio.
+</figcaption>
+</figure>
+</div>
+<details class="nm-detalle">
+<summary>
+Procedencia y limitaciones de esta imagen
+</summary>
+<p><strong>Procedencia.</strong> Ilustración conceptual generada con FigureLabs (IA) a partir de una descripción sin datos del estudio y revisada a mano. La primera versión se descartó porque el niño de la columna «Muñeca» seguía llevando el cinturón de cadera; se usa la segunda (revisión del 2 de octubre de 2026). Cada afirmación tiene su referencia en el pie. El <em>prompt</em> y la revisión están en <code>report/assets/02_acelerometria/report/figures/cadera-frente-a-muneca.prompt.txt</code>.</p>
+<p><strong>Limitaciones.</strong> Es un esquema con valoraciones cualitativas (✓, ✗, ~), no una comparación medida.</p>
+</details>
+<p>Durante años, los estudios de campo prefirieron colocar el monitor en la cadera o en la parte baja de la espalda. Para estimar la actividad habitual de un niño hacen falta entre 4 y 9 días de registro <span class="citation" data-cites="Trost2005">(<a href="99-referencias.html#ref-Trost2005" role="doc-biblioref">Trost et&nbsp;al. 2005</a>)</span>. Para la misma actividad, la muñeca suele dar más señal RAW que la cadera, y los umbrales de intensidad deben derivarse específicamente para cada colocación y grupo de edad <span class="citation" data-cites="Hildebrand2014">(<a href="99-referencias.html#ref-Hildebrand2014" role="doc-biblioref">Hildebrand et&nbsp;al. 2014</a>)</span>. Las decisiones de colocación, <em>epoch</em>, no uso y día válido están revisadas para el GT3X/GT3X+ por grupos de edad en <span class="citation" data-cites="Migueles2017">Migueles et&nbsp;al. (<a href="99-referencias.html#ref-Migueles2017" role="doc-biblioref">2017</a>)</span>. El grupo coloca el dispositivo sobre la cresta ilíaca derecha con un cinturón elástico <span class="citation" data-cites="LlorenteCantarero2020Longitudinal">(<a href="99-referencias.html#ref-LlorenteCantarero2020Longitudinal" role="doc-biblioref">Llorente-Cantarero et&nbsp;al. 2020</a>)</span>. En MELI-POP, según el grupo (15 de octubre de 2026), siempre fue en la cadera derecha, sin instrucción sobre llevarlo bajo o sobre la ropa: dependió de cada niño.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="nm-box nm-limite" data-rotulo="Límite">
+<p>En la cadera, el dispositivo queda cerca de la ropa y del tronco: capta bien la locomoción, peor los movimientos de brazos, y su sensor de luz se ocluye con facilidad (cap. 14 del informe). Los umbrales de intensidad para ENMO deben ser los derivados para cadera en niños <span class="citation" data-cites="Hildebrand2014">(<a href="99-referencias.html#ref-Hildebrand2014" role="doc-biblioref">Hildebrand et&nbsp;al. 2014</a>)</span>, no los de muñeca.</p>
+</div>
+</div></div><p><strong>¿Qué colocación para medir luz y actividad a la vez?</strong> El grupo plantea decidir, en proyectos futuros, entre la cadera, por fuera de la ropa, y la muñeca. Con lo leído no se puede cerrar: la cadera es donde está el grupo y donde hay umbrales de intensidad derivados para niños <span class="citation" data-cites="Hildebrand2014">(<a href="99-referencias.html#ref-Hildebrand2014" role="doc-biblioref">Hildebrand et&nbsp;al. 2014</a>)</span>, aunque no para preescolares; la muñeca deja la luz más expuesta <span class="citation" data-cites="Ishihara2026Luz">(<a href="99-referencias.html#ref-Ishihara2026Luz" role="doc-biblioref">Ishihara et&nbsp;al. 2026</a>)</span>, tiene algoritmos de sueño validados en niños <span class="citation" data-cites="Burger2025Sueno Cepni2025Sueno">(<a href="99-referencias.html#ref-Burger2025Sueno" role="doc-biblioref">Burger et&nbsp;al. 2025</a>; <a href="99-referencias.html#ref-Cepni2025Sueno" role="doc-biblioref">Cepni et&nbsp;al. 2025</a>)</span> y se lleva con más facilidad, pero no es lo que hay en las cohortes. Que llevar el dispositivo sobre la ropa reduzca la oclusión de la luz en la cadera es una hipótesis <span class="estado e-pendiente">pendiente</span>: nadie lo ha comprobado aquí, y el registro controlado compara cadera, muñeca y pecho a la vez (<code>LUZ-02</code>, §14.2 del informe).</p>
+</section>
+<section id="sec-acel-calibracion" class="level2 page-columns page-full" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-acel-calibracion"><span class="header-section-number">4.7</span> Calibración</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.0 · modificado el 31/10/2026 · lectura 1 min · estudio 5 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="vanHees2014">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2014" role="doc-biblioref">2014</a>)</span>.</p>
+</div>
+<p>Cada eje puede tener un pequeño error de desplazamiento (<em>offset</em>) y de ganancia, de modo que en reposo la norma no es exactamente 1 g. La autocalibración de <span class="citation" data-cites="vanHees2014">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2014" role="doc-biblioref">2014</a>)</span> no requiere experimentos adicionales:</p>
+<ol type="1">
+<li>extrae del propio registro los periodos sin movimiento, en los que la norma debería valer 1 g;</li>
+<li>ajusta factores de corrección por eje mediante un proceso iterativo de punto más cercano.</li>
+</ol>
+<p>En cuatro cohortes, el método redujo el error de calibración de forma significativa; por ejemplo, de 76,7 a 8,0 mg en la cohorte brasileña. Su efecto sobre las métricas de actividad fue apreciable. La corrección por temperatura apenas añadió mejora.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="nm-box nm-decision" data-rotulo="Decisión metodológica">
+<p>ENMO se calcula sobre la señal autocalibrada con el método de <span class="citation" data-cites="vanHees2014">Hees et&nbsp;al. (<a href="99-referencias.html#ref-vanHees2014" role="doc-biblioref">2014</a>)</span>, tal como lo implementa GGIR y sin el término de temperatura, que estos archivos no registran. El error en reposo y cuánto baja el ENMO en los registros de prueba están en el cap. 9 del informe. El <code>calibration.json</code> de fábrica de los wGT3X-BT recientes (cap. 6 del informe) no sustituye a esa corrección.</p>
+</div>
+</div></div><p>Cómo se adquiere esa señal en este estudio, y cómo se lee el archivo, es lo que sigue (caps. 5 y 6 del informe).</p>
+</section>
+<section id="sec-acel-dudas" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="sec-acel-dudas"><span class="header-section-number">4.8</span> Dudas del proyecto</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.0 · modificado el 31/10/2026 · lectura 2 min · estudio 5 min</p>
+</div>
+<p>Una ficha del cuaderno de dudas afecta a este capítulo. Está completa en el capítulo que decide su respuesta (cap. 5 del informe, «Diseño del estudio y adquisición», el siguiente en el libro); aquí va la remisión del informe, con la respuesta registrada. Está <strong>resuelta</strong>: el grupo contestó el 15 de octubre de 2026 y la respuesta está documentada en la ficha.</p>
+<div id="duda-pro-04" class="nm-duda-ficha nm-d-resuelta">
+<div class="nm-duda-cab">
+<p><span class="nm-duda-id">PRO-04</span> <span class="dudaestado d-resuelta">resuelta</span> <span class="nm-duda-prio">prioridad P1</span></p>
+<p><strong>¿Cómo se colocó y se configuró el dispositivo?</strong></p>
+</div>
+<dl>
+<dt>Pregunta</dt>
+<dd>
+¿El cinturón iba sobre o bajo la ropa, y en qué cadera? ¿Se activaron el <em>idle sleep</em> y el registro de luz?
+</dd>
+<dt>Qué cambia aquí</dt>
+<dd>
+El grupo respondió el 15 de octubre de 2026 (declarado): cadera derecha, sin instrucción sobre la ropa, y el <em>idle sleep</em>, cree, normalmente no se activaba, aunque no descarta que algún grupo sí. Pero está activo en los tres registros de prueba, y importa: rellenarlo mueve el ancla del <em>timing</em> hasta 1,2 h (§15.5 del informe). La ropa libre agrava la oclusión de la luz (cap. 14 del informe); el modo del <em>idle sleep</em> de cada cohorte se verá con los cinco archivos de cada una.
+</dd>
+<dt>Respuesta</dt>
+<dd>
+José Manuel Jurado Castro, 15/10/2026.
+<ol type="1">
+<li>Siempre en la cadera derecha. No se dieron instrucciones sobre llevarlo por encima o por debajo de la ropa: dependía del niño. No hay fotos del montaje.</li>
+<li><em>Idle sleep</em>: cree que normalmente no se activaba, aunque no descarta que algún grupo u ocasión sí. Luz: nunca se ha extraído en las cohortes; cree que se puede comprobar en el propio <em>raw</em>. Versión de ActiLife: la 6.13 en los últimos datos (lo confirmará desde el PC del IMIBIC). Un detalle: los datos de nacimiento, talla y sexo que se introducen al programar los dispositivos a veces no son exactos, sobre todo en programaciones múltiples.</li>
+</ol>
+</dd>
+</dl>
+</div>
+
+
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Referencias</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ActiGraphGT3X" class="csl-entry" role="listitem">
+ActiGraph. 2026. <em><span>GT3X</span> File Format</em>. <a href="https://github.com/actigraph/GT3X-File-Format" class="uri">Https://github.com/actigraph/GT3X-File-Format</a>.
+</div>
+<div id="ref-Bouten1997" class="csl-entry" role="listitem">
+Bouten, C. V. C., K. T. M. Koekkoek, M. Verduin, R. Kodde, y J. D. Janssen. 1997. <span>«<span>A triaxial accelerometer and portable data processing unit for the assessment of daily physical activity</span>»</span>. <em>IEEE Transactions on Biomedical Engineering</em> 44 (3): 136-47. <a href="https://doi.org/10.1109/10.554760">https://doi.org/10.1109/10.554760</a>.
+</div>
+<div id="ref-Brond2017" class="csl-entry" role="listitem">
+Brønd, Jan Christian, Lars Bo Andersen, y Daniel Arvidsson. 2017. <span>«Generating <span>ActiGraph</span> Counts from Raw Acceleration Recorded by an Alternative Monitor»</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em> 49 (11): 2351-60. <a href="https://doi.org/10.1249/MSS.0000000000001344">https://doi.org/10.1249/MSS.0000000000001344</a>.
+</div>
+<div id="ref-Bull2020" class="csl-entry" role="listitem">
+Bull, Fiona C, Salih S Al-Ansari, Stuart Biddle, et&nbsp;al. 2020. <span>«<span>World Health Organization 2020 guidelines on physical activity and sedentary behaviour</span>»</span>. <em>British Journal of Sports Medicine</em> 54 (24): 1451-62. <a href="https://doi.org/10.1136/bjsports-2020-102955">https://doi.org/10.1136/bjsports-2020-102955</a>.
+</div>
+<div id="ref-Burger2025Sueno" class="csl-entry" role="listitem">
+Burger, Pia, Frea H. Kruisinga, Anneline Lettink, Mai J. M. Chinapaw, y Reinoud J. B. J. Gemke. 2025. <span>«<span>Accelerometry for sleep assessment in children: Criterium validity of different algorithms in wrist- and ankle-worn devices</span>»</span>. <em>Journal of Sleep Research</em> 34 (4): e14426. <a href="https://doi.org/10.1111/jsr.14426">https://doi.org/10.1111/jsr.14426</a>.
+</div>
+<div id="ref-Cepni2025Sueno" class="csl-entry" role="listitem">
+Cepni, Aliye B., Sarah Burkart, Xuanxuan Zhu, et&nbsp;al. 2025. <span>«<span>Evaluating the performance of open-source and proprietary processing of actigraphy sleep estimation in children with suspected sleep disorders: a comparison with polysomnography</span>»</span>. <em>Sleep</em> 48 (4): zsae267. <a href="https://doi.org/10.1093/sleep/zsae267">https://doi.org/10.1093/sleep/zsae267</a>.
+</div>
+<div id="ref-ChenBassett2005" class="csl-entry" role="listitem">
+Chen, Kong Y., y David R. Bassett. 2005. <span>«<span>The Technology of Accelerometry-Based Activity Monitors: Current and Future</span>»</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em> 37 (11): S490-500. <a href="https://doi.org/10.1249/01.mss.0000185571.49104.82">https://doi.org/10.1249/01.mss.0000185571.49104.82</a>.
+</div>
+<div id="ref-Fridolfsson2019" class="csl-entry" role="listitem">
+Fridolfsson, Jonatan, Mats Börjesson, Christoph Buck, et&nbsp;al. 2019. <span>«<span>Effects of Frequency Filtering on Intensity and Noise in Accelerometer-Based Physical Activity Measurements</span>»</span>. <em>Sensors</em> 19 (9): 2186. <a href="https://doi.org/10.3390/s19092186">https://doi.org/10.3390/s19092186</a>.
+</div>
+<div id="ref-vanHees2014" class="csl-entry" role="listitem">
+Hees, Vincent T. van, Zhou Fang, Joss Langford, et&nbsp;al. 2014. <span>«Autocalibration of accelerometer data for free-living physical activity assessment using local gravity and temperature: an evaluation on four continents»</span>. <em>Journal of Applied Physiology</em> 117 (7): 738-44. <a href="https://doi.org/10.1152/japplphysiol.00421.2014">https://doi.org/10.1152/japplphysiol.00421.2014</a>.
+</div>
+<div id="ref-vanHees2013" class="csl-entry" role="listitem">
+Hees, Vincent T. van, Lukas Gorzelniak, Emmanuel Carlos Dean León, et&nbsp;al. 2013. <span>«Separating Movement and Gravity Components in an Acceleration Signal and Implications for the Assessment of Human Daily Physical Activity»</span>. <em>PLoS ONE</em> 8 (4): e61691. <a href="https://doi.org/10.1371/journal.pone.0061691">https://doi.org/10.1371/journal.pone.0061691</a>.
+</div>
+<div id="ref-Hildebrand2014" class="csl-entry" role="listitem">
+Hildebrand, Maria, Vincent T. van Hees, Bjorge Hermann Hansen, y Ulf Ekelund. 2014. <span>«Age Group Comparability of Raw Accelerometer Output from Wrist- and Hip-Worn Monitors»</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em> 46 (9): 1816-24. <a href="https://doi.org/10.1249/MSS.0000000000000289">https://doi.org/10.1249/MSS.0000000000000289</a>.
+</div>
+<div id="ref-Ishihara2026Luz" class="csl-entry" role="listitem">
+Ishihara, Asuka, Robert J. Brychta, Samuel R. LaMunion, et&nbsp;al. 2026. <span>«<span>Performance of wearable light sensors for measuring photopic and melanopic illuminance under laboratory and free-living conditions</span>»</span>. <em>Sleep</em> 49 (2): zsaf358. <a href="https://doi.org/10.1093/sleep/zsaf358">https://doi.org/10.1093/sleep/zsaf358</a>.
+</div>
+<div id="ref-JohnFreedson2012" class="csl-entry" role="listitem">
+John, Dinesh, y Patty Freedson. 2012. <span>«<span>ActiGraph</span> and <span>Actical</span> Physical Activity Monitors: A Peek under the Hood»</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em> 44 (1S): S86-89. <a href="https://doi.org/10.1249/MSS.0b013e3182399f5e">https://doi.org/10.1249/MSS.0b013e3182399f5e</a>.
+</div>
+<div id="ref-JuradoCastro2019ActaPediatr" class="csl-entry" role="listitem">
+Jurado-Castro, José Manuel, Francisco Jesús Llorente-Cantarero, y Mercedes Gil-Campos. 2019. <span>«Evaluación de la actividad física en niños»</span>. <em>Acta Pediátrica Española</em> 77 (5-6): 94-99.
+</div>
+<div id="ref-LlorenteCantarero2020Longitudinal" class="csl-entry" role="listitem">
+Llorente-Cantarero, Francisco Jesús, Francisco Javier Aguilar-Gómez, Augusto Anguita-Ruiz, et&nbsp;al. 2020. <span>«<span>Changes in Physical Activity Patterns from Childhood to Adolescence: Genobox Longitudinal Study</span>»</span>. <em>International Journal of Environmental Research and Public Health</em> 17 (19): 7227. <a href="https://doi.org/10.3390/ijerph17197227">https://doi.org/10.3390/ijerph17197227</a>.
+</div>
+<div id="ref-LlorenteCantarero2021Protocolos" class="csl-entry" role="listitem">
+Llorente-Cantarero, Francisco Jesus, Jose Manuel Jurado-Castro, Rosaura Leis, et&nbsp;al. 2021. <span>«<span>Evaluation of Sedentary Behavior and Physical Activity Levels Using Different Accelerometry Protocols in Children from the GENOBOX Study</span>»</span>. <em>Sports Medicine - Open</em> 7 (1). <a href="https://doi.org/10.1186/s40798-021-00365-z">https://doi.org/10.1186/s40798-021-00365-z</a>.
+</div>
+<div id="ref-Migueles2021GRANADA" class="csl-entry" role="listitem">
+Migueles, Jairo H, Eivind Aadland, Lars Bo Andersen, et&nbsp;al. 2021. <span>«<span>GRANADA consensus on analytical approaches to assess associations with accelerometer-determined physical behaviours (physical activity, sedentary behaviour and sleep) in epidemiological studies</span>»</span>. <em>British Journal of Sports Medicine</em> 56 (7): 376-84. <a href="https://doi.org/10.1136/bjsports-2020-103604">https://doi.org/10.1136/bjsports-2020-103604</a>.
+</div>
+<div id="ref-Migueles2017" class="csl-entry" role="listitem">
+Migueles, Jairo H., Cristina Cadenas-Sanchez, Ulf Ekelund, et&nbsp;al. 2017. <span>«Accelerometer Data Collection and Processing Criteria to Assess Physical Activity and Other Outcomes: A Systematic Review and Practical Considerations»</span>. <em>Sports Medicine</em> 47 (9): 1821-45. <a href="https://doi.org/10.1007/s40279-017-0716-0">https://doi.org/10.1007/s40279-017-0716-0</a>.
+</div>
+<div id="ref-Neishabouri2022" class="csl-entry" role="listitem">
+Neishabouri, Ali, Joe Nguyen, John Samuelsson, et&nbsp;al. 2022. <span>«Quantification of acceleration as activity counts in <span>ActiGraph</span> wearable»</span>. <em>Scientific Reports</em> 12. <a href="https://doi.org/10.1038/s41598-022-16003-x">https://doi.org/10.1038/s41598-022-16003-x</a>.
+</div>
+<div id="ref-Troiano2008" class="csl-entry" role="listitem">
+Troiano, Richard P., David Berrigan, Kevin W. Dodd, Louise C. Mâsse, Timothy Tilert, y Margaret McDowell. 2008. <span>«Physical Activity in the <span>United States</span> Measured by Accelerometer»</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em> 40 (1): 181-88. <a href="https://doi.org/10.1249/mss.0b013e31815a51b3">https://doi.org/10.1249/mss.0b013e31815a51b3</a>.
+</div>
+<div id="ref-Trost2005" class="csl-entry" role="listitem">
+Trost, Stewart G., Kerry L. Mciver, y Russell R. Pate. 2005. <span>«<span>Conducting Accelerometer-Based Activity Assessments in Field-Based Research</span>»</span>. <em>Medicine &amp; Science in Sports &amp; Exercise</em> 37 (11): S531-43. <a href="https://doi.org/10.1249/01.mss.0000185657.86065.98">https://doi.org/10.1249/01.mss.0000185657.86065.98</a>.
+</div>
+<div id="ref-VahaYpya2015" class="csl-entry" role="listitem">
+Vähä-Ypyä, Henri, Tommi Vasankari, Pauliina Husu, Jaana Suni, y Harri Sievänen. 2015. <span>«A universal, accurate intensity-based classification of different physical activities using raw data of accelerometer»</span>. <em>Clinical Physiology and Functional Imaging</em> 35 (1): 64-70. <a href="https://doi.org/10.1111/cpf.12127">https://doi.org/10.1111/cpf.12127</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/03-estado-hipotesis.html" class="pagination-link" aria-label="Estado del arte, hipótesis y objetivos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estado del arte, hipótesis y objetivos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/99-referencias.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

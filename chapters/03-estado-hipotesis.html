@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Estado del arte, hipótesis y objetivos – Brincadiano</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/04-acelerometria.html" rel="next">
+<link href="../chapters/02-grupo-gc23.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b12e71101a410aa398c066a74cb85b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script defer="" src="../vendor/katex/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03-estado-hipotesis.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estado del arte, hipótesis y objetivos</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Brincadiano</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Portada</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-metabolismo-ingenieros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Metabolismo infantil para ingenieros</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-grupo-gc23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Grupo GC23 Metabolismo infantil</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-estado-hipotesis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estado del arte, hipótesis y objetivos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-acelerometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fundamentos de acelerometría</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/99-referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-aprendizaje" id="toc-objetivos-de-aprendizaje" class="nav-link active" data-scroll-target="#objetivos-de-aprendizaje">Objetivos de aprendizaje</a></li>
+  <li><a href="#lecturas-esenciales" id="toc-lecturas-esenciales" class="nav-link" data-scroll-target="#lecturas-esenciales">Lecturas esenciales</a></li>
+  <li><a href="#sec-ea-estado" id="toc-sec-ea-estado" class="nav-link" data-scroll-target="#sec-ea-estado"><span class="header-section-number">3.1</span> Luz, actividad física y adiposidad</a>
+  <ul class="collapse">
+  <li><a href="#sec-ea-bloques" id="toc-sec-ea-bloques" class="nav-link" data-scroll-target="#sec-ea-bloques"><span class="header-section-number">3.1.1</span> Qué se sabe, por bloques</a></li>
+  <li><a href="#sec-ea-ding" id="toc-sec-ea-ding" class="nav-link" data-scroll-target="#sec-ea-ding"><span class="header-section-number">3.1.2</span> El antecedente más cercano</a></li>
+  <li><a href="#sec-ea-afirmaciones" id="toc-sec-ea-afirmaciones" class="nav-link" data-scroll-target="#sec-ea-afirmaciones"><span class="header-section-number">3.1.3</span> ¿Sostiene la literatura las dos afirmaciones?</a></li>
+  <li><a href="#sec-ea-variables" id="toc-sec-ea-variables" class="nav-link" data-scroll-target="#sec-ea-variables"><span class="header-section-number">3.1.4</span> Variables y métodos prometedores</a></li>
+  <li><a href="#sec-ea-hueco" id="toc-sec-ea-hueco" class="nav-link" data-scroll-target="#sec-ea-hueco"><span class="header-section-number">3.1.5</span> Hueco de investigación</a></li>
+  <li><a href="#sec-ea-matriz" id="toc-sec-ea-matriz" class="nav-link" data-scroll-target="#sec-ea-matriz"><span class="header-section-number">3.1.6</span> Fichas de la matriz de evidencia</a></li>
+  </ul></li>
+  <li><a href="#sec-ea-hipotesis" id="toc-sec-ea-hipotesis" class="nav-link" data-scroll-target="#sec-ea-hipotesis"><span class="header-section-number">3.2</span> Hipótesis</a></li>
+  <li><a href="#sec-ea-objetivos" id="toc-sec-ea-objetivos" class="nav-link" data-scroll-target="#sec-ea-objetivos"><span class="header-section-number">3.3</span> Objetivos</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ea" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estado del arte, hipótesis y objetivos</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="nm-meta nm-meta-capitulo" role="note">
+<p>v0.1.1 · modificado el 05/11/2026 · lectura 29 min · estudio 55 min</p>
+</div>
+<div class="nm-nav">
+<table><caption>Secciones de este capítulo. <strong>Lectura</strong>: tiempo de leer el texto (200 palabras/min). <strong>Estudio</strong>: lectura más ecuaciones, preguntas y simulaciones (criterios en <code>metadata/criterios-tiempos.yml</code>).</caption>
+<thead><tr><th>Sección</th><th>Lectura</th><th>Estudio</th></tr></thead><tbody>
+<tr><td><a href="#sec-ea-estado">Luz, actividad física y adiposidad</a></td><td>21 min</td><td>35 min</td></tr>
+<tr><td><a href="#sec-ea-hipotesis">Hipótesis</a></td><td>4 min</td><td>20 min</td></tr>
+<tr><td><a href="#sec-ea-objetivos">Objetivos</a></td><td>2 min</td><td>5 min</td></tr>
+</tbody><tfoot><tr><th>Capítulo completo</th><th>29 min</th><th>55 min</th></tr></tfoot></table></div>
+<!-- Fuente: report/chapters/01c_estado_hipotesis.tex, 01b_estado_arte.tex y 01b_matriz_evidencia.tex (commit 25ac67d del
+     repositorio; sin cambios desde 54e2ab2) y su frase de cabecera en report/chapters/00_objetivos.tex.
+     Cambios editoriales y bloques añadidos: quarto/docs/auditoria.md. -->
+<p><strong>Idea del capítulo.</strong> El hueco está en el momento del día y en la luz junto con la actividad y el sueño, y la hipótesis confirmatoria es un único contraste sobre ese momento y el HOMA-IR. <span class="nm-ruta r-nucleo">núcleo</span></p>
+<section id="objetivos-de-aprendizaje" class="level2 unnumbered" data-origen="ampliacion">
+<h2 class="unnumbered anchored" data-anchor-id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p><strong>Al terminar este capítulo deberías ser capaz de:</strong></p>
+<ol type="1">
+<li>resumir qué se sabe de la luz, la actividad y el sueño frente a la adiposidad infantil, por bloques, y qué sigue abierto;</li>
+<li>explicar qué hace el antecedente más cercano <span class="citation" data-cites="Ding2025Luz24h">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>)</span> y qué pierde al resumir la luz en una composición de cuatro niveles con ventanas de reloj fijas;</li>
+<li>distinguir lo que ya no es novedoso de lo poco estudiado, y decir qué búsquedas faltan antes de afirmar originalidad;</li>
+<li>enunciar la hipótesis confirmatoria y por qué se contrasta con dos coordenadas, <span class="math inline">R\cos\theta</span> y <span class="math inline">R\sin\theta</span>, y no con la hora media;</li>
+<li>situar las tres líneas de trabajo y el objetivo metodológico transversal, con el límite del sensor de luz.</li>
+</ol>
+<p><strong>Conocimientos previos.</strong> El HOMA-IR (<a href="../chapters/01-metabolismo-ingenieros.html">cap. 1</a>) y lo que el grupo ya ha medido (<a href="../chapters/02-grupo-gc23.html">cap. 2</a>). L5, IS e IV se definen en el cap. 7 del informe; aquí basta saber que L5 marca las cinco horas de menos actividad del día.</p>
+</section>
+<section id="lecturas-esenciales" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="lecturas-esenciales">Lecturas esenciales</h2>
+<p>Tres lecturas, de mayor a menor prioridad. Los tiempos y la dificultad para ingeniería (1 = baja, 3 = alta) son los del informe y son orientativos.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Pasa el cursor (o toca) sobre la cita para ver la referencia completa. Los niveles son los del informe: <strong>imprescindible</strong>, <strong>para profundizar</strong> y <strong>consulta</strong>.</p>
+</div></div><div class="nm-lecturas">
+<div class="nm-lectura">
+<div class="nm-lec-nivel">
+<p><span class="nm-prio nm-prio-1">Imprescindible</span></p>
+</div>
+<div class="nm-lec-cuerpo">
+<p><strong><span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span></strong> · «Personal 24-hour light exposure pattern with obesity and adiposity-related parameters in school-aged children: A cross-sectional study based on compositional data analysis» (artículo, <em>Environmental Research</em>).</p>
+<p>Patrones de luz de 24 h y adiposidad en escolares: el antecedente frente al que se mide la línea de luz.</p>
+</div>
+<ul>
+<li><strong>Tiempo</strong> ≈ 1 h</li>
+<li><strong>Dificultad</strong> 2/3</li>
+<li><strong>Sección</strong> <a href="#sec-ea-estado" class="quarto-xref"><span>Sección 3.1</span></a></li>
+<li><strong>DOI</strong> <a href="https://doi.org/10.1016/j.envres.2025.121422">10.1016/j.envres.2025.121422</a></li>
+</ul>
+</div>
+<div class="nm-lectura">
+<div class="nm-lec-nivel">
+<p><span class="nm-prio nm-prio-2">Para profundizar</span></p>
+</div>
+<div class="nm-lec-cuerpo">
+<p><strong><span class="citation" data-cites="vanderVelde2023">van der Velde et&nbsp;al. (<a href="99-referencias.html#ref-vanderVelde2023" role="doc-biblioref">2022</a>)</span></strong> · «Timing of physical activity in relation to liver fat content and insulin resistance» (artículo, <em>Diabetologia</em>).</p>
+<p>En adultos, concentrar la actividad moderada-vigorosa por la tarde o la noche se asocia con un HOMA-IR menor.</p>
+</div>
+<ul>
+<li><strong>Tiempo</strong> ≈ 1 h</li>
+<li><strong>Dificultad</strong> 1/3</li>
+<li><strong>Sección</strong> <a href="#sec-ea-hipotesis" class="quarto-xref"><span>Sección 3.2</span></a></li>
+<li><strong>DOI</strong> <a href="https://doi.org/10.1007/s00125-022-05813-3">10.1007/s00125-022-05813-3</a></li>
+</ul>
+</div>
+<div class="nm-lectura">
+<div class="nm-lec-nivel">
+<p><span class="nm-prio nm-prio-3">Consulta</span></p>
+</div>
+<div class="nm-lec-cuerpo">
+<p><strong><span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span></strong> · «Circadian Light Exposure Patterns and Waist-to-Height Ratio in Children: An Actigraphy Study» (preprint sin revisión por pares, <em>Research Square</em>).</p>
+<p>El antecedente pediátrico más cercano: luz, actividad, sueño y temperatura frente a la adiposidad, todavía por modalidad.</p>
+</div>
+<ul>
+<li><strong>Tiempo</strong> ≈ 1 h</li>
+<li><strong>Dificultad</strong> 2/3</li>
+<li><strong>Sección</strong> <a href="#sec-ea-estado" class="quarto-xref"><span>Sección 3.1</span></a></li>
+<li><strong>DOI</strong> <a href="https://doi.org/10.21203/rs.3.rs-10453804/v1">10.21203/rs.3.rs-10453804/v1</a></li>
+</ul>
+</div>
+</div>
+<p><strong>Genealogía de la idea.</strong></p>
+<div class="nm-linea">
+<ul>
+<li><strong>1999 · L5 como fase.</strong> Métodos no paramétricos para el ritmo de reposo-actividad, entre ellos L5, las cinco horas menos activas; Brincadiano toma su punto medio como fase <span class="citation" data-cites="VanSomeren1999">(<a href="99-referencias.html#ref-VanSomeren1999" role="doc-biblioref">Van Someren et&nbsp;al. 1999</a>)</span>.</li>
+<li><strong>2021 · consenso GRANADA.</strong> Ir más allá de los puntos de corte de <em>counts</em> para relacionar la conducta medida con acelerómetro con la salud <span class="citation" data-cites="Migueles2021GRANADA">(<a href="99-referencias.html#ref-Migueles2021GRANADA" role="doc-biblioref">Migueles et&nbsp;al. 2021</a>)</span>.</li>
+<li><strong>2023 · <em>timing</em> y HOMA-IR.</strong> En adultos, el momento del día de la actividad se asocia con el HOMA-IR <span class="citation" data-cites="vanderVelde2023">(<a href="99-referencias.html#ref-vanderVelde2023" role="doc-biblioref">van der Velde et&nbsp;al. 2022</a>)</span>.</li>
+<li><strong>2025 · luz de 24 h.</strong> La luz personal de 24 h, resumida en una composición, se asocia con la adiposidad en escolares <span class="citation" data-cites="Ding2025Luz24h">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>)</span>.</li>
+</ul>
+</div>
+<p>Con lo que el grupo GC23 ya ha medido, este capítulo fija el hueco y la pregunta. El estado del arte dice qué se sabe de la luz, la actividad y el sueño juntos; la hipótesis confirmatoria es un único contraste del momento de la actividad vigorosa frente al HOMA-IR. Los trabajos del grupo están en el <a href="../chapters/02-grupo-gc23.html">cap. 2</a>.</p>
+</section>
+<section id="sec-ea-estado" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-ea-estado"><span class="header-section-number">3.1</span> Luz, actividad física y adiposidad</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.1 · modificado el 05/11/2026 · lectura 21 min · estudio 35 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span>; <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Stefanopoulou2024ABCD">Stefanopoulou et&nbsp;al. (<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">2024</a>)</span>; <span class="citation" data-cites="CostaLopes2025Luz">Costa Lopes et&nbsp;al. (<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">2025</a>)</span>; <span class="citation" data-cites="daSilva2026Ritmos">Silva et&nbsp;al. (<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="LunsfordAvery2023Regularidad">Lunsford-Avery (<a href="99-referencias.html#ref-LunsfordAvery2023Regularidad" role="doc-biblioref">2023</a>)</span>; <span class="citation" data-cites="Jex2026Multimodal">Jex et&nbsp;al. (<a href="99-referencias.html#ref-Jex2026Multimodal" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Tang2026LAN">Tang et&nbsp;al. (<a href="99-referencias.html#ref-Tang2026LAN" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Ma2026Contaminacion">Ma et&nbsp;al. (<a href="99-referencias.html#ref-Ma2026Contaminacion" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Ge2026ALAN">Ge et&nbsp;al. (<a href="99-referencias.html#ref-Ge2026ALAN" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span>; <span class="citation" data-cites="Qu2025LAN">Qu et&nbsp;al. (<a href="99-referencias.html#ref-Qu2025LAN" role="doc-biblioref">2025</a>)</span>; <span class="citation" data-cites="Moreno2023ESRI">Moreno et&nbsp;al. (<a href="99-referencias.html#ref-Moreno2023ESRI" role="doc-biblioref">2023</a>)</span>; <span class="citation" data-cites="Windred2024Diabetes">Windred et&nbsp;al. (<a href="99-referencias.html#ref-Windred2024Diabetes" role="doc-biblioref">2024</a>)</span>; <span class="citation" data-cites="Janda2024Perfiles">Janda et&nbsp;al. (<a href="99-referencias.html#ref-Janda2024Perfiles" role="doc-biblioref">2024</a>)</span>.</p>
+</div>
+<p>Esta sección prepara un artículo original <em>exploratorio</em> de la línea de luz (Brincadiano 3, nivel 5 de la <a href="01-metabolismo-ingenieros.html#fig-arquitectura" class="quarto-xref">figura&nbsp;<span>1.2</span></a>): si la estructura temporal y conjunta de la luz, la actividad física y el sueño contiene información sobre la adiposidad infantil que no recogen las métricas resumen de 24 h. No modifica la hipótesis confirmatoria del proyecto (<a href="#sec-ea-hipotesis" class="quarto-xref"><span>Sección 3.2</span></a>). Su función es de diseño: saber qué está hecho, qué no y qué parte de la idea merece contrastarse.</p>
+<p><strong>Búsqueda y lectura.</strong> Se hicieron en Scopus ocho búsquedas sucesivas (A–H): obesidad y acelerometría; la intersección con la luz; pediatría, luz y <em>wearables</em>; luz y obesidad sin exigir <em>wearable</em>; patrones temporales y multimodales; y las intersecciones más restrictivas con la adiposidad. De ellas salió una hoja priorizada de 45 referencias: 11 <em>esenciales</em>, 13 de prioridad <em>alta</em>, 10 de <em>contexto</em> y 11 <em>periféricas</em>. Se leyeron completos los 10 esenciales con PDF; del undécimo <span class="citation" data-cites="LongoSilva2026Luz">(<a href="99-referencias.html#ref-LongoSilva2026Luz" role="doc-biblioref">Longo Silva et&nbsp;al. 2026</a>)</span> solo se dispone de los metadatos y no se le atribuye ningún contenido <span class="estado e-pendiente">pendiente</span>. La hoja no guarda el número total de resultados de cada búsqueda, así que el recuento global de la estrategia no puede darse aquí <span class="estado e-pendiente">pendiente</span>. Las celdas sin dato de la matriz llevan «no consta en la fuente disponible». La matriz completa, una ficha por artículo, está en el <a href="#sec-ea-matriz" class="quarto-xref"><span>Sección 3.1.6</span></a>.</p>
+<p><strong>Búsqueda dirigida</strong> (5 de octubre de 2026). Antes de afirmar originalidad se hicieron dos comprobaciones rápidas en OpenAlex: los trabajos que citan a <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span> (cuatro) y seis búsquedas concretas desde 2022 (acoplamiento luz–actividad, luz, actividad y sueño multimodal, datos funcionales, perfiles latentes, luz personal y grasa corporal, y regularidad de la luz frente a la obesidad). Aportan un antecedente nuevo y cercano, un preprint de julio de 2026 <span class="citation" data-cites="Gubin2026Preprint">(<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">Gubin 2026</a>)</span>, que se lee y se añade a la matriz, y cuatro trabajos de contexto <span class="citation" data-cites="Qu2025LAN Moreno2023ESRI Windred2024Diabetes Janda2024Perfiles">(<a href="99-referencias.html#ref-Qu2025LAN" role="doc-biblioref">Qu et&nbsp;al. 2025</a>; <a href="99-referencias.html#ref-Moreno2023ESRI" role="doc-biblioref">Moreno et&nbsp;al. 2023</a>; <a href="99-referencias.html#ref-Windred2024Diabetes" role="doc-biblioref">Windred et&nbsp;al. 2024</a>; <a href="99-referencias.html#ref-Janda2024Perfiles" role="doc-biblioref">Janda et&nbsp;al. 2024</a>)</span>. Quedan pendientes PubMed, Web of Science y Embase, y las 13 referencias de prioridad alta <span class="estado e-pendiente">pendiente</span>.</p>
+<div id="tbl-estado-arte" class="nm-apilable quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estado-arte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.1: Resumen de la matriz de evidencia de los artículos esenciales leídos. «¿Temporal?»: si el análisis usa la estructura temporal de la señal más allá de totales o medias por ventana; «¿Conjunto?»: si modela juntas luz, actividad y sueño. Lectura completa de los PDF el 5 de octubre de 2026 (el preprint de <span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span>, de la búsqueda dirigida). Fichas detalladas en el <a href="#sec-ea-matriz" class="quarto-xref"><span>Sección 3.1.6</span></a>. <span class="citation" data-cites="LongoSilva2026Luz">Longo Silva et&nbsp;al. (<a href="99-referencias.html#ref-LongoSilva2026Luz" role="doc-biblioref">2026</a>)</span>, sin texto completo, no figura.
+</figcaption>
+<div aria-describedby="tbl-estado-arte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="nm-apilable caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Estudio</th>
+<th style="text-align: left;">Población</th>
+<th style="text-align: left;">Luz (dispositivo, resolución)</th>
+<th style="text-align: left;">Actividad</th>
+<th style="text-align: left;">Sueño</th>
+<th style="text-align: left;">Desenlace</th>
+<th style="text-align: left;">¿Temporal? ¿Conjunto?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;" data-label="Población">831 niños, 7–11 a, China</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">HOBO MX2202 en el pecho, 1 min, 5 días</td>
+<td style="text-align: left;" data-label="Actividad">GT3X+ muñeca; solo AFMV como covariable</td>
+<td style="text-align: left;" data-label="Sueño">Cuestionario</td>
+<td style="text-align: left;" data-label="Desenlace">Grasa (bioimpedancia), IMC</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">Composición 24 h (CoDA); no</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span></td>
+<td style="text-align: left;" data-label="Población">831 niños (misma cohorte) y 344 jóvenes</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">HOBO MX2202, 1 min, 5–7 días</td>
+<td style="text-align: left;" data-label="Actividad">—</td>
+<td style="text-align: left;" data-label="Sueño">Diario</td>
+<td style="text-align: left;" data-label="Desenlace">— (descriptivo)</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">IS, IV, RA de la luz; no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="Stefanopoulou2024ABCD">Stefanopoulou et&nbsp;al. (<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">2024</a>)</span></td>
+<td style="text-align: left;" data-label="Población">247 niños, 11–13 a, Países Bajos</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">LightWatcher colgante, 10 s, 7 días</td>
+<td style="text-align: left;" data-label="Actividad">GT3X+ muñeca (para el sueño)</td>
+<td style="text-align: left;" data-label="Sueño">Actigrafía y diario</td>
+<td style="text-align: left;" data-label="Desenlace">Sueño</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?"><em>Timing</em> de luz brillante; no</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="CostaLopes2025Luz">Costa Lopes et&nbsp;al. (<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;" data-label="Población">35 adolescentes, 16 a, Brasil</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">ActTrust muñeca, 1 min, 7 días</td>
+<td style="text-align: left;" data-label="Actividad">El mismo dispositivo (para el sueño)</td>
+<td style="text-align: left;" data-label="Sueño">Actigrafía y diario</td>
+<td style="text-align: left;" data-label="Desenlace">Sueño</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">Trayectorias por minuto; no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="daSilva2026Ritmos">Silva et&nbsp;al. (<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">2026</a>)</span></td>
+<td style="text-align: left;" data-label="Población">18 adolescentes, 15–17 a, Brasil</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">ActTrust 2 muñeca (espectral), 1 min</td>
+<td style="text-align: left;" data-label="Actividad">El mismo dispositivo</td>
+<td style="text-align: left;" data-label="Sueño">Actigrafía</td>
+<td style="text-align: left;" data-label="Desenlace">Sueño</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">Perfiles de 2 h; no</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="Ge2026ALAN">Ge et&nbsp;al. (<a href="99-referencias.html#ref-Ge2026ALAN" role="doc-biblioref">2026</a>)</span></td>
+<td style="text-align: left;" data-label="Población">14 804, 7–17 a, China</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">Satélite (escuela)</td>
+<td style="text-align: left;" data-label="Actividad">Cuestionario</td>
+<td style="text-align: left;" data-label="Sueño">—</td>
+<td style="text-align: left;" data-label="Desenlace">Síndrome metabólico</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">No; no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span> (preprint)</td>
+<td style="text-align: left;" data-label="Población">85 niños, 7–15 a, Rusia</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">ActTrust2 muñeca (lux y luz azul), 1 min, 4–7 días</td>
+<td style="text-align: left;" data-label="Actividad">El mismo dispositivo (cosinor, RA, IS, IV)</td>
+<td style="text-align: left;" data-label="Sueño">Actigrafía</td>
+<td style="text-align: left;" data-label="Desenlace">Cintura/talla</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">Cosinor e índices por modalidad; no</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="Tang2026LAN">Tang et&nbsp;al. (<a href="99-referencias.html#ref-Tang2026LAN" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="Ma2026Contaminacion">Ma et&nbsp;al. (<a href="99-referencias.html#ref-Ma2026Contaminacion" role="doc-biblioref">2026</a>)</span></td>
+<td style="text-align: left;" data-label="Población">Revisiones (13 y 72 estudios)</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">Sobre todo satélite</td>
+<td style="text-align: left;" data-label="Actividad">—</td>
+<td style="text-align: left;" data-label="Sueño">—</td>
+<td style="text-align: left;" data-label="Desenlace">Obesidad; varios</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">No; no</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Estudio"><span class="citation" data-cites="LunsfordAvery2023Regularidad">Lunsford-Avery (<a href="99-referencias.html#ref-LunsfordAvery2023Regularidad" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="Jex2026Multimodal">Jex et&nbsp;al. (<a href="99-referencias.html#ref-Jex2026Multimodal" role="doc-biblioref">2026</a>)</span></td>
+<td style="text-align: left;" data-label="Población">Editorial y revisión</td>
+<td style="text-align: left;" data-label="Luz (dispositivo, resolución)">—</td>
+<td style="text-align: left;" data-label="Actividad">—</td>
+<td style="text-align: left;" data-label="Sueño">—</td>
+<td style="text-align: left;" data-label="Desenlace">—</td>
+<td style="text-align: left;" data-label="¿Temporal? ¿Conjunto?">Marco conceptual</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="sec-ea-bloques" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="sec-ea-bloques"><span class="header-section-number">3.1.1</span> Qué se sabe, por bloques</h3>
+<p><strong>A. Obesidad infantil y comportamientos de 24 h.</strong> Es el campo consolidado: la búsqueda A devolvió cientos de trabajos aun limitándola a 2023 (según el autor de la búsqueda). Ninguno de sus artículos está entre los esenciales, de modo que esta sección no añade evidencia nueva; el marco es el de los apartados anteriores (actividad medida con acelerómetro, AFMV y sedentarismo agregados por día, y, cada vez más, análisis composicional de las 24 h). Sirve de fondo, no de novedad.</p>
+<p><strong>B. Luz y adiposidad o salud metabólica pediátrica.</strong> Una metaanálisis de 13 estudios (867 647 participantes) halla un 14 % más de riesgo de obesidad con la luz nocturna más alta (OR 1,14; IC 95 % 1,07–1,22), con heterogeneidad muy alta (<em>I</em>² = 92,5 %) y una asociación también en adolescentes (OR 1,17); la exposición es casi siempre satelital <span class="citation" data-cites="Tang2026LAN">(<a href="99-referencias.html#ref-Tang2026LAN" role="doc-biblioref">Tang et&nbsp;al. 2026</a>)</span>. Una revisión pediátrica de 72 estudios (2020–2026) encuentra que los siete que miden sobrepeso u obesidad describen asociaciones positivas con la luz nocturna. La exposición se midió por satélite en 37 estudios, con luxómetro en 15, con actígrafo en 12 y por cuestionario en 6, y la certeza para la obesidad es moderada <span class="citation" data-cites="Ma2026Contaminacion">(<a href="99-referencias.html#ref-Ma2026Contaminacion" role="doc-biblioref">Ma et&nbsp;al. 2026</a>)</span>. En 14 804 escolares chinos, la luz nocturna exterior en torno a la escuela se asocia en U con el síndrome metabólico y con la obesidad abdominal (OR 1,075), sin asociación con la glucosa en ayunas ni con los triglicéridos <span class="citation" data-cites="Ge2026ALAN">(<a href="99-referencias.html#ref-Ge2026ALAN" role="doc-biblioref">Ge et&nbsp;al. 2026</a>)</span>. Con luxómetro personal de noche, en 628 escolares de 9 a 15 años, más luz en el dormitorio se asocia con más IMC, masa grasa y cintura, pero la asociación desaparece en los que hacen al menos 1 h diaria de AFMV (declarada por cuestionario) <span class="citation" data-cites="Qu2025LAN">(<a href="99-referencias.html#ref-Qu2025LAN" role="doc-biblioref">Qu et&nbsp;al. 2025</a>)</span>. En adultos, con sensores de luz en la muñeca de 84 790 participantes, la luz nocturna, la amplitud y la fase de la luz predicen la diabetes tipo 2 <span class="citation" data-cites="Windred2024Diabetes">(<a href="99-referencias.html#ref-Windred2024Diabetes" role="doc-biblioref">Windred et&nbsp;al. 2024</a>)</span>. <em>Métodos dominantes</em>: luz nocturna exterior por satélite, diseños transversales, IMC como desenlace. <em>Limitaciones repetidas</em>: la exposición ecológica no recoge la luz de interior ni el momento; la causalidad no se puede establecer. <em>Resuelto</em>: la asociación luz nocturna–obesidad es consistente. <em>Abierto</em>: la exposición personal, la luz diurna y el momento de la exposición. El grupo pregunta si se podría acceder a datos de satélite y propone, como idea futura, cruzar los registros con bases públicas o de mapas (contaminación, zonas verdes, servicios) por código postal y fecha, que tiene de cada participante; no se ha explorado <span class="estado e-pendiente">pendiente</span> (ficha <code>COL-03</code>).</p>
+<p><strong>C. Luz medida con <em>wearables</em>, sueño y patrones circadianos.</strong> En niños y adolescentes, la luz personal se ha relacionado sobre todo con el <em>sueño</em>. Cuanto antes llega la primera luz brillante respecto a la hora de dormir y cuanto más dura, menos se duerme y antes llega el sueño; en cambio, la luz justo antes de acostarse lo retrasa <span class="citation" data-cites="Stefanopoulou2024ABCD">(<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">Stefanopoulou et&nbsp;al. 2024</a>)</span>. Los niños con poca luz de día se duermen más tarde y duermen menos horas <span class="citation" data-cites="CostaLopes2025Luz">(<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">Costa Lopes et&nbsp;al. 2025</a>)</span>. Los perfiles de luz cambian de forma entre semana y fin de semana <span class="citation" data-cites="daSilva2026Ritmos Li2026PatronLuz">(<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">Silva et&nbsp;al. 2026</a>; <a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">Li et&nbsp;al. 2026</a>)</span>. Los niños tienen una luz más regular que los adultos jóvenes (IS 0,90 frente a 0,71) <span class="citation" data-cites="Li2026PatronLuz">(<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">Li et&nbsp;al. 2026</a>)</span>. <em>Métodos dominantes</em>: medias y duraciones por ventana horaria o por umbral (100, 250, 1000 lx), modelos mixtos con un día por fila e índices no paramétricos (IS, IV, RA) aplicados a la luz. <em>Limitaciones repetidas</em>: lux fotópicos en lugar de iluminancia melanópica; sensores en muñeca o colgante en lugar de a la altura de los ojos; muestras pequeñas o de un solo centro. El editorial sobre regularidad de la luz advierte que los índices binarios por umbral pierden la variación de intensidad <span class="citation" data-cites="LunsfordAvery2023Regularidad">(<a href="99-referencias.html#ref-LunsfordAvery2023Regularidad" role="doc-biblioref">Lunsford-Avery 2023</a>)</span>. <em>Abierto</em>: la relación de todo ello con desenlaces metabólicos.</p>
+<p><strong>D. Integración temporal y multimodal.</strong> Es el bloque más delgado. Solo un trabajo une la luz personal de 24 h con la adiposidad infantil <span class="citation" data-cites="Ding2025Luz24h">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>)</span>, y lo hace con la <em>composición</em> del tiempo en cuatro niveles de luz. Luz y actividad se registran a la vez en varios estudios, a veces con el mismo dispositivo <span class="citation" data-cites="CostaLopes2025Luz daSilva2026Ritmos">(<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">Costa Lopes et&nbsp;al. 2025</a>; <a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">Silva et&nbsp;al. 2026</a>)</span>, pero la actividad se usa para puntuar el sueño o como covariable de volumen (AFMV), nunca como señal que se analiza junto a la luz <span class="citation" data-cites="Ding2025Luz24h">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>)</span>. «Multimodal», en la revisión de salud circadiana del adolescente, significa combinar cuestionario, actigrafía y melatonina, no fusionar series temporales <span class="citation" data-cites="Jex2026Multimodal">(<a href="99-referencias.html#ref-Jex2026Multimodal" role="doc-biblioref">Jex et&nbsp;al. 2026</a>)</span>. Un estudio pide expresamente modelos de series temporales y resoluciones más finas para la luz <span class="citation" data-cites="daSilva2026Ritmos">(<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">Silva et&nbsp;al. 2026</a>)</span>.</p>
+<p>La búsqueda dirigida estrecha este bloque. Un preprint de julio de 2026, sin revisión por pares y con un conflicto de interés declarado, registra con el mismo actígrafo de muñeca la luz (lux y luz azul), la actividad, el sueño y la temperatura en 85 escolares de 7 a 15 años, durante la misma semana de primavera <span class="citation" data-cites="Gubin2026Preprint">(<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">Gubin 2026</a>)</span>. La luz azul nocturna, una amplitud relativa de la luz azul menos robusta y su mayor variación entre días se asocian con la cintura/talla, ajustando por edad y sexo; los ritmos de actividad y de temperatura, apenas. Pero cada modalidad se resume por separado (cosinor, M10, L5, IS, IV) y se correlaciona con el desenlace, sin modelar cuándo coinciden la luz y la actividad. Fuera de la luz, la regularidad de la señal de sincronización estimada desde la actividad predice el cambio de IMC en verano <span class="citation" data-cites="Moreno2023ESRI">(<a href="99-referencias.html#ref-Moreno2023ESRI" role="doc-biblioref">Moreno et&nbsp;al. 2023</a>)</span>, y los perfiles latentes de las 24 h de movimiento se asocian con la adiposidad <span class="citation" data-cites="Janda2024Perfiles">(<a href="99-referencias.html#ref-Janda2024Perfiles" role="doc-biblioref">Janda et&nbsp;al. 2024</a>)</span>.</p>
+<p><strong>E. Actividad al aire libre con la luz del propio acelerómetro.</strong> El grupo propone, como variable que debería obtenerse, la actividad física de distintas intensidades hecha al aire libre. Una búsqueda rápida en OpenAlex (16 de octubre de 2026) encontró antecedentes con sensor de luz en el acelerómetro: en 229 niños de Camden (Reino Unido), más luz diaria media se asoció con menos tiempo sedentario y más AFMV, esto último solo en fin de semana <span class="citation" data-cites="Aggio2015Luz">(<a href="99-referencias.html#ref-Aggio2015Luz" role="doc-biblioref">Aggio et&nbsp;al. 2015</a>)</span>; y, en 301 niños de 3 a 5 años de la encuesta NHANES National Youth Fitness Survey de 2012, más tiempo al aire libre medido con el sensor de luz se asoció con más actividad física, más en niñas que en niños, junto con la competencia motora gruesa <span class="citation" data-cites="Kwon2022Exterior">(<a href="99-referencias.html#ref-Kwon2022Exterior" role="doc-biblioref">Kwon et&nbsp;al. 2022</a>)</span>. Solo se han visto sus resúmenes. Ninguno separa la actividad por intensidad según la luz con ventanas ancladas a cada niño, ni la relaciona con la adiposidad o la salud metabólica <span class="estado e-pendiente">pendiente</span> (falta PubMed, Web of Science y Embase). En GGIR 3.3.9, su documentación describe la luz por segmento del día (media, tiempo por tramos de lux y conversión con una constante y un exponente), pero ninguna variable que cruce la actividad por intensidad con la luz <span class="estado e-provisional">provisional</span> (solo se leyó la ayuda instalada, no su código). Sobre los metabolitos que mide el grupo, y la relación de la luz y la actividad con ellos, los primeros 15 resultados de la búsqueda no incluyen ningún estudio de ese tipo en niños: no es concluyente y queda como idea futura <span class="estado e-pendiente">pendiente</span>.</p>
+</section>
+<section id="sec-ea-ding" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="sec-ea-ding"><span class="header-section-number">3.1.2</span> El antecedente más cercano</h3>
+<p><span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span> es el trabajo frente al que habrá que medir la aportación. El grupo señala que la novedad sería estudiar preescolares (3 a 6 años), y ve en este trabajo opciones que explotar en artículos futuros, con esa novedad. La edad por sí sola no basta para afirmarla: ya hay un estudio con sensor de luz en niños de 3 a 5 años, aunque sobre actividad y competencia motora y sin adiposidad <span class="citation" data-cites="Kwon2022Exterior">(<a href="99-referencias.html#ref-Kwon2022Exterior" role="doc-biblioref">Kwon et&nbsp;al. 2022</a>)</span>. Lo que seguiría sin hacerse en preescolares es el análisis temporal conjunto de la luz, la actividad y el sueño frente a la adiposidad o la salud metabólica, y eso es <span class="estado e-pendiente">pendiente</span> de la búsqueda que falta (cap. 3); aquí no se da por hecho.</p>
+<p><strong>Qué hace.</strong></p>
+<ul>
+<li><strong>Población</strong>: 831 escolares de 7 a 11 años (media 8,53) de dos colegios de Chuzhou (China), medidos entre octubre de 2023 y mayo de 2024; el 44,2 % con sobrepeso u obesidad.</li>
+<li><strong>Luz</strong>: HOBO MX2202 en el pecho de día y junto a la almohada, a la altura de los ojos, de noche; una muestra por minuto durante 5 días consecutivos (2 de fin de semana). Se excluyen los días con la mitad o más de ceros o con media ≤ 100 lx, y los 5 días se <em>promedian</em> en un único perfil de 24 h por niño.</li>
+<li><strong>Variables</strong>: cuatro componentes de tiempo, luz diurna (06–18 h) ≥ 100 y &lt; 100 lx, y luz nocturna (18–06 h) ≥ 1 y &lt; 1 lx.</li>
+<li><strong>Análisis</strong>: análisis composicional (coordenadas ilr), regresión composicional y sustitución isotemporal de 5 a 60 min.</li>
+<li><strong>Desenlaces</strong>: área de grasa visceral, porcentaje y masa de grasa (bioimpedancia InBody770) e IMC.</li>
+<li><strong>Covariables</strong>: educación materna, renta, picoteo nocturno, duración del sueño (cuestionario), fotoperiodo y AFMV medida con un ActiGraph GT3X+ en la muñeca durante los mismos días.</li>
+<li><strong>Resultados</strong>: un 1 % más de tiempo (14,4 min/día) con luz diurna ≥ 100 lx se asocia con un 3,10 % menos de grasa corporal; 14,4 min más de luz nocturna ≥ 1 lx, con un 3,49 % más. Al estratificar, solo se mantienen en los niños varones; con los días de fin de semana por separado, ningún nivel de luz se asocia. En las reasignaciones, reducir la luz nocturna pesa más que aumentar la diurna.</li>
+</ul>
+<p><strong>Limitaciones declaradas por los autores.</strong> Factores no medidos a la vez que la luz; confusión residual (enfermedad, dieta, hidratación, hora de la bioimpedancia); el sensor pudo taparse o quitarse sin detección posible; solo 5 días, cuando «la variación de los patrones de luz en el tiempo puede ser un predictor crucial»; el umbral de 100 lx no distingue luz natural y eléctrica; solo población china; sin meteorología ni sensibilidad a la luz; promedio de días lectivos y de fin de semana; sin excluir niveles de menos de 60 min.</p>
+<p><strong>Limitaciones razonablemente inferidas</strong> <span class="estado e-provisional">provisional</span>. (1) El promedio de 5 días borra la variabilidad entre días: la regularidad de la luz no entra en el modelo, aunque el mismo grupo la calcula en la misma cohorte <span class="citation" data-cites="Li2026PatronLuz">(<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">Li et&nbsp;al. 2026</a>)</span>. (2) Las ventanas de reloj fijas (06–18 h y 18–06 h) no se anclan al sueño de cada niño, que solo se conoce por cuestionario. (3) La composición cuenta <em>cuánto</em> tiempo hay en cada nivel, no <em>cuándo</em> dentro de la ventana, ni el orden, ni las transiciones. Una muestra por minuto acaba resumida en cuatro números. (4) La actividad, medida a la vez, entra solo como total de AFMV; su relación temporal con la luz no se analiza.</p>
+<p><strong>Oportunidades para nuestro trabajo.</strong> Usar la estructura dentro del día y entre días; anclar las ventanas a la fase de cada niño (L5 o el periodo de sueño, caps. 11 y 12 del informe); analizar la luz y la actividad <em>juntas</em>. Por ejemplo, la AFMV con luz alta, que el módulo <code>Light</code> ya calcula (cap. 14 del informe). Y, sobre todo, <em>reproducir su composición de cuatro niveles como métrica resumen de referencia</em>, para medir cuánto añaden los patrones temporales.</p>
+<div data-origen="ampliacion">
+<p>Las limitaciones (2) y (3) se ven mejor que se explican. La simulación siguiente resume un día de luz inventado igual que <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span>, en cuatro niveles con ventanas de reloj fijas, y deja mover el bloque de luz exterior. Es sintética porque la idea es de cálculo, no de datos: lo que se quiere ver es qué información conserva un resumen, y para eso basta un día cualquiera. Además, el sensor de luz del wGT3X-BT en la cadera no da lux (cap. 14 del informe), así que un registro del proyecto no serviría para ilustrarlo.</p>
+<div class="nm-sim" id="demo-luz24" role="group" aria-labelledby="demo-luz24-titulo">
+  <div class="nm-sim-cabecera">
+    <strong id="demo-luz24-titulo">Simulación sintética — no es resultado Brincadiano</strong>
+    <span>Un día de luz inventado (lux, minuto a minuto): oscuridad durmiendo, luz de interior despierto y un bloque de luz exterior que se puede mover.</span>
+  </div>
+  <div class="nm-sim-cuerpo">
+    <p class="nm-sim-guia">Pregunta guía: si la misma luz exterior llega por la mañana o por la tarde, ¿cambia la composición de 24 h? ¿Qué pasa cuando cruza las 18:00?</p>
+    <div class="nm-sim-controles">
+      <label>Luz exterior: <span class="nm-val" id="l-ini-val"></span>
+        <input type="range" id="l-ini" min="420" max="1170" step="15" aria-describedby="l-lim">
+      </label>
+      <label>Duración: <span class="nm-val" id="l-dur-val"></span>
+        <input type="range" id="l-dur" min="30" max="240" step="15" aria-describedby="l-lim">
+      </label>
+      <div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <button type="button" class="nm-btn" id="l-man">Media mañana (10:00)</button>
+        <button type="button" class="nm-btn" id="l-tar">Tarde (16:00)</button>
+        <button type="button" class="nm-btn" id="l-cruce">Cruza las 18:00 (17:00)</button>
+      </div>
+    </div>
+    <p class="nm-fuente" id="l-lim">La luz exterior empieza entre las 07:00 y la hora de acostarse (21:30) y dura de 30 a 240 min.</p>
+    <svg class="nm-plot" id="l-plot" viewbox="0 0 760 270" role="img" aria-label="Luz de un día sintético minuto a minuto, en escala logarítmica, con la ventana de día de 06 a 18 h y debajo la composición de las 24 h en cuatro niveles"></svg>
+    <div class="nm-sim-lectura" id="l-lectura" aria-live="polite"></div>
+    <details class="nm-sim-supuestos">
+      <summary>Supuestos y diferencias con la realidad</summary>
+      <ul>
+        <li><strong>Un día inventado.</strong> 0 lx de 21:30 a 07:00 (durmiendo, a oscuras), 60 lx de interior el resto del tiempo despierto y 3000 lx durante el bloque de luz exterior. La luz real fluctúa mucho más.</li>
+        <li><strong>La composición</strong> es la de @Ding2025Luz24h: minutos con luz diurna (06–18 h) ≥ 100 y &lt; 100 lx, y luz nocturna (18–06 h) ≥ 1 y &lt; 1 lx. No se hacen las coordenadas ilr ni la regresión composicional: no cambian lo que aquí se ve, porque parten de esos cuatro números.</li>
+        <li><strong>La hora media de la luz ≥ 100 lx</strong> es solo un ejemplo de métrica de momento, de las que el módulo <code>Light</code> ya calcula en brutos (cap. 14 del informe).</li>
+        <li><strong>Fórmulas</strong> en <code>interactive/cap03/luz24.js</code>; se comprueban en <code>tests/simulaciones.mjs</code>.</li>
+      </ul>
+    </details>
+    <noscript><p class="nm-sin-js">Esta simulación necesita JavaScript. La versión estática equivalente es la tabla que sigue.</p></noscript>
+  </div>
+</div>
+<script src="../interactive/cap03/luz24.js"></script>
+<script src="../interactive/cap03/demo-luz24.js"></script>
+<div id="tbl-luz24" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-luz24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.2: Composición de 24 h (minutos) y hora media de la luz ≥ 100 lx del día sintético con el bloque de luz exterior en tres momentos. Calculadas con la misma función que la simulación (<code>interactive/cap03/luz24.js</code>); simulación sintética, no es resultado Brincadiano.
+</figcaption>
+<div aria-describedby="tbl-luz24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Luz exterior (2 h)</th>
+<th style="text-align: right;">Día ≥ 100 lx</th>
+<th style="text-align: right;">Día &lt; 100 lx</th>
+<th style="text-align: right;">Noche ≥ 1 lx</th>
+<th style="text-align: right;">Noche &lt; 1 lx</th>
+<th style="text-align: right;">Hora media de la luz ≥ 100 lx</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">10:00–12:00</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">510</td>
+<td style="text-align: right;">11:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16:00–18:00</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">510</td>
+<td style="text-align: right;">17:00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17:00–19:00</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">660</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">510</td>
+<td style="text-align: right;">18:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nm-q-expl">
+<div class="nm-q-title">
+<span class="nm-tag">Ejercicio exploratorio</span> Responde con la simulación; después compara con la tabla.
+</div>
+<ol type="1">
+<li>Mueve la luz exterior de las 10:00 a las 16:00. ¿Qué cambia en la composición? ¿Y en la hora media?</li>
+<li>Ponla a las 17:00. ¿Adónde van los 60 minutos de luz exterior que caen después de las 18:00?</li>
+<li>¿Qué tendría que añadir un modelo para distinguir el niño que juega fuera a las 10:00 del que juega a las 16:00?</li>
+</ol>
+<details class="nm-detalle">
+<summary>
+Qué deberías observar
+</summary>
+<ol type="1">
+<li>Nada en la composición: 120 / 600 / 210 / 510 min en los dos casos. La hora media pasa de las 11:00 a las 17:00. Es la limitación (3): la composición cuenta cuánto, no cuándo.</li>
+<li>A «noche ≥ 1 lx», que ya tenía 210 min de luz de interior: no crece, porque esos minutos ya estaban por encima de 1 lx, y «día ≥ 100 lx» baja a 60. Una hora a 3000 lx después de las 18:00 pesa igual que la lámpara del salón. Es la limitación (2): las ventanas son de reloj, no de cada niño.</li>
+<li>Una medida de momento (la hora de la luz, ventanas ancladas al despertar o a L5) además de la composición, que el informe propone conservar como métrica resumen de referencia para medir cuánto añaden los patrones temporales.</li>
+</ol>
+</details>
+</div>
+</div>
+</section>
+<section id="sec-ea-afirmaciones" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="sec-ea-afirmaciones"><span class="header-section-number">3.1.3</span> ¿Sostiene la literatura las dos afirmaciones?</h3>
+<p><strong>«Los estudios pediátricos analizan la luz, la actividad y el sueño con métricas resumen separadas o agregadas, y la organización temporal conjunta en relación con la adiposidad está poco caracterizada».</strong> <em>Moderadamente sostenida.</em> Evidencia directa: los seis estudios primarios pediátricos leídos usan totales, medias por ventana, duraciones sobre umbral o índices no paramétricos, y tratan cada modalidad por separado (<a href="#tbl-estado-arte" class="quarto-xref">tabla&nbsp;<span>3.1</span></a>). Dos lo reconocen como limitación <span class="citation" data-cites="Ding2025Luz24h daSilva2026Ritmos">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>; <a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">Silva et&nbsp;al. 2026</a>)</span>, y el editorial lo señala para los índices por umbral <span class="citation" data-cites="LunsfordAvery2023Regularidad">(<a href="99-referencias.html#ref-LunsfordAvery2023Regularidad" role="doc-biblioref">Lunsford-Avery 2023</a>)</span>. No llega a «fuertemente sostenida» porque el conjunto leído es pequeño (10 artículos, una base de datos) y quedan sin leer 13 referencias de prioridad alta.</p>
+<p><strong>«La estructura temporal multimodal de la luz, la actividad y el sueño de 24 h no se ha investigado suficientemente en relación con la adiposidad infantil».</strong> <em>Moderadamente sostenida como hueco provisional; débil como afirmación de originalidad.</em> No hay evidencia directa en contra: ningún artículo leído lo hace. El más cercano ya no usa solo la composición de la luz <span class="citation" data-cites="Ding2025Luz24h">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>)</span>: un preprint reciente analiza la fase, la amplitud y la regularidad de la luz, la actividad y el sueño frente a la adiposidad, aunque cada modalidad por separado <span class="citation" data-cites="Gubin2026Preprint">(<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">Gubin 2026</a>)</span>. Lo que sigue sin hacerse es el análisis <em>conjunto</em>: cuándo coinciden la luz y la actividad, con ventanas ancladas a la fase de cada niño. Hay evidencia indirecta a favor: las revisiones piden medir la exposición de forma individual <span class="citation" data-cites="Ma2026Contaminacion">(<a href="99-referencias.html#ref-Ma2026Contaminacion" role="doc-biblioref">Ma et&nbsp;al. 2026</a>)</span> y un estudio pide modelos de series temporales <span class="citation" data-cites="daSilva2026Ritmos">(<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">Silva et&nbsp;al. 2026</a>)</span>. El resto es <em>ausencia de evidencia recuperada</em>, no prueba de inexistencia. Las búsquedas más restrictivas (F y H: luz, temporalidad y adiposidad) solo aportan 4 y 2 referencias a la hoja. <span class="estado e-pendiente">pendiente</span> hasta las búsquedas complementarias.</p>
+</section>
+<section id="sec-ea-variables" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="sec-ea-variables"><span class="header-section-number">3.1.4</span> Variables y métodos prometedores</h3>
+<p>La <a href="#tbl-estado-arte-variables" class="quarto-xref">tabla&nbsp;<span>3.3</span></a> separa lo que la literatura leída ya usa de lo que sería propuesta nuestra, e indica qué calcula ya el pipeline.</p>
+<div id="tbl-estado-arte-variables" class="nm-apilable quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-estado-arte-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.3: Variables y métodos candidatos: respaldo en la literatura leída y estado en el pipeline. Elaboración propia a partir de la lectura de los artículos esenciales y de los caps. 7–14 del informe. Columna «En Brincadiano» auditada el 16 de octubre de 2026 contra los módulos <code>Light</code>, <code>Circadian</code>, <code>Spectral</code> y <code>Sleep</code>.
+</figcaption>
+<div aria-describedby="tbl-estado-arte-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="nm-apilable caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable o método</th>
+<th style="text-align: left;">Respaldo en la literatura leída</th>
+<th style="text-align: left;">En Brincadiano</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;" data-label="Variable o método">Tiempo sobre umbrales (día ≥ 100/250/1000 lx; noche ≥ 1 lx; &lt; 10 lx antes de dormir)</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span>, <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="Stefanopoulou2024ABCD">Stefanopoulou et&nbsp;al. (<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">2024</a>)</span></td>
+<td style="text-align: left;" data-label="En Brincadiano">Sí para el día, en brutos (<code>Light</code>: minutos y segundos sobre 100 y 1000); la noche y el corte de 10 lx, no: el reposo nocturno se excluye y el sensor no detecta por debajo de unos 50 lux; sin conversión a lux <span class="estado e-pendiente">pendiente</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Variable o método"><em>Timing</em> de la luz (primera y última luz brillante, luz antes de dormir y al despertar)</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Stefanopoulou2024ABCD">Stefanopoulou et&nbsp;al. (<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">2024</a>)</span>, <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="CostaLopes2025Luz">Costa Lopes et&nbsp;al. (<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;" data-label="En Brincadiano">Sí: primera, última y hora media de luz alta y ventanas ancladas al sueño (<code>Light</code>); antes de dormir no es medible (0 % de luz válida en los registros de prueba)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Variable o método">Regularidad de la luz (IS, IV, RA; índice de regularidad de la luz)</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="LunsfordAvery2023Regularidad">Lunsford-Avery (<a href="99-referencias.html#ref-LunsfordAvery2023Regularidad" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="daSilva2026Ritmos">Silva et&nbsp;al. (<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">2026</a>)</span>; frente a la adiposidad, <span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span> (preprint)</td>
+<td style="text-align: left;" data-label="En Brincadiano">IS/IV existen para la actividad (<code>Circadian</code>); para la luz solo la desviación entre días de la hora media de luz alta (<code>Light</code>); IS/IV de la luz, propuesta nuestra</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Variable o método">Contraste lectivo–fin de semana</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>, <span class="citation" data-cites="CostaLopes2025Luz">Costa Lopes et&nbsp;al. (<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">2025</a>)</span>, <span class="citation" data-cites="daSilva2026Ritmos">Silva et&nbsp;al. (<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">2026</a>)</span></td>
+<td style="text-align: left;" data-label="En Brincadiano">Sí: <code>Light</code> separa laborables y fin de semana, y es sensibilidad del <em>timing</em> de la actividad (cap. 13 del informe)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Variable o método">Composición de 24 h (CoDA)</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;" data-label="En Brincadiano">No; propuesta como métrica resumen de referencia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Variable o método">Fase y amplitud (armónicos, cosinor)</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span> en niños; <span class="citation" data-cites="Windred2024Diabetes">Windred et&nbsp;al. (<a href="99-referencias.html#ref-Windred2024Diabetes" role="doc-biblioref">2024</a>)</span> en adultos</td>
+<td style="text-align: left;" data-label="En Brincadiano">Sí para la actividad (<code>Spectral</code>); para la luz, propuesta nuestra</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Variable o método">Acoplamiento luz–actividad (AFMV con luz alta; actividad compatible con exterior)</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída">No: la actividad solo es covariable <span class="citation" data-cites="Ding2025Luz24h">(<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">Ding et&nbsp;al. 2025</a>)</span></td>
+<td style="text-align: left;" data-label="En Brincadiano">Solo la AFMV (ENMO ≥ 142,6 mg) por estado de luz, en minutos de 60 s (<code>Light</code>); ligera, moderada y vigorosa, en preparación (cap. 14 del informe)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Variable o método">Acoplamiento luz–sueño anclado al periodo de sueño</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída"><span class="citation" data-cites="Stefanopoulou2024ABCD">Stefanopoulou et&nbsp;al. (<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">2024</a>)</span>, <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span> (por diario)</td>
+<td style="text-align: left;" data-label="En Brincadiano">Sí, con el periodo de reposo nocturno estimado por acelerometría (<code>Sleep</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Variable o método">Series temporales, datos funcionales, <em>clustering</em>, perfiles latentes, fenotipos multimodales</td>
+<td style="text-align: left;" data-label="Respaldo en la literatura leída">Con la luz, ninguno; perfiles latentes del movimiento sin luz, <span class="citation" data-cites="Janda2024Perfiles">Janda et&nbsp;al. (<a href="99-referencias.html#ref-Janda2024Perfiles" role="doc-biblioref">2024</a>)</span>; <span class="citation" data-cites="daSilva2026Ritmos">Silva et&nbsp;al. (<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">2026</a>)</span> piden series temporales</td>
+<td style="text-align: left;" data-label="En Brincadiano">No; propuesta nuestra</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>José Manuel pregunta si se pueden calcular todas estas variables sin problema. Casi todas las filas con «Sí» están implementadas, pero con tres salvedades que no son menores: las de luz están en unidades brutas, sin lux; en la cadera el sensor está a oscuras la mayor parte del tiempo despierto (cap. 14 del informe), así que muchas de esas variables valen poco hoy; y la actividad por luz es solo AFMV y a resolución de un minuto. Para obtenerlas todas de una vez, el grupo pide un código que exporte las variables por «bloques de análisis»: el <code>scripts/18_exportar_fenotipos.jl</code> reúne en una tabla por bloque (calidad, volumen, ritmo, espectro, <em>timing</em>, sueño y luz) las variables que ya calcula el pipeline, con un diccionario de su significado, unidad y estado; los bloques nuevos se acordarán con el grupo. Sus salidas están en <code>outputs/fenotipos/</code> y no se versionan.</p>
+</section>
+<section id="sec-ea-hueco" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="sec-ea-hueco"><span class="header-section-number">3.1.5</span> Hueco de investigación</h3>
+<ul>
+<li><strong>Estado del campo</strong>: la luz nocturna se asocia de forma consistente con la obesidad infantil, casi siempre con exposición por satélite. La luz personal de 24 h se ha relacionado sobre todo con el sueño.</li>
+<li><strong>Antecedente más cercano</strong>: <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span>, con la descripción de la misma cohorte en <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>.</li>
+<li><strong>Ya no es novedoso</strong>: estudiar la luz y la obesidad infantil; la exposición personal de 24 h y la adiposidad; la composición de la luz en 24 h; los índices IS/IV de la luz en niños; y, desde julio de 2026, la fase, la amplitud y la regularidad de la luz frente a la adiposidad infantil, aunque en un preprint <span class="citation" data-cites="Gubin2026Preprint">(<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">Gubin 2026</a>)</span>. Estos hallazgos son de escolares y adolescentes; en preescolares no se han encontrado, y la pregunta del grupo (¿y en preescolares?) sigue <span class="estado e-pendiente">pendiente</span> de la búsqueda completa.</li>
+<li><strong>Poco estudiado</strong>: la organización temporal <em>conjunta</em> de la luz, la actividad y el sueño frente a la adiposidad; las ventanas ancladas a la fase de cada niño; la variabilidad entre días frente a la adiposidad; y cuánto añade todo ello sobre las métricas resumen convencionales.</li>
+<li><strong>Objetivo inmediato</strong> (grupo, 15 de octubre de 2026): poder obtener estas variables, con un código que las exporte por bloques (<code>scripts/18_exportar_fenotipos.jl</code>); la pregunta clínica llega después.</li>
+<li><strong>Hipótesis de trabajo</strong> (exploratoria): la organización temporal y conjunta de la luz, la actividad y el sueño contiene información asociada a la adiposidad infantil que las métricas resumen de 24 h no recogen del todo.</li>
+<li><strong>Preguntas</strong>: (1) ¿mejoran los patrones temporales multimodales la explicación de la adiposidad frente a la composición de la luz y a la AFMV? (2) ¿se asocia el acoplamiento luz–actividad con la adiposidad con independencia del volumen? (3) ¿se asocia la regularidad de la luz con la adiposidad en otra población y con otro sensor, como sugiere <span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span>?</li>
+<li><strong>Riesgos de novedad</strong>: <span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span> es el antecedente que más se acerca y puede publicarse pronto con revisión; hay que seguirlo. Además, quedan sin leer 13 referencias de prioridad alta. Entre ellas, un precedente en <em>adultos</em> que integra el momento de las comidas, la actividad, la luz y el sueño frente al IMC (Marinac et al., 2019, <em>J Phys Act Health</em>) y un trabajo de perfiles de movimiento e integridad circadiana (Marchesano et al., 2026, <em>J Biol Rhythms</em>); solo se conocen por los metadatos <span class="estado e-pendiente">pendiente</span>. El grupo de <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span> dispone de los datos para dar este paso.</li>
+<li><strong>Riesgo de factibilidad propio</strong>: con el wGT3X-BT en la cadera, el sensor de luz está a oscuras el 68–82 % del tiempo despierto y sus valores no se pueden pasar a lux (cap. 14 del informe). El artículo necesita un registrador de luz en el pecho o colgado, como en todos los estudios leídos, o el estudio de oclusión (§14.3 del informe) <span class="estado e-novalido">no válido</span>. El grupo propone usar registros de trabajadores con el dispositivo en un casco, a pleno sol, para probar el sensor, fijar un mínimo de luz detectada que haga válido un registro (en otra cohorte del grupo no se tuvo en cuenta) y decidir la mejor zona de colocación (cadera o muñeca) en proyectos futuros (<code>LUZ-05</code>, <code>LUZ-02</code>; §14.2 del informe).</li>
+<li><strong>Búsquedas antes de afirmar originalidad</strong>: la búsqueda dirigida en OpenAlex y las citas de <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span> están hechas (5 de octubre de 2026), y una búsqueda rápida más el 16 de octubre sobre preescolares, actividad al aire libre y metabolitos (bloque E). Falta repetir la estrategia en PubMed, Web of Science y Embase; seguir las citas hacia atrás y hacia delante desde <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span> y <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>; leer las 13 referencias de prioridad alta; y añadir términos como <em>light–activity coupling</em>, <em>photic and non-photic zeitgebers</em>, <em>functional principal component</em> o <em>latent profile</em> junto con <em>child</em> y <em>BMI</em>.</li>
+</ul>
+</section>
+<section id="sec-ea-matriz" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="sec-ea-matriz"><span class="header-section-number">3.1.6</span> Fichas de la matriz de evidencia</h3>
+<p>Una ficha por artículo esencial de la búsqueda en Scopus, con los 21 campos de la matriz, más una (la 12) de la búsqueda dirigida del 5 de octubre de 2026. Los datos salen de la lectura completa de cada PDF (5 de octubre de 2026). «No consta» significa <em>no consta en la fuente disponible</em>; «no aplica», que el campo no tiene sentido para ese tipo de trabajo (revisión o editorial). Las inferencias propias van marcadas con su estado. Cada ficha se abre con un clic.</p>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+1 · Ding et al.&nbsp;2025 — antecedente crítico
+</summary>
+<p>Fuente: <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2025 (<em>Environmental Research</em>, 275:121422).
+</dd>
+<dt>Población</dt>
+<dd>
+Escolares de dos colegios de Chuzhou (Anhui, China).
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+932 reclutados; 831 analizados.
+</dd>
+<dt>Edad</dt>
+<dd>
+7–11 años (media 8,53, DE 0,62).
+</dd>
+<dt>Diseño</dt>
+<dd>
+Transversal (octubre de 2023 a mayo de 2024).
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+Luz: HOBO Pendant MX2202. Actividad: ActiGraph GT3X+ (ActiLife 6.13.4).
+</dd>
+<dt>Colocación</dt>
+<dd>
+Luz: pecho de día y junto a la cama, a la altura de los ojos, de noche. Actividad: muñeca no dominante.
+</dd>
+<dt>Duración</dt>
+<dd>
+5 días consecutivos (2 de fin de semana).
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Minutos/día en cuatro niveles: luz diurna (06–18 h) ≥ 100 y &lt; 100 lx; luz nocturna (18–06 h) ≥ 1 y &lt; 1 lx. Perfil de 24 h promediado sobre los 5 días.
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+AFMV (horas/día), solo como covariable.
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+Duración por cuestionario (categorías) y CSHQ (sensibilidad).
+</dd>
+<dt>Desenlace</dt>
+<dd>
+Área de grasa visceral, porcentaje y masa de grasa (InBody770), IMC; sobrepeso/obesidad por criterio chino.
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+Registro a 1 min; análisis sobre totales diarios por nivel.
+</dd>
+<dt>Método</dt>
+<dd>
+Análisis composicional (ilr), regresión composicional ajustada, sustitución isotemporal de 5–60 min.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+No: la serie se reduce a cuatro tiempos por niño.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+No: la actividad es covariable de volumen.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
++1 % de tiempo (14,4 min) con luz diurna ≥ 100 lx: −3,10 % de grasa; +14,4 min con luz nocturna ≥ 1 lx: +3,49 %; solo en varones.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: 5 días y sin variabilidad temporal; sensor tapado o retirado no detectable; 100 lx no separa luz natural y eléctrica.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Máxima: es el precedente directo y la métrica resumen de referencia.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+<span class="estado e-provisional">provisional</span> Ventanas de reloj fijas, sin anclaje al sueño; sin orden ni transiciones; luz y actividad no modeladas juntas.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+2 · Li et al.&nbsp;2026
+</summary>
+<p>Fuente: <span class="citation" data-cites="Li2026PatronLuz">Li et&nbsp;al. (<a href="99-referencias.html#ref-Li2026PatronLuz" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (<em>Journal of Sleep Research</em>, 35:e70119).
+</dd>
+<dt>Población</dt>
+<dd>
+Escolares de Chuzhou (la misma cohorte que la ficha 1) y universitarios de Hefei (China).
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+831 niños y 344 jóvenes adultos.
+</dd>
+<dt>Edad</dt>
+<dd>
+Niños 7,56–10,77 años; adultos 18,03–22,34.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Transversal descriptivo, dos cohortes.
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+HOBO MX2202 (0–167 731 lx).
+</dd>
+<dt>Colocación</dt>
+<dd>
+Pecho de día; junto a la almohada, a la altura de los ojos, de noche.
+</dd>
+<dt>Duración</dt>
+<dd>
+5–7 días.
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Media diurna, nocturna y durante el sueño; luz antes de dormir (1 y 3 h) y antes de despertar; duración &gt; 250 y &gt; 1000 lx; primera y última luz ≥ 50 lx; IS, IV y RA de la luz (nparACT).
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+No consta.
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+Horas de dormir y despertar por diario.
+</dd>
+<dt>Desenlace</dt>
+<dd>
+No aplica (descriptivo).
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+1 min; análisis por debajo de 1 lx descartado por ruido del sensor.
+</dd>
+<dt>Método</dt>
+<dd>
+Comparaciones no paramétricas con corrección FDR.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+Parcial: IS, IV y RA resumen la estructura de la serie de luz.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+No.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+Niños: luz diurna mediana 1139 lx, IS 0,90, IV 0,59; adultos jóvenes: 192 lx, IS 0,71, IV 0,85. Más luz en días lectivos.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: estación no simultánea; sin iluminancia melanópica; sueño autodeclarado.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Alta: define intensidad, <em>timing</em> y ritmo de la luz en niños.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Los índices de regularidad de la luz no se relacionan con la adiposidad en la misma cohorte.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+3 · Stefanopoulou et al.&nbsp;2024
+</summary>
+<p>Fuente: <span class="citation" data-cites="Stefanopoulou2024ABCD">Stefanopoulou et&nbsp;al. (<a href="99-referencias.html#ref-Stefanopoulou2024ABCD" role="doc-biblioref">2024</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2024 (<em>Journal of Sleep Research</em>, 33:e14184).
+</dd>
+<dt>Población</dt>
+<dd>
+Cohorte ABCD (Ámsterdam), muestra voluntaria.
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+
+</dd>
+<dt>Edad</dt>
+<dd>
+11–13 años.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Observacional con medidas repetidas (7 noches).
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+Luz: LightWatcher. Sueño: ActiGraph GT3X+.
+</dd>
+<dt>Colocación</dt>
+<dd>
+Luz: colgante de día y mesilla de noche. Actígrafo: muñeca no dominante.
+</dd>
+<dt>Duración</dt>
+<dd>
+7 días (8 noches).
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Horas entre la primera y la última luz brillante y la hora de dormir; duración &gt; 1000 lx; media de la hora antes de acostarse; media en la parte más oscura de la noche.
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+Solo para estimar el sueño.
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+Duración, eficiencia y latencia (actigrafía y diario).
+</dd>
+<dt>Desenlace</dt>
+<dd>
+No aplica (sueño).
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+Luz registrada cada 2 s y guardada en medias de 10 s.
+</dd>
+<dt>Método</dt>
+<dd>
+Modelos mixtos lineales, logísticos y beta, con ajuste mutuo entre métricas de luz.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+No: métricas diarias resumen.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+Parcial: luz y sueño por día; la actividad no entra como exposición.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+Luz &gt; 80 lx antes de acostarse: OR 4,02 de latencia larga; luz nocturna alta: hasta 15 min menos de sueño.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: actigrafía frente a polisomnografía; sensor no a la altura de los ojos.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Alta: métricas de <em>timing</em> de la luz en niños.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Desenlace solo de sueño; sin adiposidad.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+4 · da Costa Lopes et al.&nbsp;2025
+</summary>
+<p>Fuente: <span class="citation" data-cites="CostaLopes2025Luz">Costa Lopes et&nbsp;al. (<a href="99-referencias.html#ref-CostaLopes2025Luz" role="doc-biblioref">2025</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2025 (<em>Journal of Sleep Research</em>, 34:e14315).
+</dd>
+<dt>Población</dt>
+<dd>
+Estudiantes de un mismo instituto de São Paulo (Brasil).
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+35 (245 registros diarios).
+</dd>
+<dt>Edad</dt>
+<dd>
+Media 16,23 años.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Observacional, día a día.
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+ActTrust 1 (Condor Instruments): acelerómetro y sensor de luz.
+</dd>
+<dt>Colocación</dt>
+<dd>
+Muñeca.
+</dd>
+<dt>Duración</dt>
+<dd>
+5 días lectivos y 2 libres.
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Media (log lux) y minutos &gt; 500 lx en cuatro tramos de 6 h.
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+Solo para estimar el sueño (Cole–Kripke).
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+Inicio, final, duración, SRI, <em>jet lag</em> social; cronotipo (MSFsc).
+</dd>
+<dt>Desenlace</dt>
+<dd>
+No aplica (sueño).
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+1 min; trayectorias por minuto comparadas con permutaciones.
+</dd>
+<dt>Método</dt>
+<dd>
+Modelos lineales generalizados con el participante como efecto aleatorio.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+Parcial: trayectorias medias por minuto, solo descriptivas.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+Luz y movimiento del mismo dispositivo, pero el movimiento solo sirve para el sueño.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
++100 lx de luz diurna media: el sueño empieza 8,08 min antes.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: sin iluminancia melanópica; muestra pequeña.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: luz en muñeca y sueño en adolescentes.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Sin desenlace metabólico.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+5 · da Silva et al.&nbsp;2026
+</summary>
+<p>Fuente: <span class="citation" data-cites="daSilva2026Ritmos">Silva et&nbsp;al. (<a href="99-referencias.html#ref-daSilva2026Ritmos" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (<em>Clocks &amp; Sleep</em>, 8:19).
+</dd>
+<dt>Población</dt>
+<dd>
+Adolescentes en jornada escolar completa, Divinópolis (Brasil).
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+
+</dd>
+<dt>Edad</dt>
+<dd>
+15–17 años.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Observacional.
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+ActTrust 2: acelerómetro triaxial, sensor espectral (rojo, verde, azul) y temperatura.
+</dd>
+<dt>Colocación</dt>
+<dd>
+Muñeca no dominante.
+</dd>
+<dt>Duración</dt>
+<dd>
+7 días.
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Luz ambiental y bandas espectrales relativas en 12 tramos de 2 h.
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+IS, IV, L5 y M10 (solo días lectivos).
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+Tiempo total, latencia, despertares, eficiencia.
+</dd>
+<dt>Desenlace</dt>
+<dd>
+No aplica (sueño y ritmo).
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+1 min; análisis en tramos de 2 h.
+</dd>
+<dt>Método</dt>
+<dd>
+ANOVA de medidas repetidas (hora × tipo de día).
+</dd>
+<dt>Series temporales</dt>
+<dd>
+No; los autores piden modelos de series temporales y más resolución.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+Luz y actividad del mismo dispositivo, analizadas por separado.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+La forma y la amplitud del perfil de luz cambian entre semana y fin de semana; IS/IV conservados.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: sin métricas α-ópicas; <em>n</em> = 18, un solo centro.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: muestra que el perfil temporal de la luz es analizable con actígrafos de muñeca.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Recomiendan expresamente modelos de series temporales.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+6 · Lunsford-Avery 2023 (editorial)
+</summary>
+<p>Fuente: <span class="citation" data-cites="LunsfordAvery2023Regularidad">Lunsford-Avery (<a href="99-referencias.html#ref-LunsfordAvery2023Regularidad" role="doc-biblioref">2023</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2023 (<em>Sleep</em>, 46:zsad086).
+</dd>
+<dt>Población a Resolución temporal</dt>
+<dd>
+No aplica (editorial sobre el índice de regularidad de la luz de Hand et al., 2023).
+</dd>
+<dt>Método</dt>
+<dd>
+Comentario.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+Discute que el índice convierte la serie de luz en binaria con un umbral y pierde la variación de intensidad.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+Plantea la bidireccionalidad entre la regularidad del sueño y la de la luz.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+La regularidad de la luz es una dimensión distinta de la exposición media; métricas aún inmaduras.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Opinión; señala que los sensores de muñeca son menos fiables que los de la altura de los ojos.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: justifica la regularidad como variable.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Métricas de regularidad de la luz que conserven la intensidad.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+7 · Jex et al.&nbsp;2026 (revisión)
+</summary>
+<p>Fuente: <span class="citation" data-cites="Jex2026Multimodal">Jex et&nbsp;al. (<a href="99-referencias.html#ref-Jex2026Multimodal" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (<em>Frontiers in Sleep</em>, 5:1826938).
+</dd>
+<dt>Población a Resolución temporal</dt>
+<dd>
+No aplica (revisión narrativa sobre salud circadiana del sueño en adolescentes).
+</dd>
+<dt>Método</dt>
+<dd>
+Revisión narrativa.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+No consta.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+«Multimodal» = combinar cuestionarios, actigrafía y DLMO; no fusión de señales.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+Recomienda medir varias dimensiones (cronotipo, <em>timing</em>, alineación) con varios métodos; la luz y el ejercicio actúan como sincronizadores dependientes de la hora.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Sin desenlaces metabólicos; revisión no sistemática.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: marco conceptual del <em>timing</em> del ejercicio relativo al sueño.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Integración de señales continuas no tratada.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+8 · Tang et al.&nbsp;2026 (revisión sistemática y metaanálisis)
+</summary>
+<p>Fuente: <span class="citation" data-cites="Tang2026LAN">Tang et&nbsp;al. (<a href="99-referencias.html#ref-Tang2026LAN" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (<em>BMC Public Health</em>, 26:227).
+</dd>
+<dt>Población</dt>
+<dd>
+13 estudios observacionales (9 transversales, 4 de cohortes); adultos y adolescentes.
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+867 647 participantes en total.
+</dd>
+<dt>Edad</dt>
+<dd>
+No consta por separado para niños.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Revisión sistemática con metaanálisis de efectos aleatorios.
+</dd>
+<dt>Dispositivo a Duración</dt>
+<dd>
+Exposición mayoritariamente por satélite; también cuestionarios.
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Luz nocturna (categoría más alta frente a la más baja).
+</dd>
+<dt>Variable de actividad, de sueño</dt>
+<dd>
+No aplica.
+</dd>
+<dt>Desenlace</dt>
+<dd>
+Obesidad y sobrepeso.
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+No aplica.
+</dd>
+<dt>Método</dt>
+<dd>
+Metaanálisis, subgrupos (región, edad, sexo), Egger.
+</dd>
+<dt>Series temporales, multimodal</dt>
+<dd>
+No.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+OR 1,14 (1,07–1,22) para obesidad; <em>I</em>² = 92,5 %; adolescentes OR 1,17.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: un solo estudio europeo; pocos de cohortes.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: respaldo general de la asociación luz nocturna–obesidad.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Exposición individual y temporal ausente.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+9 · Ma et al.&nbsp;2026 (revisión sistemática)
+</summary>
+<p>Fuente: <span class="citation" data-cites="Ma2026Contaminacion">Ma et&nbsp;al. (<a href="99-referencias.html#ref-Ma2026Contaminacion" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (<em>Preventive Medicine</em>, 213:108661).
+</dd>
+<dt>Población</dt>
+<dd>
+72 estudios observacionales en niños y adolescentes (2020–2026), sobre todo en Asia.
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+No aplica.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Revisión sistemática sin metaanálisis (heterogeneidad); OHAT y GRADE.
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+Satélite (37), luxómetro (15), actígrafo (12), cuestionario (6).
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Luz nocturna artificial.
+</dd>
+<dt>Variable de actividad, de sueño</dt>
+<dd>
+El sueño como desenlace (20 estudios).
+</dd>
+<dt>Desenlace</dt>
+<dd>
+Siete categorías; 7 estudios de sobrepeso u obesidad.
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+No aplica.
+</dd>
+<dt>Método</dt>
+<dd>
+Síntesis narrativa.
+</dd>
+<dt>Series temporales, multimodal</dt>
+<dd>
+No.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+Los 7 estudios de obesidad, positivos; certeza moderada para la obesidad.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: solo seis años y en inglés; sin literatura gris.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: mapa pediátrico de la luz nocturna.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Pide medidas individuales y longitudinales.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+10 · Longo Silva et al.&nbsp;2026 — sin texto completo
+</summary>
+<p>Fuente: <span class="citation" data-cites="LongoSilva2026Luz">Longo Silva et&nbsp;al. (<a href="99-referencias.html#ref-LongoSilva2026Luz" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Todos los campos</dt>
+<dd>
+<span class="estado e-pendiente">pendiente</span> Sin PDF: solo se conocen el título, los autores, la revista (<em>Chronobiology International</em> 43(4):481–491) y el DOI, verificado en Crossref. No se le atribuye ningún contenido.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+11 · Ge et al.&nbsp;2026
+</summary>
+<p>Fuente: <span class="citation" data-cites="Ge2026ALAN">Ge et&nbsp;al. (<a href="99-referencias.html#ref-Ge2026ALAN" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (<em>Environmental Pollution</em>, 390:127548).
+</dd>
+<dt>Población</dt>
+<dd>
+Escolares de 94 colegios de siete provincias chinas (encuesta de 2013).
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+14 804.
+</dd>
+<dt>Edad</dt>
+<dd>
+7–17 años.
+</dd>
+<dt>Diseño</dt>
+<dd>
+Transversal, representativo a escala nacional.
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+Luz nocturna exterior por satélite, media de 3 años en torno a la escuela.
+</dd>
+<dt>Colocación, Duración</dt>
+<dd>
+No aplica.
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Radiancia nocturna exterior (nW/cm²/sr).
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+Cuestionario (estratificación).
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+No consta.
+</dd>
+<dt>Desenlace</dt>
+<dd>
+Síndrome metabólico (criterio pediátrico chino) y sus componentes.
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+No aplica.
+</dd>
+<dt>Método</dt>
+<dd>
+Regresión logística mixta y splines cúbicos restringidos.
+</dd>
+<dt>Series temporales, multimodal</dt>
+<dd>
+No.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+Relación en U con el síndrome metabólico (OR 1,104) y obesidad abdominal (OR 1,075); sin asociación con glucosa ni triglicéridos.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: exposición en la escuela y sin luz de interior; transversal; datos de 2013.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Media: amplía el desenlace a la salud metabólica.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+Exposición personal y momento de la exposición.
+</dd>
+</dl>
+</details>
+<details class="nm-detalle nm-ficha-lectura">
+<summary>
+12 · Gubin 2026 — búsqueda dirigida, preprint
+</summary>
+<p>Fuente: <span class="citation" data-cites="Gubin2026Preprint">Gubin (<a href="99-referencias.html#ref-Gubin2026Preprint" role="doc-biblioref">2026</a>)</span>.</p>
+<dl>
+<dt>Año</dt>
+<dd>
+2026 (Research Square, 27 de julio; sin revisión por pares; conflicto de interés declarado).
+</dd>
+<dt>Población</dt>
+<dd>
+Escolares de un mismo colegio de Tiumén (Rusia), registrados la misma semana de mayo de 2025.
+</dd>
+<dt>Tamaño muestral</dt>
+<dd>
+91 reclutados; 85 analizados.
+</dd>
+<dt>Edad</dt>
+<dd>
+7–15 años (media 10,6).
+</dd>
+<dt>Diseño</dt>
+<dd>
+Transversal.
+</dd>
+<dt>Dispositivo</dt>
+<dd>
+ActTrust2 (Condor Instruments), con sensor de luz RGB y de temperatura.
+</dd>
+<dt>Colocación</dt>
+<dd>
+Muñeca no dominante.
+</dd>
+<dt>Duración</dt>
+<dd>
+4–7 días.
+</dd>
+<dt>Variable de luz</dt>
+<dd>
+Lux y luz azul: cosinor (MESOR, amplitud, acrofase), M10, L5, amplitud relativa y su variación entre días, IS, IV, luz azul nocturna.
+</dd>
+<dt>Variable de actividad</dt>
+<dd>
+Ritmo de actividad del mismo dispositivo (cosinor, RA, IS, IV, índice de función circadiana).
+</dd>
+<dt>Variable de sueño</dt>
+<dd>
+Actigrafía: horas de acostarse y levantarse, duración, eficiencia, WASO.
+</dd>
+<dt>Desenlace</dt>
+<dd>
+Cintura/talla (punto de corte 0,5).
+</dd>
+<dt>Resolución temporal</dt>
+<dd>
+1 min; promedios de 15 min para el análisis.
+</dd>
+<dt>Método</dt>
+<dd>
+Correlaciones y regresión lineal múltiple ajustada por edad y sexo; corrección de Benjamini–Hochberg; no uso por un conjunto de clasificadores con revisión manual.
+</dd>
+<dt>Series temporales</dt>
+<dd>
+Parcial: cosinor e índices no paramétricos por modalidad.
+</dd>
+<dt>Integración multimodal</dt>
+<dd>
+No: cada modalidad se resume por separado y se relaciona con el desenlace; no se analiza cuándo coinciden luz y actividad.
+</dd>
+<dt>Hallazgo principal</dt>
+<dd>
+La luz azul nocturna, una amplitud relativa de la luz azul menos robusta y su variación entre días predicen la cintura/talla; con cintura/talla &gt; 0,5, más luz azul nocturna detectable (OR 4,98). Los ritmos de actividad y temperatura, apenas.
+</dd>
+<dt>Limitación principal</dt>
+<dd>
+Declarada: una sola semana en primavera. Inferida <span class="estado e-provisional">provisional</span>: muestra pequeña, un solo colegio, correlaciones univariantes con muchas métricas.
+</dd>
+<dt>Relevancia</dt>
+<dd>
+Máxima tras <span class="citation" data-cites="Ding2025Luz24h">Ding et&nbsp;al. (<a href="99-referencias.html#ref-Ding2025Luz24h" role="doc-biblioref">2025</a>)</span>: es el antecedente más cercano a Brincadiano 3.
+</dd>
+<dt>Hueco metodológico</dt>
+<dd>
+<span class="estado e-provisional">provisional</span> Sin acoplamiento temporal luz–actividad, sin ventanas ancladas a la fase de cada niño y sin comparar con una métrica resumen de referencia.
+</dd>
+</dl>
+</details>
+</section>
+</section>
+<section id="sec-ea-hipotesis" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-ea-hipotesis"><span class="header-section-number">3.2</span> Hipótesis</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.0 · modificado el 31/10/2026 · lectura 4 min · estudio 20 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="vanderVelde2023">van der Velde et&nbsp;al. (<a href="99-referencias.html#ref-vanderVelde2023" role="doc-biblioref">2022</a>)</span>; <span class="citation" data-cites="VanSomeren1999">Van Someren et&nbsp;al. (<a href="99-referencias.html#ref-VanSomeren1999" role="doc-biblioref">1999</a>)</span>.</p>
+</div>
+<p>La actividad de un niño puede describirse en tres dimensiones distintas (<a href="#tbl-dimensiones" class="quarto-xref">tabla&nbsp;<span>3.4</span></a>): <em>cuánto</em> se mueve (volumen), <em>cuándo</em> se mueve respecto a su propio ritmo (<em>timing</em>) y <em>cómo de organizado</em> es ese ritmo de un día a otro (regularidad). Los trabajos del grupo han estudiado la primera. Brincadiano se centra en la segunda y deja la tercera como hipótesis secundaria.</p>
+<div id="tbl-dimensiones" class="nm-apilable quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dimensiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.4: Las tres dimensiones de la actividad que separa Brincadiano. Las tres se calculan con el mismo pipeline. Elaboración propia. Definiciones de IS, IV y amplitud relativa en <span class="citation" data-cites="VanSomeren1999">Van Someren et&nbsp;al. (<a href="99-referencias.html#ref-VanSomeren1999" role="doc-biblioref">1999</a>)</span> y en el cap. 7 del informe.
+</figcaption>
+<div aria-describedby="tbl-dimensiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="nm-apilable caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimensión</th>
+<th style="text-align: left;">Pregunta</th>
+<th style="text-align: left;">Métricas</th>
+<th style="text-align: left;">Capítulos del informe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;" data-label="Dimensión"><strong>Volumen</strong></td>
+<td style="text-align: left;" data-label="Pregunta">¿Cuánto se mueve?</td>
+<td style="text-align: left;" data-label="Métricas">Minutos de AFMV, ENMO medio, M10</td>
+<td style="text-align: left;" data-label="Capítulos del informe">9, 10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;" data-label="Dimensión"><strong><em>Timing</em></strong></td>
+<td style="text-align: left;" data-label="Pregunta">¿Cuándo se mueve respecto a su ritmo?</td>
+<td style="text-align: left;" data-label="Métricas">Ángulo <span class="math inline">\theta</span> y concentración <span class="math inline">R</span> de la actividad vigorosa, relativos al punto medio de L5</td>
+<td style="text-align: left;" data-label="Capítulos del informe">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;" data-label="Dimensión"><strong>Regularidad</strong></td>
+<td style="text-align: left;" data-label="Pregunta">¿Cómo de estable y organizado es su ritmo?</td>
+<td style="text-align: left;" data-label="Métricas">IS (estabilidad entre días), IV (fragmentación dentro del día), amplitud relativa</td>
+<td style="text-align: left;" data-label="Capítulos del informe">12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nm-box nm-idea" data-rotulo="Idea clave">
+<p><strong>Hipótesis principal (confirmatoria).</strong> En niños, la concentración de la actividad vigorosa en una fase concreta de su propio ritmo de reposo-actividad se asocia con el HOMA-IR, con independencia del volumen de actividad y de la adiposidad.</p>
+</div>
+<p><strong>Hipótesis secundaria (exploratoria): regularidad.</strong> La asociación entre actividad física y salud metabólica no depende solo del volumen, sino también de la organización del ritmo de reposo-actividad. Un ritmo más estable entre días, menos fragmentado y de mayor amplitud podría aportar información metabólica adicional al volumen de AFMV, al <em>timing</em> y a la adiposidad.</p>
+<p><strong>Hipótesis a largo plazo: integración multimodal.</strong> La relación temporal entre exposición a la luz, actividad y sueño define fenotipos individuales de 24 h, cuya asociación metabólica puede ser distinta de la de cada conducta por separado.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="nm-box nm-decision" data-rotulo="Decisión metodológica">
+<p>Solo la hipótesis principal es confirmatoria: se contrastará con un único test conjunto, fijado antes de ver los resultados (§16.3 del informe). La regularidad y los fenotipos se tratarán como análisis exploratorios. Así se evita que el número de métricas posibles, frente a un tamaño muestral aún desconocido, convierta el estudio en una búsqueda de asociaciones.</p>
+</div>
+</div></div><div data-origen="ampliacion">
+<p>Ese test conjunto no usa la hora media de los episodios, sino dos números por niño, <span class="math inline">R\cos\theta</span> y <span class="math inline">R\sin\theta</span> (objetivo 1, <a href="#sec-ea-objetivos" class="quarto-xref"><span>Sección 3.3</span></a>). La razón es geométrica y se ve con episodios inventados: la hora del día es un ángulo, y las 23 h y la 1 h tras L5 están a dos horas, no a veintidós. La simulación es sintética porque el argumento no depende de ningún niño; los valores de <span class="math inline">\theta</span> y <span class="math inline">R</span> de los registros del proyecto están en el cap. 13 del informe.</p>
+<div class="nm-sim" id="demo-circular" role="group" aria-labelledby="demo-circular-titulo">
+  <div class="nm-sim-cabecera">
+    <strong id="demo-circular-titulo">Simulación sintética — no es resultado Brincadiano</strong>
+    <span>40 episodios vigorosos inventados (semilla fija), con su hora respecto al punto medio de L5 y su dosis como peso.</span>
+  </div>
+  <div class="nm-sim-cuerpo">
+    <p class="nm-sim-guia">Pregunta guía: ¿qué resumen de las horas de los episodios sirve para un modelo lineal? Prueba a concentrarlos cerca de las 0 h y a dispersarlos por todo el día.</p>
+    <div class="nm-sim-controles">
+      <label>Hora media de los episodios: <span class="nm-val" id="k-media-val"></span>
+        <input type="range" id="k-media" min="0" max="24" step="0.25" aria-describedby="k-lim">
+      </label>
+      <label>Dispersión entre episodios: <span class="nm-val" id="k-disp-val"></span>
+        <input type="range" id="k-disp" min="0.5" max="12" step="0.5" aria-describedby="k-lim">
+      </label>
+      <div style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <button type="button" class="nm-btn" id="k-tarde">Concentrados, 11 h tras L5</button>
+        <button type="button" class="nm-btn" id="k-dispersa">Dispersos</button>
+        <button type="button" class="nm-btn" id="k-cero">Alrededor de las 0 h</button>
+      </div>
+    </div>
+    <p class="nm-fuente" id="k-lim">Hora media de 0 a 24 h tras el punto medio de L5; dispersión (desviación típica antes de envolver) de 0,5 a 12 h.</p>
+    <div class="nm-leyenda" aria-hidden="true">
+      <span><i style="border-top-color:color-mix(in srgb, var(--nm-orange) 55%, transparent);border-top-width:8px;width:0.6rem"></i>Episodio (tamaño = dosis)</span>
+      <span><i style="border-top-color:var(--nm-petrol)"></i>Media circular (longitud = R)</span>
+      <span><i style="border-top-color:var(--nm-orange);border-top-style:dashed"></i>Media lineal de las horas</span>
+    </div>
+    <svg class="nm-plot" id="k-plot" viewbox="0 0 760 330" role="img" aria-label="Reloj de 24 horas con los episodios, su media circular y su media lineal, y plano de las coordenadas R coseno de theta y R seno de theta"></svg>
+    <div class="nm-sim-lectura" id="k-lectura" aria-live="polite"></div>
+    <details class="nm-sim-supuestos">
+      <summary>Supuestos y diferencias con la realidad</summary>
+      <ul>
+        <li><strong>Episodios inventados.</strong> Cuarenta horas sacadas de una normal con la media y la dispersión elegidas, envueltas en 0–24 h, con pesos de 1 a 3. Los episodios reales salen de la señal RAW con un umbral y una duración mínima (cap. 10 del informe), y su número cambia de un niño a otro.</li>
+        <li><strong>Media circular ponderada</strong>: cada episodio es un vector unitario con ángulo 2π·h/24, multiplicado por su dosis; θ es el ángulo de la media y R su longitud. Es la del cap. 13 del informe, sin la corrección por la cobertura del reloj que usa el análisis principal.</li>
+        <li><strong>El modelo</strong> de la hipótesis (cap. 16 del informe) es log(HOMA-IR) = β₀ + β₁·R·cos θ + β₂·R·sin θ + covariables, contrastado con un F de 2 grados de libertad sobre β₁ y β₂. Aquí no hay HOMA-IR: solo se ve de dónde salen las dos coordenadas.</li>
+        <li><strong>Fórmulas</strong> en <code>interactive/cap03/circular.js</code>; se comprueban en <code>tests/simulaciones.mjs</code>.</li>
+      </ul>
+    </details>
+    <noscript><p class="nm-sin-js">Esta simulación necesita JavaScript. La versión estática equivalente es la tabla que sigue.</p></noscript>
+  </div>
+</div>
+<script src="../interactive/cap03/circular.js"></script>
+<script src="../interactive/cap03/demo-circular.js"></script>
+<div id="tbl-circular" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-circular-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;3.5: Media circular, coordenadas del modelo y media lineal de las horas para los tres botones de la simulación. Calculadas con la misma función (<code>interactive/cap03/circular.js</code>); simulación sintética, no es resultado Brincadiano.
+</figcaption>
+<div aria-describedby="tbl-circular-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Episodios sintéticos</th>
+<th style="text-align: right;">θ (h tras L5)</th>
+<th style="text-align: right;">R</th>
+<th style="text-align: right;">R·cos θ</th>
+<th style="text-align: right;">R·sin θ</th>
+<th style="text-align: right;">Media lineal (h)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Concentrados, 11 h tras L5 (dispersión 2 h)</td>
+<td style="text-align: right;">11,28</td>
+<td style="text-align: right;">0,87</td>
+<td style="text-align: right;">−0,86</td>
+<td style="text-align: right;">0,16</td>
+<td style="text-align: right;">11,27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dispersos (11 h, dispersión 8 h)</td>
+<td style="text-align: right;">12,72</td>
+<td style="text-align: right;">0,09</td>
+<td style="text-align: right;">−0,09</td>
+<td style="text-align: right;">−0,02</td>
+<td style="text-align: right;">12,29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alrededor de las 0 h (dispersión 1,5 h)</td>
+<td style="text-align: right;">0,21</td>
+<td style="text-align: right;">0,93</td>
+<td style="text-align: right;">0,92</td>
+<td style="text-align: right;">0,05</td>
+<td style="text-align: right;">10,08</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="nm-q-expl">
+<div class="nm-q-title">
+<span class="nm-tag">Ejercicio exploratorio</span> Responde con la simulación; después compara con la tabla.
+</div>
+<ol type="1">
+<li>Con los episodios alrededor de las 0 h, ¿cuánto se equivoca la media lineal de las horas? ¿Por qué?</li>
+<li>Dispersa los episodios. ¿Qué le pasa a θ y qué le pasa al punto del plano?</li>
+<li>Si el modelo usara θ solo, ¿qué valor debería darle a un niño sin hora preferida?</li>
+</ol>
+<details class="nm-detalle">
+<summary>
+Qué deberías observar
+</summary>
+<ol type="1">
+<li>La circular da 0,21 h y la lineal 10,08 h: casi diez horas de error en el reloj. Los episodios de las 23 h y los de la 1 h promedian «las 12 h», justo el lado opuesto del día.</li>
+<li>θ salta de un valor a otro con cada cambio pequeño (con R = 0,09 apenas está definido), pero el punto del plano se queda cerca del origen y se mueve poco. Las coordenadas se comportan como variables corrientes; θ, no.</li>
+<li>Ninguno: con R ≈ 0, θ no existe. Las dos coordenadas resuelven el problema solas, porque R las multiplica: ese niño entra en el modelo con (≈ 0, ≈ 0) y apenas pesa en la estimación del efecto del <em>timing</em>.</li>
+</ol>
+</details>
+</div>
+</div>
+</section>
+<section id="sec-ea-objetivos" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-ea-objetivos"><span class="header-section-number">3.3</span> Objetivos</h2>
+<div class="nm-meta" role="note">
+<p>v0.1.0 · modificado el 31/10/2026 · lectura 2 min · estudio 5 min</p>
+</div>
+<div class="nm-fuentes">
+<p><strong>Fuentes de la sección:</strong> <span class="citation" data-cites="LlorenteCantarero2021Protocolos">Llorente-Cantarero et&nbsp;al. (<a href="99-referencias.html#ref-LlorenteCantarero2021Protocolos" role="doc-biblioref">2021</a>)</span>; <span class="citation" data-cites="Migueles2021GRANADA">Migueles et&nbsp;al. (<a href="99-referencias.html#ref-Migueles2021GRANADA" role="doc-biblioref">2021</a>)</span>; <span class="citation" data-cites="Leis2020Cluster">Leis et&nbsp;al. (<a href="99-referencias.html#ref-Leis2020Cluster" role="doc-biblioref">2020</a>)</span>; <span class="citation" data-cites="Ishihara2026Luz">Ishihara et&nbsp;al. (<a href="99-referencias.html#ref-Ishihara2026Luz" role="doc-biblioref">2026</a>)</span>.</p>
+</div>
+<p><strong>Líneas de trabajo.</strong> Las hipótesis se traducen en tres líneas, que se abordarán en orden (plan de acción en §17.4 del informe):</p>
+<ol type="1">
+<li><strong>Brincadiano 1 — <em>timing</em> de la actividad vigorosa.</strong> Para cada niño: estimar su fase de reposo-actividad (punto medio de L5); detectar los episodios de actividad vigorosa desde la señal RAW; resumirlos con una media circular ponderada por intensidad, que da un ángulo <span class="math inline">\theta</span> y una concentración <span class="math inline">R</span>. Después, estudiar la asociación de <span class="math inline">R\cos\theta</span> y <span class="math inline">R\sin\theta</span> con el HOMA-IR (caps. 13 y 16 del informe).</li>
+<li><strong>Brincadiano 2 — regularidad del ritmo.</strong> Comprobar si IS, IV y la amplitud relativa, y el reparto de IS entre los armónicos de 24 h, añaden información al volumen y al <em>timing</em> (cap. 12 del informe).</li>
+<li><strong>Brincadiano 3 — luz y estado conductual.</strong> Las líneas propuestas por el grupo (cap. 14 del informe): control de calidad de la señal de luz, exposición en ventanas ancladas al sueño e integración por <em>epoch</em>. Más que «juntar columnas», se trata de inferir en cada <em>epoch</em> el estado del niño y su contexto (sueño, vigilia en interior o exterior, sensor tapado, dispositivo retirado) a partir de varias señales imperfectas. Los fenotipos de 24 h continuarían el análisis de conglomerados del propio grupo <span class="citation" data-cites="Leis2020Cluster">(<a href="99-referencias.html#ref-Leis2020Cluster" role="doc-biblioref">Leis et&nbsp;al. 2020</a>)</span>.</li>
+</ol>
+<p><strong>Objetivo metodológico transversal.</strong> Construir un pipeline abierto y reproducible desde el <code>.gt3x</code> original, validado frente a ActiLife y frente a herramientas abiertas. Responde a la necesidad, señalada por el propio grupo y por el consenso GRANADA, de ir más allá de los puntos de corte de <em>counts</em> <span class="citation" data-cites="LlorenteCantarero2021Protocolos Migueles2021GRANADA">(<a href="99-referencias.html#ref-LlorenteCantarero2021Protocolos" role="doc-biblioref">Llorente-Cantarero et&nbsp;al. 2021</a>; <a href="99-referencias.html#ref-Migueles2021GRANADA" role="doc-biblioref">Migueles et&nbsp;al. 2021</a>)</span>. Es en sí mismo una aportación publicable: un marco reproducible para extraer fenotipos de actividad, sueño y ritmo de registros ActiGraph pediátricos.</p>
+<div class="nm-box nm-limite" data-rotulo="Límite">
+<p>La línea 3 depende de lo que el sensor de luz puede medir realmente. El wGT3X-BT solo detecta a partir de unos 50 lux y subestima la luz incluso en la muñeca <span class="citation" data-cites="Ishihara2026Luz">(<a href="99-referencias.html#ref-Ishihara2026Luz" role="doc-biblioref">Ishihara et&nbsp;al. 2026</a>)</span>; en la cadera, la ropa lo tapa a menudo. La exposición a luz tenue antes de dormir, una de las propuestas del grupo, probablemente queda por debajo de su umbral de detección (§14.2 del informe). El grupo reconoce que como «captador de luz» no es lo ideal, pero, dada la importancia del acelerómetro para evaluar la actividad física, aprovechar su relación con la luz puede tener validez suficiente si basta con distinguir el exterior del interior: es la pregunta que decide la línea 3 (<code>LUZ-04</code>, <code>LUZ-05</code>). La conversión a lux sigue siendo <span class="estado e-novalido">no válido</span>.</p>
+</div>
+
+
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Referencias</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Aggio2015Luz" class="csl-entry" role="listitem">
+Aggio, Daniel, Lee Smith, Abigail Fisher, y Mark Hamer. 2015. <span>«<span>Association of Light Exposure on Physical Activity and Sedentary Time in Young People</span>»</span>. <em>International Journal of Environmental Research and Public Health</em> 12 (3): 2941-49. <a href="https://doi.org/10.3390/ijerph120302941">https://doi.org/10.3390/ijerph120302941</a>.
+</div>
+<div id="ref-CostaLopes2025Luz" class="csl-entry" role="listitem">
+Costa Lopes, Luísa da, Julia Ribeiro da Silva Vallim, Sergio Tufik, Fernando Louzada, y Vânia D’Almeida. 2025. <span>«Associations between real-life light exposure patterns and sleep behaviour in adolescents»</span>. <em>Journal of Sleep Research</em> 34 (2): e14315. <a href="https://doi.org/10.1111/jsr.14315">https://doi.org/10.1111/jsr.14315</a>.
+</div>
+<div id="ref-Ding2025Luz24h" class="csl-entry" role="listitem">
+Ding, Wenqin, Qi Li, Yi Zhou, et&nbsp;al. 2025. <span>«Personal 24-hour light exposure pattern with obesity and adiposity-related parameters in school-aged children: A cross-sectional study based on compositional data analysis»</span>. <em>Environmental Research</em> 275: 121422. <a href="https://doi.org/10.1016/j.envres.2025.121422">https://doi.org/10.1016/j.envres.2025.121422</a>.
+</div>
+<div id="ref-Ge2026ALAN" class="csl-entry" role="listitem">
+Ge, Wen-xin, Zhao-huan Gui, Zhi-Yong Zou, et&nbsp;al. 2026. <span>«U-shaped association between outdoor artificial light at night exposure and metabolic syndrome in Chinese youth: Findings from a nationally representative study»</span>. <em>Environmental Pollution</em> 390: 127548. <a href="https://doi.org/10.1016/j.envpol.2025.127548">https://doi.org/10.1016/j.envpol.2025.127548</a>.
+</div>
+<div id="ref-Gubin2026Preprint" class="csl-entry" role="listitem">
+Gubin, Denis. 2026. <em>Circadian Light Exposure Patterns and Waist-to-Height Ratio in Children: An Actigraphy Study</em>. Research Square, preprint sin revisión por pares (27 de julio de 2026). <a href="https://doi.org/10.21203/rs.3.rs-10453804/v1">https://doi.org/10.21203/rs.3.rs-10453804/v1</a>.
+</div>
+<div id="ref-Ishihara2026Luz" class="csl-entry" role="listitem">
+Ishihara, Asuka, Robert J. Brychta, Samuel R. LaMunion, et&nbsp;al. 2026. <span>«<span>Performance of wearable light sensors for measuring photopic and melanopic illuminance under laboratory and free-living conditions</span>»</span>. <em>Sleep</em> 49 (2): zsaf358. <a href="https://doi.org/10.1093/sleep/zsaf358">https://doi.org/10.1093/sleep/zsaf358</a>.
+</div>
+<div id="ref-Janda2024Perfiles" class="csl-entry" role="listitem">
+Janda, David, Aleš Gába, Karel Hron, Lauren Arundell, y Ana Maria Contardo Ayala. 2024. <span>«Movement behaviour typologies and their associations with adiposity indicators in children and adolescents: a latent profile analysis of 24-h compositional data»</span>. <em>BMC Public Health</em> 24. <a href="https://doi.org/10.1186/s12889-024-19075-8">https://doi.org/10.1186/s12889-024-19075-8</a>.
+</div>
+<div id="ref-Jex2026Multimodal" class="csl-entry" role="listitem">
+Jex, Jamon M., Alyssa Larson Downs, Sarah Kamhout, et&nbsp;al. 2026. <span>«Adolescent circadian sleep health: a review of multimodal assessment strategies and clinical implications»</span>. <em>Frontiers in Sleep</em> 5: 1826938. <a href="https://doi.org/10.3389/frsle.2026.1826938">https://doi.org/10.3389/frsle.2026.1826938</a>.
+</div>
+<div id="ref-Kwon2022Exterior" class="csl-entry" role="listitem">
+Kwon, Soyang, Pooja S. Tandon, Meghan E. O’Neill, y Adam B. Becker. 2022. <span>«<span>Cross-sectional association of light sensor-measured time outdoors with physical activity and gross motor competency among U.S. preschool-aged children: the 2012 NHANES National Youth Fitness Survey</span>»</span>. <em>BMC Public Health</em> 22 (1): 833. <a href="https://doi.org/10.1186/s12889-022-13239-0">https://doi.org/10.1186/s12889-022-13239-0</a>.
+</div>
+<div id="ref-Leis2020Cluster" class="csl-entry" role="listitem">
+Leis, Rosaura, Jose Manuel Jurado-Castro, Francisco Jesus Llorente-Cantarero, et&nbsp;al. 2020. <span>«<span>Cluster Analysis of Physical Activity Patterns, and Relationship with Sedentary Behavior and Healthy Lifestyles in Prepubertal Children: Genobox Cohort</span>»</span>. <em>Nutrients</em> 12 (5): 1288. <a href="https://doi.org/10.3390/nu12051288">https://doi.org/10.3390/nu12051288</a>.
+</div>
+<div id="ref-Li2026PatronLuz" class="csl-entry" role="listitem">
+Li, Qi, Wen-Qin Ding, Yu-Ting Shen, et&nbsp;al. 2026. <span>«Comprehensive Assessment of Real-Life 24-h Light Exposure Pattern in Children and Young Adults: Intensity, Timing and Rhythm»</span>. <em>Journal of Sleep Research</em> 35 (1): e70119. <a href="https://doi.org/10.1111/jsr.70119">https://doi.org/10.1111/jsr.70119</a>.
+</div>
+<div id="ref-LlorenteCantarero2021Protocolos" class="csl-entry" role="listitem">
+Llorente-Cantarero, Francisco Jesus, Jose Manuel Jurado-Castro, Rosaura Leis, et&nbsp;al. 2021. <span>«<span>Evaluation of Sedentary Behavior and Physical Activity Levels Using Different Accelerometry Protocols in Children from the GENOBOX Study</span>»</span>. <em>Sports Medicine - Open</em> 7 (1). <a href="https://doi.org/10.1186/s40798-021-00365-z">https://doi.org/10.1186/s40798-021-00365-z</a>.
+</div>
+<div id="ref-LongoSilva2026Luz" class="csl-entry" role="listitem">
+Longo Silva, Giovana, Risia Cristina Egito de Menezes, Márcia de Oliveira Lima, Júlia Souza de Melo, Larissa de Lima Soares, y Renan Serenini. 2026. <span>«Light matters: Investigating the influence of natural and artificial light on <span>BMI</span> and key mediators»</span>. <em>Chronobiology International</em> 43 (4): 481-91. <a href="https://doi.org/10.1080/07420528.2025.2606281">https://doi.org/10.1080/07420528.2025.2606281</a>.
+</div>
+<div id="ref-LunsfordAvery2023Regularidad" class="csl-entry" role="listitem">
+Lunsford-Avery, Jessica R. 2023. <span>«Light regularity: illuminating opportunities to enhance adolescent health»</span>. <em>Sleep</em> 46 (8): zsad086. <a href="https://doi.org/10.1093/sleep/zsad086">https://doi.org/10.1093/sleep/zsad086</a>.
+</div>
+<div id="ref-Ma2026Contaminacion" class="csl-entry" role="listitem">
+Ma, Juanjuan, Yuqing Sun, y Xian Wang. 2026. <span>«Light pollution and health outcomes in children and adolescents: A systematic review»</span>. <em>Preventive Medicine</em> 213: 108661. <a href="https://doi.org/10.1016/j.ypmed.2026.108661">https://doi.org/10.1016/j.ypmed.2026.108661</a>.
+</div>
+<div id="ref-Migueles2021GRANADA" class="csl-entry" role="listitem">
+Migueles, Jairo H, Eivind Aadland, Lars Bo Andersen, et&nbsp;al. 2021. <span>«<span>GRANADA consensus on analytical approaches to assess associations with accelerometer-determined physical behaviours (physical activity, sedentary behaviour and sleep) in epidemiological studies</span>»</span>. <em>British Journal of Sports Medicine</em> 56 (7): 376-84. <a href="https://doi.org/10.1136/bjsports-2020-103604">https://doi.org/10.1136/bjsports-2020-103604</a>.
+</div>
+<div id="ref-Moreno2023ESRI" class="csl-entry" role="listitem">
+Moreno, Jennette P., Kevin M. Hannay, Amy R. Goetz, Olivia Walch, y Philip Cheng. 2023. <span>«Validation of the Entrainment Signal Regularity Index and associations with children’s changes in <span>BMI</span>»</span>. <em>Obesity</em> 31 (3): 642-51. <a href="https://doi.org/10.1002/oby.23641">https://doi.org/10.1002/oby.23641</a>.
+</div>
+<div id="ref-Qu2025LAN" class="csl-entry" role="listitem">
+Qu, Shuangxiao, Dongling Yang, Keyang Zheng, et&nbsp;al. 2025. <span>«Association between indoor light at night and obesity among children and adolescents at different physical activity levels: a population-based cross-sectional study»</span>. <em>BMC Public Health</em> 25. <a href="https://doi.org/10.1186/s12889-025-24159-0">https://doi.org/10.1186/s12889-025-24159-0</a>.
+</div>
+<div id="ref-daSilva2026Ritmos" class="csl-entry" role="listitem">
+Silva, Emilly Francianne Lamego da, Guilherme Martins, Francimara Diniz Ribeiro, et&nbsp;al. 2026. <span>«Light Exposure Rhythms and Sleep Organization in Adolescents: Temporal Differences Between Weekdays and Weekends in an Actigraphic Study»</span>. <em>Clocks &amp; Sleep</em> 8 (2): 19. <a href="https://doi.org/10.3390/clockssleep8020019">https://doi.org/10.3390/clockssleep8020019</a>.
+</div>
+<div id="ref-Stefanopoulou2024ABCD" class="csl-entry" role="listitem">
+Stefanopoulou, Magdalini, Naomi Ruhé, Lützen Portengen, et&nbsp;al. 2024. <span>«Associations of light exposure patterns with sleep among Dutch children: The ABCD cohort study»</span>. <em>Journal of Sleep Research</em> 33 (6): e14184. <a href="https://doi.org/10.1111/jsr.14184">https://doi.org/10.1111/jsr.14184</a>.
+</div>
+<div id="ref-Tang2026LAN" class="csl-entry" role="listitem">
+Tang, Wenzheng, Siying Dong, y Yingshuai Li. 2026. <span>«Impact of artificial light at night on obesity and overweight: a systematic review and meta-analysis»</span>. <em>BMC Public Health</em> 26 (1): 227. <a href="https://doi.org/10.1186/s12889-025-25883-3">https://doi.org/10.1186/s12889-025-25883-3</a>.
+</div>
+<div id="ref-VanSomeren1999" class="csl-entry" role="listitem">
+Van Someren, Eus J. W., Dick F. Swaab, Christopher C. Colenda, Wayne Cohen, W. Vaughn McCall, y Peter B. Rosenquist. 1999. <span>«Bright Light Therapy: Improved Sensitivity to Its Effects on Rest-Activity Rhythms in <span>Alzheimer</span> Patients by Application of Nonparametric Methods»</span>. <em>Chronobiology International</em> 16 (4): 505-18. <a href="https://doi.org/10.3109/07420529908998724">https://doi.org/10.3109/07420529908998724</a>.
+</div>
+<div id="ref-vanderVelde2023" class="csl-entry" role="listitem">
+van der Velde, Jeroen H. P. M., Sebastiaan C. Boone, Esther Winters-van Eekelen, et&nbsp;al. 2022. <span>«<span>Timing of physical activity in relation to liver fat content and insulin resistance</span>»</span>. <em>Diabetologia</em> 66 (3): 461-71. <a href="https://doi.org/10.1007/s00125-022-05813-3">https://doi.org/10.1007/s00125-022-05813-3</a>.
+</div>
+<div id="ref-Windred2024Diabetes" class="csl-entry" role="listitem">
+Windred, Daniel P., Angus C. Burns, Martin K. Rutter, et&nbsp;al. 2024. <span>«Personal light exposure patterns and incidence of type 2 diabetes: analysis of 13 million hours of light sensor data and 670,000 person-years of prospective observation»</span>. <em>The Lancet Regional Health – Europe</em> 42: 100943. <a href="https://doi.org/10.1016/j.lanepe.2024.100943">https://doi.org/10.1016/j.lanepe.2024.100943</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/02-grupo-gc23.html" class="pagination-link" aria-label="Grupo GC23 Metabolismo infantil">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Grupo GC23 Metabolismo infantil</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/04-acelerometria.html" class="pagination-link" aria-label="Fundamentos de acelerometría">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fundamentos de acelerometría</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
